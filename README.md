@@ -259,8 +259,6 @@ VideoChat3 将图像 Transformer 的注意力扩展为局部 3D 视频注意力�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="16-internvideo3"></a>
@@ -292,8 +290,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="25-llava-onevision-2"></a>
@@ -324,8 +320,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 **一手资料：** [来源 1](https://arxiv.org/abs/2605.25979) · [来源 2](https://arxiv.org/html/2605.25979)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -360,8 +354,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="62-qwen3-5-omni"></a>
@@ -395,8 +387,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="32-qwen3-5-qwen3-8-27b"></a>
@@ -427,8 +417,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 **一手资料：** [来源 1](https://huggingface.co/Qwen/Qwen3.5-397B-A17B) · [来源 2](https://huggingface.co/Qwen/Qwen3.8-27B) · [来源 3](https://github.com/QwenLM/Qwen3.8#news)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -461,8 +449,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="31-qwen3-vl"></a>
@@ -493,8 +479,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 **一手资料：** [来源 1](https://arxiv.org/abs/2511.21631) · [来源 2](https://arxiv.org/html/2511.21631)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -529,8 +513,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="61-qwen3-omni"></a>
@@ -561,8 +543,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 **一手资料：** [来源 1](https://arxiv.org/abs/2509.17765) · [来源 2](https://arxiv.org/html/2509.17765)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -595,8 +575,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="28-internvl3-5"></a>
@@ -627,8 +605,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 **一手资料：** [来源 1](https://arxiv.org/abs/2508.18265) · [来源 2](https://arxiv.org/html/2508.18265)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -663,8 +639,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="50-timechat-online"></a>
@@ -698,8 +672,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="36-eagle-2-5"></a>
@@ -730,8 +702,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **一手资料：** [来源 1](https://arxiv.org/abs/2504.15271) · [来源 2](https://arxiv.org/html/2504.15271)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -764,8 +734,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="64-slow-fast-video-mllm"></a>
@@ -796,8 +764,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **一手资料：** [来源 1](https://arxiv.org/abs/2504.01328) · [来源 2](https://arxiv.org/html/2504.01328)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -830,8 +796,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="60-qwen2-5-omni"></a>
@@ -862,8 +826,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **一手资料：** [来源 1](https://arxiv.org/abs/2503.20215) · [来源 2](https://arxiv.org/html/2503.20215)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -896,8 +858,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="13-videollama-3"></a>
@@ -928,8 +888,6 @@ VideoLLaMA 3 结合任意分辨率视觉 token 化与差分帧剪枝，通过分
 **一手资料：** [来源 1](https://arxiv.org/abs/2501.13106) · [来源 2](https://arxiv.org/html/2501.13106v4) · [来源 3](https://github.com/DAMO-NLP-SG/VideoLLaMA3)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -963,8 +921,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 **一手资料：** [来源 1](https://arxiv.org/abs/2501.12386) · [来源 2](https://arxiv.org/html/2501.12386v3) · [来源 3](https://github.com/OpenGVLab/InternVideo/tree/main/InternVideo2.5)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1003,8 +959,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="44-videochat-flash"></a>
@@ -1037,8 +991,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 **一手资料：** [来源 1](https://arxiv.org/abs/2501.00574) · [来源 2](https://arxiv.org/html/2501.00574)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1073,8 +1025,6 @@ Apollo 将图像、视频编码器与 Perceiver token 重采样结合，通过�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="49-streamchat-liu-et-al"></a>
@@ -1108,8 +1058,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="26-internvl2-5"></a>
@@ -1140,8 +1088,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 **一手资料：** [来源 1](https://arxiv.org/abs/2412.05271) · [来源 2](https://arxiv.org/html/2412.05271)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1174,8 +1120,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="57-trace"></a>
@@ -1206,8 +1150,6 @@ TRACE 将带时间定位的输出视为因果事件序列，显式结合时间�
 **一手资料：** [来源 1](https://arxiv.org/abs/2410.05643) · [来源 2](https://github.com/gyxxyg/TRACE#model-zoo)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1244,8 +1186,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="35-oryx-1-5"></a>
@@ -1278,8 +1218,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 **一手资料：** [来源 1](https://arxiv.org/abs/2409.12961) · [来源 2](https://arxiv.org/html/2409.12961) · [来源 3](https://github.com/Oryx-mllm/Oryx#model-zoo)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1314,8 +1252,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="43-longvila"></a>
@@ -1346,8 +1282,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 **一手资料：** [来源 1](https://arxiv.org/abs/2408.10188) · [来源 2](https://arxiv.org/html/2408.10188)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1382,8 +1316,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="23-llava-onevision"></a>
@@ -1416,8 +1348,6 @@ LLaVA-OneVision 通过 SigLIP、轻量投影层与 Qwen2 统一单图、多图�
 **一手资料：** [来源 1](https://arxiv.org/abs/2408.03326) · [来源 2](https://arxiv.org/html/2408.03326v3) · [来源 3](https://github.com/LLaVA-VL/LLaVA-NeXT)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1452,8 +1382,6 @@ Tarsier 采用简单的逐帧 CLIP 到 LLM 架构，主要贡献在于大规模�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="41-longva"></a>
@@ -1484,8 +1412,6 @@ Tarsier 采用简单的逐帧 CLIP 到 LLM 架构，主要贡献在于大规模�
 **一手资料：** [来源 1](https://arxiv.org/abs/2406.16852) · [来源 2](https://arxiv.org/html/2406.16852)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1520,8 +1446,6 @@ VideoLLM-online 通过流式对话目标、带时间戳的监督和连续缓存�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="18-videogpt"></a>
@@ -1555,8 +1479,6 @@ VideoGPT+ 结合互补的图像和视频编码器、分段采样及自适应 tok
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="47-flash-vstream-star-memory"></a>
@@ -1587,8 +1509,6 @@ VideoGPT+ 结合互补的图像和视频编码器、分段采样及自适应 tok
 **一手资料：** [来源 1](https://arxiv.org/abs/2406.08085) · [来源 2](https://arxiv.org/html/2406.08085v1#S3.SS2)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1623,8 +1543,6 @@ VideoLLaMA 2 使用时空卷积连接器替代仅基于查询的视频压缩，�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="46-videostreaming"></a>
@@ -1657,8 +1575,6 @@ VideoStreaming 将可复用的流式视频编码与问答分离，结合跨片�
 **一手资料：** [来源 1](https://arxiv.org/abs/2405.16009)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1693,8 +1609,6 @@ VTG-LLM 将时间戳知识注入视觉输入和文本输出，结合显式时间
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="22-llava-next-video"></a>
@@ -1728,8 +1642,6 @@ LLaVA-NeXT-Video 将经过图像训练的视觉—语言架构迁移到多帧输
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="10-pllava"></a>
@@ -1760,8 +1672,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 **一手资料：** [来源 1](https://arxiv.org/abs/2404.16994) · [来源 2](https://arxiv.org/html/2404.16994v2) · [来源 3](https://github.com/magic-research/PLLaVA)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1794,8 +1704,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="40-longvlm"></a>
@@ -1826,8 +1734,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 **一手资料：** [来源 1](https://arxiv.org/abs/2404.03384) · [来源 2](https://arxiv.org/html/2404.03384)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1862,8 +1768,6 @@ MiniGPT4-Video 在 MiniGPT-v2 基础上按时间顺序交错输入帧与字幕 t
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="09-st-llm"></a>
@@ -1896,8 +1800,6 @@ ST-LLM 将时空视觉 token 直接输入语言模型，利用动态掩码与全
 **一手资料：** [来源 1](https://arxiv.org/abs/2404.00308) · [来源 2](https://arxiv.org/html/2404.00308v1) · [来源 3](https://github.com/TencentARC/ST-LLM)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -1932,8 +1834,6 @@ InternVideo2 的对话分支将渐进预训练的视频基础编码器接入 LLM
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="55-hawkeye"></a>
@@ -1966,8 +1866,6 @@ HawkEye 通过面向时间定位的指令和递归裁剪扩展 VideoChat2，将�
 **一手资料：** [来源 1](https://arxiv.org/abs/2403.10228)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2002,8 +1900,6 @@ Momentor 引入连续的时间 token 空间和带定位信息的事件序列训�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="52-timechat"></a>
@@ -2037,8 +1933,6 @@ TimeChat 将帧内容与显式时间戳关联，并产生可变长度的视频 t
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="53-vtimellm"></a>
@@ -2070,8 +1964,6 @@ VTimeLLM 主要通过分阶段监督建立时间边界感知能力，将简单�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="38-llama-vid"></a>
@@ -2102,8 +1994,6 @@ VTimeLLM 主要通过分阶段监督建立时间边界感知能力，将简单�
 **一手资料：** [来源 1](https://arxiv.org/abs/2311.17043) · [来源 2](https://arxiv.org/html/2311.17043)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2138,8 +2028,6 @@ VideoChat2 将经过时间信息预训练的 UMT 视觉编码器、指令感知�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="06-video-llava"></a>
@@ -2172,8 +2060,6 @@ Video-LLaVA 使用 LanguageBind 在共享投影层之前对齐图像和视频表
 **一手资料：** [来源 1](https://arxiv.org/abs/2311.10122) · [来源 2](https://arxiv.org/html/2311.10122v3) · [来源 3](https://github.com/PKU-YuanGroup/Video-LLaVA)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2208,8 +2094,6 @@ Chat-UniVi 利用动态 token 聚类和多尺度聚合，将图像与视频压�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="37-moviechat"></a>
@@ -2240,8 +2124,6 @@ Chat-UniVi 利用动态 token 聚类和多尺度聚合，将图像与视频压�
 **一手资料：** [来源 1](https://arxiv.org/abs/2307.16449) · [来源 2](https://arxiv.org/html/2307.16449)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2276,8 +2158,6 @@ Valley 在 CLIP 帧编码后加入时间聚合和语言投影层，通过两阶�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="03-video-chatgpt"></a>
@@ -2310,8 +2190,6 @@ Video-ChatGPT 将 CLIP 帧特征转换为空间和时间 token，再学习一个
 **一手资料：** [来源 1](https://arxiv.org/abs/2306.05424) · [来源 2](https://arxiv.org/html/2306.05424v2) · [来源 3](https://github.com/mbzuai-oryx/Video-ChatGPT)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2346,8 +2224,6 @@ Video-LLaMA 为冻结的语言模型加入独立的视觉和音频查询接口�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="02-videochat"></a>
@@ -2380,8 +2256,6 @@ VideoChat 同时提供端到端视频嵌入接口和基于文本的并行处理�
 **一手资料：** [来源 1](https://arxiv.org/abs/2305.06355) · [来源 2](https://arxiv.org/html/2305.06355v2) · [来源 3](https://github.com/OpenGVLab/Ask-Anything)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2417,8 +2291,6 @@ Flamingo 通过 Perceiver Resampler 和门控交叉注意力连接冻结的视�
 **一手资料：** [来源 1](https://arxiv.org/abs/2204.14198) · [来源 2](https://arxiv.org/html/2204.14198v2) · [来源 3](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/tackling-multiple-tasks-with-a-single-visual-language-model/flamingo.pdf)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2457,8 +2329,6 @@ StreamMeCo 压缩智能体的长期记忆图，并优先选择近期相关证据
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="69-flashvid"></a>
@@ -2490,8 +2360,6 @@ FlashVID 无需训练即可压缩视频 token，结合基于注意力与多样�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="65-rekv"></a>
@@ -2522,8 +2390,6 @@ ReKV 是一种无需训练的推理方法，将流式视频的 KV 状态存储�
 **一手资料：** [来源 1](https://arxiv.org/abs/2503.00540)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
@@ -2558,8 +2424,6 @@ Xiong 等人的 StreamChat 是无需训练的记忆编排框架，结合分层�
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="67-timerefine"></a>
@@ -2591,8 +2455,6 @@ TimeRefine 通过先生成粗略边界、再迭代预测偏移量，改进已有
 
 </details>
 
-[返回模型索引](#models)
-
 ---
 
 <a id="70-slowfast-llava"></a>
@@ -2623,8 +2485,6 @@ SlowFast-LLaVA 无需微调即可将图像训练的 LLaVA-NeXT 扩展到视频�
 **一手资料：** [来源 1](https://arxiv.org/abs/2407.15841)。
 
 </details>
-
-[返回模型索引](#models)
 
 ---
 
