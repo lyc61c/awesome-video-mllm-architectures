@@ -1,11 +1,11 @@
-# Figure rights and provenance
+# 图片权利与来源说明
 
-Paper figures and official project images remain subject to the rights and licenses of their original authors or publishers. The repository's CC0 dedication does **not** cover those third-party images. Their inclusion provides attributed scientific context; it does not grant permission for other uses.
+论文原图与官方项目图片的权利及许可条件归原作者或出版方。本仓库的 CC0 声明**不涵盖第三方图片**。这些图片用于有明确署名的科研介绍，其收录不代表授予其他用途的使用许可。
 
-Every displayed diagram has an entry in [manifest.json](manifest.json) and [CREDITS.md](CREDITS.md). `paper_crop` and `paper_figure` identify author figures. Cropping removes surrounding page text but preserves the diagram; figure numbers and PDF pages are recorded separately. A PDF page is one-based and may differ from the printed page number.
+每张展示的模型图均在 [manifest.json](manifest.json) 和[图源署名表](CREDITS.md)中登记。`paper_crop` 与 `paper_figure` 表示论文原图，`project_figure` 表示官方项目图。裁切主要去除周围的页面文字，并保留模型图；图号与 PDF 页码分别记录。PDF 页码从 1 开始，可能与论文印刷页码不同。
 
-`editorial_schematic` identifies an original vector drawing made for this collection from cited technical descriptions. It is an explanatory simplification, not an author figure, a parameter-accurate implementation, or a new model claim. Those drawings are covered by the repository's CC0 dedication.
+`editorial_schematic` 表示本仓库依据所引用技术资料绘制的原创矢量示意图。这类图用于解释主要流程并做必要简化，不代表作者原图、精确到参数的实现或新的模型贡献；其适用本仓库的 CC0 声明。
 
-Some author figures were extracted by [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures). Their extraction links are retained in the manifest and credits; original-paper attribution remains primary. No README descriptions were copied from that repository.
+部分作者原图由 [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures) 提取。本仓库在清单和署名表中保留其提取出处，同时以原论文作为主要署名来源。README 介绍文字依据一手资料重新撰写。
 
-To request an attribution correction or image removal, identify the affected file and primary source in a repository issue. The record can retain its source link and an editorial schematic while the image is removed.
+如需修正署名或移除图片，请在仓库 Issue 中注明相关文件与一手来源。移除原图后，条目可保留资料链接，并使用明确标注的自绘示意图说明结构。

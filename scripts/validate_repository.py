@@ -120,6 +120,9 @@ def main():
         require(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", entry["slug"]), f"Invalid slug: {entry['id']}")
         for field in ["authors", "date_basis", "summary", "architecture", "temporal_modeling", "training"]:
             require(isinstance(entry[field], str) and bool(entry[field].strip()), f"Empty {field}: {entry['id']}")
+        if catalog.get("language") == "zh-CN":
+            for field in ["summary", "architecture", "temporal_modeling", "training", "date_basis"]:
+                require(re.search(r"[\u4e00-\u9fff]", entry[field]), f"Missing Chinese introduction: {entry['id']} {field}")
         require(bool(entry["contribution_type"]), f"Missing contribution tags: {entry['id']}")
         require(bool(entry["technical_sources"]) and bool(entry["primary_sources"]), f"Missing primary evidence: {entry['id']}")
         for item in entry["technical_sources"] + entry["official_entries"] + entry["primary_sources"]:
@@ -142,7 +145,7 @@ def main():
             check_image(figure["supplementary"]["file"])
     links = check_markdown()
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    require(readme.count('<summary>Architecture, temporal modeling, and training</summary>') == len(entries), "README card coverage mismatch")
+    require(readme.count('<summary>模型结构、时间建模与训练方式</summary>') == len(entries), "README card coverage mismatch")
     require(readme.count('<p align="center"><a href="assets/architectures/') == len(entries), "README primary figure coverage mismatch")
     print(json.dumps({"records": len(entries), "model_family_cards": sum(e["record_type"] == "model_or_version" for e in entries), "method_system_cards": sum(e["record_type"] == "method_or_system" for e in entries), "primary_diagrams": len(figures), "local_links_checked": links}))
 

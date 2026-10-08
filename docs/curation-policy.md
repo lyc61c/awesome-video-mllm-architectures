@@ -1,35 +1,35 @@
-# Curation policy
+# 收录与维护原则
 
-This collection follows video evidence through the visual encoder, connector, language decoder, and any temporal or memory mechanism. It includes a model only when a primary source establishes video input support. Image-only VLMs, standalone video encoders, generators, datasets and benchmarks are not independent model cards here.
+本仓库沿着视觉编码器、连接器、语言解码器，以及时间与记忆机制梳理视频信息的处理路径。模型条目需有一手资料确认其支持视频输入。纯图像 VLM、独立视频编码器、视频生成器、数据集与评测集不作为独立模型条目收录。
 
-## Record types
+## 条目类型
 
-The initial collection contains 64 model/version/family records and six method/system records. A record is not a count of distinct backbone architectures. Closely related family versions may share a card; different papers called StreamChat and different Flash-VStream memory designs have separate cards.
+初始集合包含 64 个模型／版本／家族条目和 6 个方法／系统条目。条目数量不等于独立骨干架构数量。关系密切的家族版本可合并介绍；两篇同名 StreamChat 论文与采用不同记忆设计的两代 Flash-VStream 则分别收录。
 
-The six methods are ReKV, StreamChat (Xiong et al.), TimeRefine, StreamMeCo, FlashVID and SlowFast-LLaVA. Their diagrams explain additions to an existing backbone or a system around it. Dedicated sections keep these mechanisms easy to locate.
+六个方法与系统条目为 ReKV、StreamChat（Xiong 等）、TimeRefine、StreamMeCo、FlashVID 和 SlowFast-LLaVA。模型图说明其对既有骨干的补充或外围系统的作用方式，并在单独章节中组织。
 
-## Architecture and contribution
+## 架构与贡献
 
-Each card distinguishes the base architecture from its contribution. Contributions can involve encoder/connector design, token compression, position or timestamp representations, cache/memory design, training data, objectives, post-training, or serving. A data-driven advance can be valuable while retaining an existing network.
+每个条目区分基础架构与主要贡献。贡献可能涉及编码器／连接器设计、token 压缩、位置或时间戳表示、缓存／记忆设计、训练数据、训练目标、后训练或部署。沿用既有网络的数据与训练改进也有单独介绍的价值。
 
-Nine reading routes organize the collection: early foundations, dedicated video models, general VLMs with video support, long-video context, streaming interaction, temporal grounding, audio-visual/omni interaction, efficient models, and reusable methods/systems. These routes overlap in capabilities; the primary category is an editorial navigation choice.
+条目分为九条阅读路线：早期基础模型、专用视频模型、支持视频的通用 VLM、长视频上下文、流式交互、时间定位、音视频／全模态交互、高效模型，以及可复用方法与系统。能力可以跨类别，主要分类用于帮助读者定位阅读重点。
 
-## Dates and availability
+## 日期与公开情况
 
-The timeline labels its evidence basis. arXiv entries normally use v1 submission dates in UTC. Official-release entries use the dated project announcement. Where a verified release precedes a report, the release can be the first date with the report date retained in the note. arXiv identifiers alone do not prove a date: VideoChat-Flash `2501.00574` was submitted on 2024-12-31.
+时间线注明日期依据。arXiv 条目通常使用首版提交日期（UTC）；官方发布条目使用带日期的项目公告。若已核验的发布早于技术报告，可使用发布日，并在说明中保留报告日期。不能仅凭 arXiv 编号推断日期：VideoChat-Flash 的编号为 `2501.00574`，但提交于 2024-12-31。
 
-Paper, code, checkpoint, project page and hosted API are different kinds of availability. Only author-linked implementation or model pages receive official badges. Flamingo, VideoStreaming, Liu et al.'s StreamChat and Qwen3.5-Omni require explicit availability notes. Qwen3.8-27B's video support does not establish video support for every Qwen3.8 checkpoint.
+论文、代码、检查点、项目页与托管 API 分别代表不同的公开形式，官方入口应以作者关联的实现或模型页为依据。Flamingo、VideoStreaming、Liu 等的 StreamChat 及 Qwen3.5-Omni 需明确说明公开情况。Qwen3.8-27B 支持视频，也不能据此推断所有 Qwen3.8 检查点均支持视频。
 
-## Source and diagram policy
+## 资料与模型图
 
-Awesome repositories supply discovery candidates; original papers, code and official model cards supply technical claims. The initial audit tracks 15 discovery repositories and 153 name-level candidates. Only 70 curated records received architecture cards in this release.
+Awesome 仓库用于发现候选，技术描述以原论文、作者代码及官方模型卡为依据。初始审计记录了 15 个来源仓库与 153 个名称级候选，本版筛选其中 70 个条目提供图文介绍。
 
-Prefer an original architecture figure. A representation, memory or training figure can be used when labeled by what it actually shows. If a complete diagram is unavailable, draw a cited editorial schematic and state its simplifications. Never infer a figure number from an image filename. Record arXiv versions because later revisions may change a figure or implementation.
+优先使用作者的架构原图。表示、记忆或训练流程图也可使用，但图注需准确说明所展示的内容。没有完整架构图时，可依据引用资料绘制示意图，并说明简化范围。图号应从原文核验，不能由图片文件名推断。记录 arXiv 版本，因为后续修订可能改变图示或实现。
 
-Original captions are paraphrased in cards. Short excerpts in legacy extraction metadata are kept only to identify a selected figure. All prose is newly written from primary evidence. Figure attribution and rights are separate from the repository's text license.
+条目中的图注使用重新撰写的说明。旧提取元数据保留的短片段仅用于识别选取的图片。所有正文依据一手资料撰写；图片署名与权利说明独立于仓库文字许可。
 
-## Reproducibility
+## 可复现维护
 
-`data/architectures.json` is the maintained card source. `assets/architectures/manifest.json` is the maintained figure source. `data/editorial-diagrams.json` stores the original schematic specifications. `scripts/build_readme.py` generates the README and credits deterministically; CI rejects stale outputs. `scripts/build_editorial_diagrams.py` regenerates the schematics. `scripts/validate_repository.py` checks identifiers, dates, record types, primary sources, diagram coverage, safe local paths and Markdown links. Optional network scripts import or extract explicitly selected figures and audit external links.
+`data/architectures.json` 是条目源数据，`assets/architectures/manifest.json` 是图源清单，`data/editorial-diagrams.json` 保存自绘图规范。`scripts/build_readme.py` 确定性生成 README 与图源署名表，CI 检查生成结果是否过期；`scripts/build_editorial_diagrams.py` 重新生成示意图；`scripts/validate_repository.py` 检查 ID、日期、条目类型、一手资料、图覆盖、本地路径和 Markdown 链接。网络工具脚本用于导入或提取已明确选定的图片，以及审计外部链接。
 
-The research cutoff for the first release is 2026-10-08. Inclusion is curated rather than exhaustive and does not imply a performance ranking.
+首版资料核验截至 2026-10-08。条目经过筛选，覆盖范围并非穷尽所有工作，收录顺序也不代表性能排名。

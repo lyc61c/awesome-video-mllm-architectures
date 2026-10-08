@@ -11,7 +11,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TYPE_LABELS = {"model_or_version": "Model / family", "method_or_system": "Method / system"}
+TYPE_LABELS = {"model_or_version": "模型／家族", "method_or_system": "方法／系统"}
+FIGURE_LABELS = {"paper_crop": "论文原图裁切", "paper_figure": "论文原图", "project_figure": "官方项目图", "editorial_schematic": "本仓库绘制的示意图"}
 
 
 def link(label, url):
@@ -27,9 +28,9 @@ def badges(entry):
     seen = set()
     for source in entry["technical_sources"]:
         url = source["url"]
-        label = "Paper" if "arxiv.org" in url else "Technical source"
+        label = "论文" if "arxiv.org" in url else "技术来源"
         if entry["id"] == 34 and "arxiv.org" in url:
-            label = "Related encoding paper"
+            label = "相关视觉编码论文"
         if url not in seen:
             items.append(link(label, url))
             seen.add(url)
@@ -37,9 +38,9 @@ def badges(entry):
         url = source["url"]
         if url in seen:
             continue
-        label = "Code" if "github.com" in url else "Model" if "huggingface.co" in url else "Official project"
+        label = "代码" if "github.com" in url else "模型" if "huggingface.co" in url else "作者论文" if url.endswith(".pdf") else "官方项目"
         if "model-studio" in url:
-            label = "Hosted API"
+            label = "托管 API"
         items.append(link(label, url))
         seen.add(url)
     return " · ".join(items)
@@ -47,39 +48,39 @@ def badges(entry):
 
 def figure_caption(figure):
     if figure["kind"] == "editorial_schematic":
-        return f"Editorial schematic based on {link('the primary source', figure['source_url'])}. {figure['simplification']}"
-    label = "Official project diagram" if figure["kind"] == "project_figure" else f"Figure {figure['figure_number']}" if figure.get("figure_number") else "Author diagram"
-    page = f", PDF page {figure['pdf_page']}" if figure.get("pdf_page") else ""
-    return f"{label}{page}, from {link('the original source', figure['source_url'])}. {figure['display_caption']}"
+        return f"本仓库依据{link('一手资料', figure['source_url'])}绘制的示意图。{figure['simplification']}"
+    label = "官方项目图" if figure["kind"] == "project_figure" else f"原文图 {figure['figure_number']}" if figure.get("figure_number") else "作者原图"
+    page = f"，PDF 第 {figure['pdf_page']} 页" if figure.get("pdf_page") else ""
+    return f"{label}{page}，来源：{link('原始资料', figure['source_url'])}。{figure['display_caption']}"
 
 
 def card(entry, figure):
     alt = html.escape(f"{entry['name']}: {figure['display_caption']}", quote=True)
     file = html.escape(figure["file"], quote=True)
     lines = [f'<a id="{entry["slug"]}"></a>', "", f'### {entry["name"]}', "", entry["summary"], "",
-             badges(entry), "", f"**Authors:** {entry['authors']}  ",
-             f"**First public date:** {entry['first_public_date']} ({entry['date_basis']})  ",
-             f"**Contribution:** {', '.join(entry['contribution_type'])}", "",
+             badges(entry), "", f"**作者：** {entry['authors']}  ",
+             f"**首次公开日期：** {entry['first_public_date']}（{entry['date_basis']}）  ",
+             f"**主要贡献：** {'、'.join(entry['contribution_type'])}", "",
              f'<p align="center"><a href="{file}"><img src="{file}" width="820" alt="{alt}" /></a></p>', "",
              "*" + figure_caption(figure) + "*", "",
-             "<details>", "<summary>Architecture, temporal modeling, and training</summary>", "",
-             "**Architecture.** " + entry["architecture"], "",
-             "**Temporal modeling.** " + entry["temporal_modeling"], "",
-             "**Training / inference recipe.** " + entry["training"], ""]
+             "<details>", "<summary>模型结构、时间建模与训练方式</summary>", "",
+             "**模型结构：** " + entry["architecture"], "",
+             "**时间建模：** " + entry["temporal_modeling"], "",
+             "**训练／推理方式：** " + entry["training"], ""]
     if entry.get("datasets"):
-        lines.extend(["**Data mentioned in the source:** " + ", ".join(entry["datasets"]) + ".", ""])
+        lines.extend(["**资料中提及的数据：** " + "、".join(entry["datasets"]) + "。", ""])
     if entry.get("version_note"):
-        lines.extend(["**Version note.** " + entry["version_note"], ""])
+        lines.extend(["**版本说明：** " + entry["version_note"], ""])
     if entry.get("availability_note"):
-        lines.extend(["**Availability.** " + entry["availability_note"], ""])
+        lines.extend(["**公开情况：** " + entry["availability_note"], ""])
     sources = entry.get("primary_sources", [])
     sources = [source["url"] if isinstance(source, dict) else source for source in sources]
     if sources:
-        lines.extend(["**Primary evidence:** " + " · ".join(link(f"Source {index + 1}", url) for index, url in enumerate(dict.fromkeys(sources))) + ".", ""])
+        lines.extend(["**一手资料：** " + " · ".join(link(f"来源 {index + 1}", url) for index, url in enumerate(dict.fromkeys(sources))) + "。", ""])
     if figure.get("supplementary"):
         item = figure["supplementary"]
-        lines.extend([link(item.get("link_label", "Additional author figure"), item["file"]) + " — " + link("source and attribution", item["source_url"]) + ".", ""])
-    lines.extend(["</details>", "", "[Back to models](#models)", ""])
+        lines.extend([link(item.get("link_label", "作者补充图"), item["file"]) + " · " + link("原始来源与署名", item["source_url"]) + "。", ""])
+    lines.extend(["</details>", "", "[返回模型索引](#models)", ""])
     return lines
 
 
@@ -89,80 +90,80 @@ def readme(catalog, figures):
     methods = [entry for entry in entries if entry["record_type"] == "method_or_system"]
     counts = Counter(figure["kind"] for figure in figures.values())
     original = sum(count for kind, count in counts.items() if kind != "editorial_schematic")
-    lines = ["<!-- Generated by scripts/build_readme.py; edit data/architectures.json and the figure manifest. -->", "",
+    lines = ["<!-- 由 scripts/build_readme.py 生成；请编辑 data/architectures.json 和图源清单。 -->", "",
              "# Awesome Video MLLM Architectures", "",
              "![Awesome Video MLLM Architectures](assets/banner.svg)", "",
-             "An illustrated collection of video multimodal large language models: how frames become visual tokens, how temporal evidence reaches the language decoder, and how long or live video is kept in memory.", "",
-             f"**{len(entries)} illustrated records** · {len(models)} model/version/family cards · {len(methods)} method/system cards · reviewed through **{catalog['research_cutoff']}**.", "",
-             f"Every card includes a local diagram, architecture explanation, temporal mechanism, training or inference recipe, and primary sources. Primary diagrams comprise {original} author figures and {counts['editorial_schematic']} explicitly labeled editorial schematics. A family or training recipe can share an existing backbone; record count is not a count of independent architectures.", "",
-             "The organization is inspired by [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures). Descriptions are newly written and figure provenance is recorded. The initial Chinese research is preserved in [RESEARCH.zh-CN.md](RESEARCH.zh-CN.md).", "",
-             "## Contents", "",
-             "- [Models](#models)", "- [Reading routes](#reading-routes)", "- [Release timeline](#release-timeline)",
-             "- [Model architectures](#model-architectures)", "- [Methods and systems](#methods-and-systems)",
-             "- [Discovery sources](#discovery-sources)", "- [Citation and reuse](#citation-and-reuse)",
-             "- [Contributing](CONTRIBUTING.md)", "", "## Models", "",
-             "Models are grouped by the verified first-public date. Later milestones of a family are explained in its card. Methods are indexed separately below.", ""]
+             "本仓库整理视频多模态大语言模型（Video MLLM）的关键架构，以模型图和中文说明介绍视觉编码、视觉语言连接、时间建模，以及长视频与流式视频的压缩、缓存和记忆机制。", "",
+             f"**{len(entries)} 个图文条目** · {len(models)} 个模型／版本／家族条目 · {len(methods)} 个方法／系统条目 · 资料核验截至 **{catalog['research_cutoff']}**。", "",
+             f"每个条目包含模型图、结构介绍、时间建模机制、训练或推理方式，以及论文、代码和官方项目入口。主图包括 {original} 张作者原图与 {counts['editorial_schematic']} 张明确标注的本仓库示意图。家族版本与训练方案可能沿用同一骨干模型，因此条目数量不等于独立架构数量。", "",
+             "仓库的组织方式参考 [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures)。所有介绍依据一手资料重新撰写，模型图均记录出处。初始调研过程见[中文调研稿](RESEARCH.zh-CN.md)。", "",
+             "## 目录", "",
+             "- [模型索引](#models)", "- [分类阅读](#reading-routes)", "- [发布时间线](#release-timeline)",
+             "- [模型架构介绍](#model-architectures)", "- [方法与系统](#methods-and-systems)",
+             "- [调研来源](#discovery-sources)", "- [引用与使用](#citation-and-reuse)",
+             "- [贡献指南](CONTRIBUTING.md)", "", '<a id="models"></a>', "", "## 模型索引", "",
+             "按已核验的首次公开日期分组；同一家族的后续版本在对应条目中说明。方法与系统另列索引。", ""]
     years = sorted({entry["first_public_date"][:4] for entry in models}, reverse=True)
     for year in years:
         group = sorted([entry for entry in models if entry["first_public_date"].startswith(year)], key=lambda entry: entry["first_public_date"], reverse=True)
-        lines.extend(["<details open>" if year == years[0] else "<details>", f"<summary>{year} ({len(group)} records)</summary>", ""])
+        lines.extend(["<details open>" if year == years[0] else "<details>", f"<summary>{year} 年（{len(group)} 个条目）</summary>", ""])
         lines.extend("- " + anchor(entry) for entry in group)
         lines.extend(["", "</details>", ""])
-    lines.extend(["**Methods and systems:** " + " · ".join(anchor(entry) for entry in methods) + ".", "", "## Reading routes", "",
-                  "Use these routes to compare mechanisms. Categories describe the main reading focus; capabilities can overlap.", "",
-                  "| Route | What to compare | Cards |", "| --- | --- | --- |"])
+    lines.extend(["**方法与系统：** " + " · ".join(anchor(entry) for entry in methods) + "。", "", '<a id="reading-routes"></a>', "", "## 分类阅读", "",
+                  "可按下列路线比较模型的关键机制。分类依据主要贡献和阅读重点划分，模型能力可以跨越多个类别。", "",
+                  "| 阅读方向 | 重点比较的机制 | 条目 |", "| --- | --- | --- |"])
     for category in catalog["categories"]:
         group = [entry for entry in entries if entry["category"] == category["id"]]
         lines.append(f"| {category['label']} | {category['description']} | " + ", ".join(anchor(entry) for entry in group) + " |")
-    lines.extend(["", "## Release timeline", "",
-                  "Dates follow the evidence basis shown in each card: arXiv v1 submission or a dated official release. Family milestones and later paper revisions do not create duplicate rows.", "",
-                  "| First public date | Record | Type | Main contribution |", "| --- | --- | --- | --- |"])
+    lines.extend(["", '<a id="release-timeline"></a>', "", "## 发布时间线", "",
+                  "日期采用各条目注明的依据：arXiv 首版提交日期或官方发布日。同一家族的后续里程碑及论文修订不重复计为新条目。", "",
+                  "| 首次公开日期 | 条目 | 类型 | 主要贡献 |", "| --- | --- | --- | --- |"])
     ordered = sorted(entries, key=lambda entry: (entry["first_public_date"], entry["id"]), reverse=True)
     for entry in ordered:
-        lines.append(f"| {entry['first_public_date']} | {anchor(entry)} | {TYPE_LABELS[entry['record_type']]} | " + ", ".join(entry["contribution_type"]) + " |")
-    lines.extend(["", "## Model architectures", "",
-                  "Cards appear from newest to oldest. Click a diagram to view the original local asset at full size. The expandable section explains the architecture and distinguishes structural changes from data or training contributions.", ""])
+        lines.append(f"| {entry['first_public_date']} | {anchor(entry)} | {TYPE_LABELS[entry['record_type']]} | " + "、".join(entry["contribution_type"]) + " |")
+    lines.extend(["", '<a id="model-architectures"></a>', "", "## 模型架构介绍", "",
+                  "按首次公开日期从新到旧排列。点击模型图可查看完整尺寸；展开详细说明，可阅读编码器、连接器、语言模型、时间机制及训练方式，并区分网络结构、数据和训练方案的贡献。", ""])
     for entry in ordered:
         if entry["record_type"] == "model_or_version":
             lines.extend(card(entry, figures[entry["id"]]))
-    lines.extend(["## Methods and systems", "",
-                  "These records describe cache retrieval, token reduction, grounding refinement, or an agent/memory system around an existing model. Their diagrams identify where the method acts.", ""])
+    lines.extend(['<a id="methods-and-systems"></a>', "", "## 方法与系统", "",
+                  "本节介绍作用于既有模型的 KV 缓存检索、token 压缩、时间边界修正，以及智能体与记忆系统。图示说明各方法在整体流程中的作用位置。", ""])
     for entry in ordered:
         if entry["record_type"] == "method_or_system":
             lines.extend(card(entry, figures[entry["id"]]))
-    lines.extend(["## Discovery sources", "",
-                  "The first survey audited 15 awesome repositories and extracted 153 name-level candidates from five core lists. The illustrated cards were selected and checked against primary technical sources; discovery-list inclusion alone does not establish architecture or video support.", "",
-                  "- [Audited awesome repositories and candidate extraction](docs/source-audit.md)",
-                  "- [Reference repository: structure and README analysis](docs/reference-repository-analysis.md)",
-                  "- [Scope, taxonomy, dates, and availability policy](docs/curation-policy.md)",
-                  "- [Original Chinese research snapshot](RESEARCH.zh-CN.md)",
-                  "- [Machine-readable architecture catalog](data/architectures.json)",
-                  "- [Figure credits](assets/architectures/CREDITS.md) and [figure rights notice](assets/architectures/FIGURE_NOTICE.md)", "",
-                  "## Citation and reuse", "",
-                  "Cite each original paper when discussing its model. Use [CITATION.cff](CITATION.cff) when referring to this collection's curation or editorial diagrams.", "",
-                  "Original text, scripts and editorial schematics are dedicated under [CC0-1.0](LICENSE). Third-party paper and project figures retain their original rights and are excluded from that dedication; see the [figure notice](assets/architectures/FIGURE_NOTICE.md).", "",
-                  "To update the collection, edit the canonical JSON, regenerate the README, and run the checks described in [CONTRIBUTING.md](CONTRIBUTING.md)."])
+    lines.extend(['<a id="discovery-sources"></a>', "", "## 调研来源", "",
+                  "初始调研检查了 15 个 awesome 仓库，并从 5 个核心清单中提取 153 个名称级候选。当前 70 个图文条目经过筛选，并以原论文、作者代码及官方模型卡核验技术内容；awesome 清单用于发现候选，具体架构和视频支持情况以一手资料为准。", "",
+                  "- [Awesome 仓库审计与候选提取](docs/source-audit.md)",
+                  "- [参考仓库的结构与 README 分析](docs/reference-repository-analysis.md)",
+                  "- [收录范围、分类、日期与公开情况](docs/curation-policy.md)",
+                  "- [初始中文调研稿](RESEARCH.zh-CN.md)",
+                  "- [机器可读的架构目录](data/architectures.json)",
+                  "- [模型图来源与署名](assets/architectures/CREDITS.md)及[图片权利说明](assets/architectures/FIGURE_NOTICE.md)", "",
+                  '<a id="citation-and-reuse"></a>', "", "## 引用与使用", "",
+                  "讨论具体模型时，请引用对应的原论文；引用本仓库的整理工作或自绘示意图时，可使用 [CITATION.cff](CITATION.cff)。", "",
+                  "本仓库原创文字、脚本和自绘示意图采用 [CC0-1.0](LICENSE)。第三方论文与项目图片的权利仍归原作者或出版方，具体见[图片权利说明](assets/architectures/FIGURE_NOTICE.md)。", "",
+                  "更新条目时，请修改源 JSON、重新生成 README，并运行[贡献指南](CONTRIBUTING.md)中的校验命令。"])
     return "\n".join(lines) + "\n"
 
 
 def credits(catalog, figures):
     names = {entry["id"]: entry["name"] for entry in catalog["entries"]}
-    lines = ["<!-- Generated by scripts/build_readme.py. -->", "", "# Architecture figure credits", "",
-             "Author figures retain their original rights. Editorial schematics are marked explicitly. See [FIGURE_NOTICE.md](FIGURE_NOTICE.md). Figure numbers follow the linked version; PDF pages are one-based.", "",
-             "| ID | Record / local image | Kind | Primary source | Figure / PDF page | Extraction or redraw note |",
+    lines = ["<!-- 由 scripts/build_readme.py 生成。 -->", "", "# 模型图来源与署名", "",
+             "作者原图的权利归原作者或出版方；本仓库自绘图已明确标注。详见[图片权利说明](FIGURE_NOTICE.md)。图号对应链接中的论文版本；PDF 页码从 1 开始，可能与论文印刷页码不同。", "",
+             "| ID | 条目／本地图片 | 图片类型 | 一手来源 | 图号／PDF 页码 | 提取或绘制说明 |",
              "| --- | --- | --- | --- | --- | --- |"]
     for entry_id, figure in sorted(figures.items()):
         filename = Path(figure["file"]).name
-        kind = figure["kind"].replace("_", " ")
-        source = link("Primary source", figure["source_url"])
-        location = f"Fig. {figure['figure_number']}" if figure.get("figure_number") else "—"
+        kind = FIGURE_LABELS[figure["kind"]]
+        source = link("一手来源", figure["source_url"])
+        location = f"图 {figure['figure_number']}" if figure.get("figure_number") else "—"
         if figure.get("pdf_page"):
-            location += f" / p. {figure['pdf_page']}"
-        note = link("Extraction source", figure["extraction_source"]) if figure.get("extraction_source") else figure.get("simplification", "Downloaded from author HTML or cropped from the primary PDF.")
+            location += f"／第 {figure['pdf_page']} 页"
+        note = link("原图提取出处", figure["extraction_source"]) if figure.get("extraction_source") else figure.get("simplification", "从作者提供的 HTML 下载，或从原论文 PDF 裁切。")
         lines.append(f"| {entry_id:02d} | {link(names[entry_id], filename)} | {kind} | {source} | {location} | {note} |")
         if figure.get("supplementary"):
             item = figure["supplementary"]
-            lines.append(f"| {entry_id:02d} (extra) | {link(names[entry_id] + ' temporal mechanism', Path(item['file']).name)} | {item['kind'].replace('_', ' ')} | {link('Primary source', item['source_url'])} | Fig. {item.get('figure_number', '—')} | {link('Extraction source', item['extraction_source']) if item.get('extraction_source') else 'Author figure.'} |")
+            lines.append(f"| {entry_id:02d}（补充） | {link(names[entry_id] + ' 补充图', Path(item['file']).name)} | {FIGURE_LABELS[item['kind']]} | {link('一手来源', item['source_url'])} | 图 {item.get('figure_number', '—')} | {link('原图提取出处', item['extraction_source']) if item.get('extraction_source') else '作者原图。'} |")
     return "\n".join(lines) + "\n"
 
 

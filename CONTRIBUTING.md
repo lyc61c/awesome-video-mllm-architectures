@@ -1,13 +1,13 @@
-# Contributing
+# 贡献指南
 
-Contributions should make a video model easier to understand and compare. Read the [scope and taxonomy](docs/curation-policy.md) before adding a record.
+本仓库希望帮助读者理解和比较视频模型。新增条目前，请阅读[收录范围与分类原则](docs/curation-policy.md)。模型介绍以中文撰写，模型名、论文题名和必要的技术术语保留原名。
 
-1. Confirm video input support using an original paper, author repository, official model card, or technical release. An awesome list is a discovery source.
-2. Update `data/architectures.json`. Use a stable, unique ID and slug. Include a short summary, encoder/connector/LLM description, temporal mechanism, training or inference recipe, authors, contribution types, and primary sources.
-3. State the version being described. Separate independent papers with identical model names. A new checkpoint or dataset recipe does not automatically create a new architecture.
-4. Add a readable local diagram and its record in `assets/architectures/manifest.json`. Give the source URL, figure number, version and PDF page when known. Original figures retain their authors' rights. Label a redrawn schematic `editorial_schematic`; describe its simplifications.
-5. Give `first_public_date` and `date_basis`. Use the verified arXiv v1 date or the dated official release, and retain later family milestones separately.
-6. Regenerate and validate:
+1. 通过原论文、作者仓库、官方模型卡或技术发布资料确认模型支持视频输入。Awesome 清单用于发现候选。
+2. 更新 `data/architectures.json`，使用唯一且稳定的 ID 与 slug。补充简要介绍、编码器／连接器／LLM 结构、时间机制、训练或推理方式、作者、贡献类型及一手来源。
+3. 明确介绍的版本。同名但独立的论文应分别收录；新增检查点或数据训练方案不自动计为新架构。
+4. 添加清晰的本地模型图，并在 `assets/architectures/manifest.json` 记录来源 URL、图号、版本及已知的 PDF 页码。原图权利归原作者；自绘示意图使用 `editorial_schematic` 标记，并说明简化内容。
+5. 补充 `first_public_date` 与 `date_basis`，使用已核验的 arXiv 首版日期或官方发布日，后续家族里程碑另行说明。
+6. 重新生成并校验：
 
 ```sh
 python scripts/build_readme.py
@@ -15,8 +15,8 @@ python scripts/validate_repository.py
 python scripts/build_readme.py --check
 ```
 
-For editorial schematics, edit `data/editorial-diagrams.json`, run `python scripts/build_editorial_diagrams.py`, and confirm `python scripts/build_editorial_diagrams.py --check`. Keep the corresponding figure manifest source and simplification notes consistent.
+修改自绘示意图时，请编辑 `data/editorial-diagrams.json`，运行 `python scripts/build_editorial_diagrams.py`，再执行 `python scripts/build_editorial_diagrams.py --check`。图源清单中的来源与简化说明应与示意图保持一致。
 
-Open a pull request describing the source evidence and what changed. Avoid performance rankings without comparable evaluation settings. Test remote URLs when adding them; the optional manual link audit reports subsequent failures.
+提交 Pull Request 时，请说明资料依据和具体改动。只有在评测设置可比较时才给出性能排名。新增外部链接应检查可访问性，手动链接审计工作流可用于后续排查。
 
-The Chinese research snapshot and its exported discovery data preserve the initial survey. Correct factual errors there when appropriate, but add new curated entries to `data/architectures.json`.
+中文调研稿及其导出数据保留初始调研过程；其中的事实错误也应相应修正。后续新增图文条目统一维护在 `data/architectures.json`。

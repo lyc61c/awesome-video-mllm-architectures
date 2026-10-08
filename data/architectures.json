@@ -6,48 +6,48 @@
   "categories": [
     {
       "id": "foundations",
-      "label": "Early foundations",
-      "description": "Alignment, pooling, Q-Former and shared image/video representation"
+      "label": "早期基础模型",
+      "description": "视觉语言对齐、池化、Q-Former 与图像视频统一表示"
     },
     {
       "id": "video-native",
-      "label": "Dedicated video models",
-      "description": "Video encoders, connectors, dual encoders and scalable video training"
+      "label": "专用视频模型",
+      "description": "视频编码器、连接器、双编码器及可扩展的视频训练"
     },
     {
       "id": "general-vlm",
-      "label": "General VLMs with video support",
-      "description": "Dynamic resolution, positional encoding and native multimodal training"
+      "label": "支持视频的通用 VLM",
+      "description": "动态分辨率、位置编码与原生多模态训练"
     },
     {
       "id": "long-video",
-      "label": "Long-video context",
-      "description": "Compression, memory, retrieval and long-context scaling"
+      "label": "长视频上下文",
+      "description": "压缩、记忆、检索与长上下文扩展"
     },
     {
       "id": "streaming",
-      "label": "Streaming interaction",
-      "description": "Causal updates, online response timing and persistent caches"
+      "label": "流式交互",
+      "description": "因果更新、在线响应时机与持续缓存"
     },
     {
       "id": "grounding",
-      "label": "Temporal grounding",
-      "description": "Timestamps, event boundaries and grounding supervision"
+      "label": "时间定位",
+      "description": "时间戳、事件边界与定位监督"
     },
     {
       "id": "omni",
-      "label": "Audio-visual / omni",
-      "description": "Audio-video synchronization, speech generation and full-duplex interaction"
+      "label": "音视频／全模态交互",
+      "description": "音视频同步、语音生成与全双工交互"
     },
     {
       "id": "efficient",
-      "label": "Efficient model design",
-      "description": "Compact backbones, frame selection and dual-speed decoders"
+      "label": "高效模型设计",
+      "description": "紧凑骨干、帧选择与双速率解码器"
     },
     {
       "id": "methods",
-      "label": "Reusable methods and systems",
-      "description": "Plug-in compression, KV retrieval, refinement and agent memory"
+      "label": "可复用方法与系统",
+      "description": "可插拔压缩、KV 检索、边界修正与智能体记忆"
     }
   ],
   "entries": [
@@ -58,12 +58,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2022-04-29",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Jean-Baptiste Alayrac et al.",
-      "summary": "Flamingo connects frozen vision and language backbones through a Perceiver Resampler and gated cross-attention, enabling few-shot understanding of interleaved images, videos, and text.",
-      "architecture": "A frozen NFNet-F6 encodes sampled frames into spatial features. Learned temporal embeddings precede a Perceiver Resampler, which produces 64 visual tokens per image or video. Newly trained gated cross-attention and feed-forward blocks are interleaved with frozen Chinchilla language-model layers. Text queries read the most recent preceding visual input, while language self-attention carries earlier context.",
-      "temporal_modeling": "Frames are independently encoded at one frame per second; temporal embeddings and the Resampler aggregate their spatiotemporal grid before language generation.",
-      "training": "Train the Resampler and inserted cross-attention blocks with next-token prediction on interleaved webpages, image-caption pairs, and video-caption pairs. Vision and language backbones remain frozen; downstream few-shot evaluation supplies examples in the prompt.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Jean-Baptiste Alayrac 等",
+      "summary": "Flamingo 通过 Perceiver Resampler 和门控交叉注意力连接冻结的视觉、语言骨干模型，实现对交错排列的图像、视频和文本的少样本理解。",
+      "architecture": "冻结的 NFNet-F6 将采样帧编码为空间特征。模型先加入可学习的时间嵌入，再由 Perceiver Resampler 为每张图像或每段视频生成 64 个视觉 token。新训练的门控交叉注意力和前馈模块插入冻结的 Chinchilla 语言模型层之间。文本查询读取此前最近一次出现的视觉输入，语言自注意力则传递更早的上下文。",
+      "temporal_modeling": "以每秒 1 帧的频率独立编码各帧；时间嵌入与 Resampler 在语言生成前聚合这些帧的时空特征网格。",
+      "training": "在交错排列的网页内容、图像—描述对和视频—描述对上，通过下一 token 预测训练 Resampler 与新增的交叉注意力模块。视觉和语言骨干模型保持冻结；下游少样本评测通过提示词提供示例。",
       "datasets": [
         "M3W",
         "ALIGN",
@@ -76,9 +76,9 @@
         "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/tackling-multiple-tasks-with-a-single-visual-language-model/flamingo.pdf"
       ],
       "contribution_type": [
-        "architecture",
-        "multimodal pretraining",
-        "few-shot learning"
+        "模型架构",
+        "多模态预训练",
+        "少样本学习"
       ],
       "technical_sources": [
         {
@@ -92,7 +92,7 @@
           "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/tackling-multiple-tasks-with-a-single-visual-language-model/flamingo.pdf"
         }
       ],
-      "availability_note": "The original Flamingo weights and implementation were not publicly released. Community reimplementations are not labeled as the authors' code."
+      "availability_note": "原始 Flamingo 的权重和实现未公开发布。社区复现不标记为作者官方代码。"
     },
     {
       "id": 2,
@@ -101,15 +101,15 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-05-10",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "KunChang Li et al.",
-      "summary": "VideoChat offers an end-to-end video-embedding interface and a parallel text-based pipeline, connecting video perception with conversational language generation through lightweight adaptation.",
-      "architecture": "VideoChat-Embed augments a pretrained ViT-G image encoder with Global Multi-Head Relation Aggregator modules for temporal processing. A BLIP-2 Q-Former, additional learnable queries, and a linear projection create compact inputs for StableVicuna. VideoChat-Text instead converts action predictions, captions, dense descriptions, and subtitles into a structured textual prompt for an LLM.",
-      "temporal_modeling": "The embedding branch learns temporal aggregation inside the visual encoder; the text branch serializes time-indexed perception results before the language model reasons over them.",
-      "training": "First align the video-language interface with large-scale image/video-caption data. Then tune temporal modules, extra queries, and projection on detailed video descriptions and conversations. Most pretrained parameters remain frozen throughout the lightweight two-stage recipe.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "KunChang Li 等",
+      "summary": "VideoChat 同时提供端到端视频嵌入接口和基于文本的并行处理流程，通过轻量适配将视频感知与对话式语言生成连接起来。",
+      "architecture": "VideoChat-Embed 在预训练 ViT-G 图像编码器中加入 Global Multi-Head Relation Aggregator 模块以处理时间信息。BLIP-2 Q-Former、额外的可学习查询和线性投影层共同生成供 StableVicuna 使用的紧凑输入。VideoChat-Text 则将动作预测、视频描述、密集描述及字幕转换为结构化文本提示，交给 LLM 处理。",
+      "temporal_modeling": "嵌入分支在视觉编码器内部学习时间聚合；文本分支先将带有时间索引的感知结果序列化，再由语言模型进行推理。",
+      "training": "首先使用大规模图像／视频—描述数据对齐视频与语言接口，再利用详细视频描述和对话微调时间模块、额外查询与投影层。这一轻量的两阶段训练方案始终冻结大部分预训练参数。",
       "datasets": [
         "WebVid",
-        "VideoChat instruction data"
+        "VideoChat 指令数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2305.06355",
@@ -117,9 +117,9 @@
         "https://github.com/OpenGVLab/Ask-Anything"
       ],
       "contribution_type": [
-        "architecture",
-        "instruction data",
-        "system"
+        "模型架构",
+        "指令数据",
+        "系统设计"
       ],
       "technical_sources": [
         {
@@ -141,12 +141,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-06-08",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Muhammad Maaz et al.",
-      "summary": "Video-ChatGPT turns CLIP frame features into spatial and temporal tokens, then learns a linear interface to a frozen Vicuna conversational language model.",
-      "architecture": "A frozen CLIP ViT-L/14 extracts a spatial token grid from every sampled frame. Averaging over time creates spatial tokens; averaging over spatial positions creates one temporal token per frame. These two representations are concatenated and mapped by a trainable linear projection into Vicuna-v1.1-7B, initialized from LLaVA, alongside the user instruction.",
-      "temporal_modeling": "Separate spatial and temporal averages compress the video. The ordered per-frame temporal tokens retain sequence information for the language model without a learned video encoder.",
-      "training": "Use autoregressive answer prediction on VideoInstruct-100K, combining human-assisted and semi-automatic annotations. Only the linear projection is adapted; both the CLIP visual encoder and Vicuna language model remain frozen during video instruction tuning.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Muhammad Maaz 等",
+      "summary": "Video-ChatGPT 将 CLIP 帧特征转换为空间和时间 token，再学习一个线性接口，将其接入冻结的 Vicuna 对话语言模型。",
+      "architecture": "冻结的 CLIP ViT-L/14 从每个采样帧中提取空间 token 网格。沿时间维度求平均得到空间 token，沿空间位置求平均则为每一帧生成一个时间 token。模型拼接这两类表示，通过可训练的线性投影层映射到由 LLaVA 初始化的 Vicuna-v1.1-7B，并与用户指令一同输入语言模型。",
+      "temporal_modeling": "分别对空间和时间维度求平均以压缩视频。按帧顺序排列的时间 token 为语言模型保留序列信息，无需学习独立的视频编码器。",
+      "training": "在 VideoInstruct-100K 上进行自回归回答预测，数据包含人工辅助标注和半自动标注。视频指令微调只更新线性投影层，CLIP 视觉编码器与 Vicuna 语言模型均保持冻结。",
       "datasets": [
         "VideoInstruct-100K"
       ],
@@ -156,9 +156,9 @@
         "https://github.com/mbzuai-oryx/Video-ChatGPT"
       ],
       "contribution_type": [
-        "architecture",
-        "instruction data",
-        "evaluation"
+        "模型架构",
+        "指令数据",
+        "评测"
       ],
       "technical_sources": [
         {
@@ -180,12 +180,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-06-05",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Hang Zhang et al.",
-      "summary": "Video-LLaMA adds separate visual and audio query interfaces to a frozen language model, combining frame aggregation with ImageBind-based cross-modal alignment for video conversations.",
-      "architecture": "The visual branch uses a frozen image encoder and frame-level Q-Former, adds frame-position embeddings, then aggregates frames through a Video Q-Former and linear projection. The audio branch extracts ImageBind features from audio segments, applies positional embeddings and an Audio Q-Former, and projects its queries into the same frozen LLM input space.",
-      "temporal_modeling": "Position embeddings distinguish sampled frames and audio segments. Separate query transformers aggregate each modality into a fixed-size sequence before their features enter the LLM.",
-      "training": "Train the visual interface on WebVid-2M and CC595K, then refine with MiniGPT-4, LLaVA, and VideoChat instructions. The audio interface uses visual-text supervision through ImageBind’s shared embedding space, rather than direct audio-text training.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Hang Zhang 等",
+      "summary": "Video-LLaMA 为冻结的语言模型加入独立的视觉和音频查询接口，结合帧聚合与基于 ImageBind 的跨模态对齐，实现视频对话。",
+      "architecture": "视觉分支使用冻结的图像编码器和帧级 Q-Former，加入帧位置嵌入后，通过 Video Q-Former 和线性投影层聚合多帧信息。音频分支从音频片段中提取 ImageBind 特征，加入位置嵌入并经过 Audio Q-Former，最后将查询表示投影到同一个冻结 LLM 的输入空间。",
+      "temporal_modeling": "位置嵌入区分采样帧与音频片段。两个独立的查询 Transformer 分别将各模态聚合为固定长度序列，再将特征送入 LLM。",
+      "training": "先在 WebVid-2M 和 CC595K 上训练视觉接口，再利用 MiniGPT-4、LLaVA 和 VideoChat 指令进一步微调。音频接口借助 ImageBind 的共享嵌入空间使用视觉—文本监督，而非直接进行音频—文本训练。",
       "datasets": [
         "WebVid-2M",
         "CC595K",
@@ -199,8 +199,8 @@
         "https://github.com/DAMO-NLP-SG/Video-LLaMA"
       ],
       "contribution_type": [
-        "architecture",
-        "audio-video understanding"
+        "模型架构",
+        "音视频理解"
       ],
       "technical_sources": [
         {
@@ -222,12 +222,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-06-12",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Ruipu Luo et al.",
-      "summary": "Valley augments CLIP frame encoding with temporal aggregation and a language projection, unifying image and video conversations through two-stage alignment and instruction tuning.",
-      "architecture": "CLIP ViT-L/14 extracts patch and global features from sampled frames. A temporal module combines corresponding spatial positions across frames, while frame-level global tokens retain complementary information. A projection maps the unified visual tokens into StableVicuna-13B’s embedding space. The paper compares average pooling, learned weighted pooling, and a transformer-based temporal aggregation variant.",
-      "temporal_modeling": "The three temporal variants progressively add frame importance and temporal variation modeling; the transformer variant combines sequence-derived features with average-pooled spatial representations.",
-      "training": "First train the projection on CC3M image-caption data and Valley-702K video-caption pairs. Then jointly tune the projection and LLM with Valley-instruct-73K plus LLaVA and VideoChat instructions, while freezing the visual backbone.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Ruipu Luo 等",
+      "summary": "Valley 在 CLIP 帧编码后加入时间聚合和语言投影层，通过两阶段对齐与指令微调统一图像和视频对话。",
+      "architecture": "CLIP ViT-L/14 从采样帧中提取图像块特征与全局特征。时间模块融合不同帧中对应空间位置的特征，同时保留帧级全局 token 作为补充。投影层将统一的视觉 token 映射到 StableVicuna-13B 的嵌入空间。论文比较了平均池化、可学习的加权池化，以及基于 Transformer 的时间聚合三种方案。",
+      "temporal_modeling": "三种时间聚合方案逐步加入帧重要性和时间变化建模；Transformer 方案将从序列中提取的特征与经过平均池化的空间表示结合。",
+      "training": "首先利用 CC3M 图像—描述数据和 Valley-702K 视频—描述对训练投影层。随后使用 Valley-instruct-73K、LLaVA 和 VideoChat 指令联合微调投影层与 LLM，视觉骨干模型保持冻结。",
       "datasets": [
         "CC3M-595K",
         "Valley-702K",
@@ -241,8 +241,8 @@
         "https://github.com/RupertLuo/Valley"
       ],
       "contribution_type": [
-        "architecture",
-        "instruction data"
+        "模型架构",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -264,15 +264,15 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-11-16",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Bin Lin et al.",
-      "summary": "Video-LLaVA uses LanguageBind to align image and video representations before a shared projector, enabling one Vicuna model to converse about both visual modalities.",
-      "architecture": "LanguageBind image and video encoders extract features already aligned through a shared textual representation space. A shared two-layer MLP with GELU maps those features into Vicuna-7B-v1.5 embeddings. Projected visual tokens and tokenized instructions are concatenated for autoregressive generation, allowing the language model to learn from a unified visual representation rather than unrelated encoder spaces.",
-      "temporal_modeling": "The LanguageBind video encoder supplies temporal features from eight uniformly sampled frames; the shared projector preserves their video-token sequence for the LLM.",
-      "training": "First train the projector with mixed image/video-caption batches while freezing the backbones. Then tune the projector and LLM jointly on LLaVA-1.5 image instructions and Video-ChatGPT video instructions; the visual encoders remain frozen.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Bin Lin 等",
+      "summary": "Video-LLaVA 使用 LanguageBind 在共享投影层之前对齐图像和视频表示，使同一个 Vicuna 模型能够围绕两种视觉模态进行对话。",
+      "architecture": "LanguageBind 图像与视频编码器提取的特征已通过共享文本表示空间完成对齐。带有 GELU 的共享两层 MLP 将这些特征映射到 Vicuna-7B-v1.5 的嵌入空间。投影后的视觉 token 与经过分词的指令拼接，用于自回归生成，使语言模型从统一的视觉表示中学习，而非面对互不关联的编码器空间。",
+      "temporal_modeling": "LanguageBind 视频编码器从均匀采样的 8 帧中提供时间特征；共享投影层为 LLM 保留视频 token 序列。",
+      "training": "首先在混合的图像／视频—描述批次上训练投影层，同时冻结骨干模型。随后利用 LLaVA-1.5 图像指令和 Video-ChatGPT 视频指令联合微调投影层与 LLM，视觉编码器继续保持冻结。",
       "datasets": [
         "LCS-558K",
-        "Valley WebVid subset",
+        "Valley WebVid 子集",
         "LLaVA-1.5-665K",
         "VideoInstruct-100K"
       ],
@@ -282,8 +282,8 @@
         "https://github.com/PKU-YuanGroup/Video-LLaVA"
       ],
       "contribution_type": [
-        "architecture",
-        "joint image-video training"
+        "模型架构",
+        "图像视频联合训练"
       ],
       "technical_sources": [
         {
@@ -305,12 +305,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-11-14",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Peng Jin et al.",
-      "summary": "Chat-UniVi uses dynamic token clustering and multiscale aggregation to compress images and videos into a unified visual sequence for a conversational language model.",
-      "architecture": "CLIP ViT-L/14 supplies patch tokens. Density-peak clustering with nearest neighbors merges spatially redundant tokens and groups frames into events. Within each event, visual tokens can span multiple frames. A three-step aggregation constructs complementary detail and semantic scales; their concatenation is linearly projected into Vicuna-v1.5-7B before processing the conversation and generating text.",
-      "temporal_modeling": "Frame clustering defines event groups; token merging stays within an event, and the final visual tokens follow event order to preserve temporal relationships.",
-      "training": "Align only the projection with COCO and CC3M image captions while freezing vision and language backbones. Then jointly tune the projection and LLM on image, multiple-image, and video instructions from LLaVA, MIMIC-IT, and Video-ChatGPT.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Peng Jin 等",
+      "summary": "Chat-UniVi 利用动态 token 聚类和多尺度聚合，将图像与视频压缩为统一的视觉序列，交给对话语言模型处理。",
+      "architecture": "CLIP ViT-L/14 提供图像块 token。结合近邻的密度峰值聚类合并空间上冗余的 token，并将帧划分为事件组。同一个事件内的视觉 token 可以跨越多帧。三步聚合构建互补的细节与语义尺度，拼接后通过线性投影层输入 Vicuna-v1.5-7B，再处理对话并生成文本。",
+      "temporal_modeling": "帧聚类确定事件组，token 只在同一事件内合并，最终视觉 token 按事件顺序排列以保留时间关系。",
+      "training": "首先使用 COCO 和 CC3M 图像描述只训练投影层完成对齐，冻结视觉与语言骨干模型。随后利用 LLaVA、MIMIC-IT 和 Video-ChatGPT 的图像、多图像及视频指令，联合微调投影层与 LLM。",
       "datasets": [
         "COCO",
         "CC3M-595K",
@@ -324,8 +324,8 @@
         "https://github.com/PKU-YuanGroup/Chat-UniVi"
       ],
       "contribution_type": [
-        "architecture",
-        "token compression"
+        "模型架构",
+        "token 压缩"
       ],
       "technical_sources": [
         {
@@ -347,12 +347,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2024-04-04",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Kirolos Ataallah et al.",
-      "summary": "MiniGPT4-Video extends MiniGPT-v2 with chronologically interleaved frame and subtitle tokens, combining visual evidence and transcribed language within the language model’s context window.",
-      "architecture": "Frozen EVA-CLIP encodes each frame. Groups of four adjacent patch tokens are concatenated and linearly projected into 64 language-space visual tokens per frame. Subtitle text is tokenized and placed after its corresponding frame. The resulting interleaved visual-text sequence and final question are processed by a Llama-2 or Mistral language backbone.",
-      "temporal_modeling": "Temporal structure comes from ordered frame-subtitle interleaving. Subtitle alignment supplies corresponding spoken content, while visual compression accommodates more frames inside a finite context window.",
-      "training": "Apply three stages: image-caption alignment, large-scale video-caption pretraining on VideoDB/WebVid, and video-QA instruction tuning. Keep EVA-CLIP frozen while learning the linear projection and using LoRA to adapt the language model.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Kirolos Ataallah 等",
+      "summary": "MiniGPT4-Video 在 MiniGPT-v2 基础上按时间顺序交错输入帧与字幕 token，在语言模型的上下文窗口内结合视觉证据和转录文本。",
+      "architecture": "冻结的 EVA-CLIP 编码每一帧。每组 4 个相邻图像块 token 先拼接，再通过线性投影层转换为语言空间中的视觉 token，每帧得到 64 个。字幕文本经过分词后放在对应帧之后。最终交错排列的视觉—文本序列与问题一同交给 Llama-2 或 Mistral 语言骨干模型。",
+      "temporal_modeling": "时间结构来自按顺序交错排列的帧与字幕。对齐字幕提供相应的语音内容，视觉压缩则使有限上下文窗口能够容纳更多帧。",
+      "training": "训练分为三个阶段：图像—描述对齐、在 VideoDB／WebVid 上进行大规模视频—描述预训练，以及视频问答指令微调。EVA-CLIP 保持冻结，模型学习线性投影层，并使用 LoRA 适配语言模型。",
       "datasets": [
         "LAION",
         "Conceptual Captions",
@@ -367,8 +367,8 @@
         "https://github.com/Vision-CAIR/MiniGPT4-video"
       ],
       "contribution_type": [
-        "architecture",
-        "subtitle integration"
+        "模型架构",
+        "字幕集成"
       ],
       "technical_sources": [
         {
@@ -390,12 +390,12 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2024-03-30",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Ruyang Liu et al.",
-      "summary": "ST-LLM exposes spatial-temporal visual tokens directly to the language model, using dynamic masking and global-local inputs to balance temporal learning and efficiency.",
-      "architecture": "An InstructBLIP-initialized visual encoder and Q-Former encode every frame into compact spatial tokens. A linear projection maps the full frame-token sequence to Vicuna-v1.1-7B. The language model learns inter-frame relationships directly. Dynamic masking reduces visual sequence cost during training; a global-local input module combines detailed local frames with broad video context at inference.",
-      "temporal_modeling": "Temporal dependencies are learned inside LLM attention rather than collapsed by a video-level bottleneck. Masked/unmasked consistency learning and global-local features improve robustness across video lengths.",
-      "training": "Start from an image dialogue model and perform one-stage video instruction tuning. Freeze the visual encoder and Q-Former, fine-tune the language model, and combine autoregressive supervision with the proposed masking objective on diverse video instructions.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Ruyang Liu 等",
+      "summary": "ST-LLM 将时空视觉 token 直接输入语言模型，利用动态掩码与全局—局部输入，在时间学习能力和效率之间取得平衡。",
+      "architecture": "由 InstructBLIP 初始化的视觉编码器和 Q-Former 将每帧编码为紧凑的空间 token。线性投影层将完整的帧 token 序列映射到 Vicuna-v1.1-7B，由语言模型直接学习帧间关系。动态掩码降低训练时视觉序列的开销；推理时，全局—局部输入模块将细致的局部帧与覆盖全视频的上下文结合。",
+      "temporal_modeling": "时间依赖在 LLM 注意力内部学习，无需先压缩到视频级瓶颈表示。掩码与非掩码输入之间的一致性学习，以及全局—局部特征，提高了模型面对不同视频长度时的稳健性。",
+      "training": "从图像对话模型出发，进行单阶段视频指令微调。冻结视觉编码器与 Q-Former，微调语言模型，并在多样化视频指令上结合自回归监督与论文提出的掩码目标。",
       "datasets": [
         "VideoInstruct-100K",
         "VideoChat",
@@ -411,8 +411,8 @@
         "https://github.com/TencentARC/ST-LLM"
       ],
       "contribution_type": [
-        "architecture",
-        "temporal learning"
+        "模型架构",
+        "时间学习"
       ],
       "technical_sources": [
         {
@@ -434,20 +434,20 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2024-04-25",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Lin Xu et al.",
-      "summary": "PLLaVA adapts image-trained LLaVA to videos with parameter-free adaptive pooling, smoothing dominant visual features while retaining frame order for detailed video description.",
-      "architecture": "A pretrained CLIP ViT-L image encoder and multimodal projector encode the sampled video into a time-by-space feature grid. Adaptive average structure pooling reduces that grid before flattening and concatenation with text embeddings. A LLaVA-NeXT language decoder with trainable LoRA adapters produces responses. The pooling connector adds no parameters, while the projector and language adapters are trained.",
-      "temporal_modeling": "Pooling can operate across time and space; the reported default preserves 16 frames and pools spatial grids to 12×12, leaving temporal reasoning to the LLM.",
-      "training": "Initialize from released LLaVA-NeXT image-model weights and tune the multimodal projector and LLM LoRA on video instructions. The paper studies data and model scaling, pooling choices, and post-optimization to improve dense descriptions and stability.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Lin Xu 等",
+      "summary": "PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频，平滑占主导的视觉特征并保留帧顺序，用于生成详细视频描述。",
+      "architecture": "预训练 CLIP ViT-L 图像编码器与多模态投影层将采样视频编码为时间×空间的特征网格。自适应平均结构池化先压缩该网格，再展平并与文本嵌入拼接。带有可训练 LoRA 适配器的 LLaVA-NeXT 语言解码器生成回答。池化连接器本身不增加参数，投影层和语言适配器则需要训练。",
+      "temporal_modeling": "池化可以沿时间和空间维度进行；论文报告的默认设置保留 16 帧，并将空间网格池化到 12×12，时间推理由 LLM 完成。",
+      "training": "从已发布的 LLaVA-NeXT 图像模型权重初始化，利用视频指令微调多模态投影层和 LLM 的 LoRA 参数。论文研究数据与模型规模、池化方案及后续优化，以改善密集描述质量和稳定性。",
       "primary_sources": [
         "https://arxiv.org/abs/2404.16994",
         "https://arxiv.org/html/2404.16994v2",
         "https://github.com/magic-research/PLLaVA"
       ],
       "contribution_type": [
-        "architecture",
-        "parameter-free pooling"
+        "模型架构",
+        "无新增参数池化"
       ],
       "technical_sources": [
         {
@@ -469,14 +469,14 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2023-11-28",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Kunchang Li et al.",
-      "summary": "VideoChat2 combines a temporally pretrained UMT visual encoder with instruction-aware query compression and progressive training, providing the strong model baseline introduced alongside MVBench.",
-      "architecture": "UMT-L encodes video frames with spatiotemporal context. A Q-Former compresses extensive visual features using learned queries, with instruction conditioning guiding relevant evidence selection. Projected query tokens enter a Vicuna language backbone; LoRA adapts language generation. The architecture separates visual compression from language reasoning and is trained progressively rather than attaching an untrained projector directly.",
-      "temporal_modeling": "The UMT video encoder provides temporal features before query compression. Task-diverse instructions teach perception, ordering, localization, and reasoning across changing visual events.",
-      "training": "Use three stages: align UMT-L and Q-Former, connect their representations to the LLM, and perform instruction tuning. Later stages adapt the visual encoder and Q-Former; language adaptation uses LoRA alongside a frozen backbone.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Kunchang Li 等",
+      "summary": "VideoChat2 将经过时间信息预训练的 UMT 视觉编码器、指令感知的查询压缩与渐进训练相结合，是随 MVBench 一同提出的强基线模型。",
+      "architecture": "UMT-L 编码器提取包含时空上下文的视频帧特征。Q-Former 通过可学习查询压缩大量视觉特征，指令条件引导其选择相关证据。投影后的查询 token 进入 Vicuna 语言骨干模型，由 LoRA 适配语言生成。模型将视觉压缩与语言推理分开，并通过渐进训练完成连接，而非直接接入未经训练的投影层。",
+      "temporal_modeling": "UMT 视频编码器在查询压缩之前提供时间特征。覆盖多种任务的指令训练模型感知、排序、定位并推理不断变化的视觉事件。",
+      "training": "采用三个阶段：对齐 UMT-L 与 Q-Former、将二者的表示接入 LLM，以及指令微调。后续阶段适配视觉编码器与 Q-Former；语言侧通过 LoRA 适配，骨干模型保持冻结。",
       "datasets": [
-        "VideoChat2 instruction mixture: 2M samples from 34 sources"
+        "VideoChat2 混合指令数据：来自 34 个来源的 2M 个样本"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2311.17005",
@@ -484,9 +484,9 @@
         "https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2"
       ],
       "contribution_type": [
-        "architecture",
-        "training recipe",
-        "benchmark"
+        "模型架构",
+        "训练方案",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -508,12 +508,12 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2024-06-11",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Zesen Cheng et al.",
-      "summary": "VideoLLaMA 2 replaces query-only video compression with a spatial-temporal convolution connector and adds a separately pretrained audio branch for joint audio-video understanding.",
-      "architecture": "Framewise CLIP ViT-L/14 features enter an STC connector comprising spatial interaction blocks and strided 3D convolution for temporal/spatial aggregation. Its tokens feed an instruction-following LLM. The audio branch converts sound into spectrograms, uses BEATs, and applies a two-layer MLP. Reported language backbones include Mistral, Mixtral, and Qwen2; later checkpoints vary encoder/backbone configuration.",
-      "temporal_modeling": "The STC connector learns local spatial interaction and cross-frame aggregation before the LLM. BEATs contributes temporal acoustic features, with cross-modal reasoning occurring in the language decoder.",
-      "training": "Pretrain visual and audio connectors separately with frozen encoders and LLMs, then perform modality-specific multitask tuning. A final joint audio-video stage integrates the branches with audiovisual instructions; backbone choices should be matched to the released checkpoint.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Zesen Cheng 等",
+      "summary": "VideoLLaMA 2 使用时空卷积连接器替代仅基于查询的视频压缩，并加入单独预训练的音频分支，实现联合音视频理解。",
+      "architecture": "逐帧提取的 CLIP ViT-L/14 特征进入 STC 连接器，其中空间交互模块与带步长的 3D 卷积负责时间和空间聚合。输出 token 送入遵循指令的 LLM。音频分支将声音转为频谱图，使用 BEATs 提取特征，再经过两层 MLP。报告中的语言骨干模型包括 Mistral、Mixtral 和 Qwen2；后续检查点的编码器与骨干配置有所不同。",
+      "temporal_modeling": "STC 连接器在 LLM 之前学习局部空间交互与跨帧聚合。BEATs 提供包含时间信息的声学特征，跨模态推理则在语言解码器中进行。",
+      "training": "在编码器与 LLM 冻结的情况下分别预训练视觉和音频连接器，随后进行各模态的多任务微调。最后使用音视频指令联合训练以整合两个分支；骨干模型的选择应与具体发布的检查点对应。",
       "datasets": [
         "Panda-70M",
         "VIDAL-10M",
@@ -529,8 +529,8 @@
         "https://github.com/DAMO-NLP-SG/VideoLLaMA2/tree/audio_visual"
       ],
       "contribution_type": [
-        "architecture",
-        "audio-video understanding"
+        "模型架构",
+        "音视频理解"
       ],
       "technical_sources": [
         {
@@ -556,21 +556,21 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2025-01-22",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Boqiang Zhang et al.",
-      "summary": "VideoLLaMA 3 combines any-resolution vision tokenization with differential frame pruning, transferring strong image understanding into efficient video perception through a staged training curriculum.",
-      "architecture": "A SigLIP-initialized vision transformer is adapted to variable resolution using 2D rotary positional embeddings. Differential Frame Pruning removes redundant patches by comparing adjacent frames in pixel space. Remaining visual features pass through a multimodal projector into a Qwen2.5 language backbone. Explicit textual timestamps distinguish video frames; the model supports image, offline video, and interleaved streaming inputs.",
-      "temporal_modeling": "Adjacent-frame patch differences drive redundancy removal. Retained frame tokens and timestamps enter the LLM in order, concentrating the context budget on changing video evidence.",
-      "training": "The four stages are vision-encoder adaptation, vision-language alignment, multitask instruction fine-tuning, and video-centric fine-tuning. The first stage freezes the LLM; later stages train all parameters and introduce video compression and increasingly video-focused supervision.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Boqiang Zhang 等",
+      "summary": "VideoLLaMA 3 结合任意分辨率视觉 token 化与差分帧剪枝，通过分阶段训练将较强的图像理解能力迁移到高效视频感知。",
+      "architecture": "以 SigLIP 初始化的视觉 Transformer 通过二维旋转位置嵌入适配可变分辨率。Differential Frame Pruning 在像素空间比较相邻帧，移除冗余图像块。保留下来的视觉特征经多模态投影层输入 Qwen2.5 语言骨干模型。显式文本时间戳区分不同视频帧，模型支持图像、离线视频及交错输入的流式视频。",
+      "temporal_modeling": "相邻帧的图像块差异驱动冗余移除。保留的帧 token 与时间戳按顺序输入 LLM，将上下文预算集中用于发生变化的视频证据。",
+      "training": "四个阶段依次为视觉编码器适配、视觉—语言对齐、多任务指令微调和视频专项微调。第一阶段冻结 LLM；后续阶段训练全部参数，引入视频压缩以及逐步侧重视频的监督。",
       "primary_sources": [
         "https://arxiv.org/abs/2501.13106",
         "https://arxiv.org/html/2501.13106v4",
         "https://github.com/DAMO-NLP-SG/VideoLLaMA3"
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "training recipe"
+        "模型架构",
+        "token 压缩",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -587,23 +587,23 @@
     },
     {
       "id": 14,
-      "name": "InternVideo2 (MLLM branch)",
+      "name": "InternVideo2（MLLM 分支）",
       "slug": "14-internvideo2-mllm-branch",
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2024-03-22",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yi Wang et al.",
-      "summary": "InternVideo2’s dialogue branch connects a progressively pretrained video foundation encoder to an LLM, adding query compression and instruction tuning beyond the standalone representation model.",
-      "architecture": "InternVideo2’s large video transformer supplies spatiotemporal features learned through video-token reconstruction and multimodal contrastive training. The dialogue stage connects that encoder to a BLIP-style Q-Former and an open language model. High-definition post-training adds local video crops and a global resized view, while visual queries compress these features into language-compatible inputs for conversational generation.",
-      "temporal_modeling": "The foundation encoder models multiple frames jointly. High-definition post-training combines global and local video views and increases input frames to improve fine temporal and spatial evidence.",
-      "training": "First learn video representations with unmasked-token reconstruction, then multimodal contrastive objectives. Stage three adds next-token prediction for dialogue. Additional high-definition instruction training updates the video encoder and Q-Former while adapting the LLM using LoRA.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yi Wang 等",
+      "summary": "InternVideo2 的对话分支将渐进预训练的视频基础编码器接入 LLM，在独立表征模型的基础上增加查询压缩与指令微调。",
+      "architecture": "InternVideo2 的大规模视频 Transformer 提供通过视频 token 重建和多模态对比训练学习的时空特征。对话阶段将该编码器连接到 BLIP 风格的 Q-Former 和开放语言模型。高清后训练增加局部视频裁剪与全局缩放视图，视觉查询将这些特征压缩为兼容语言模型的输入，用于对话生成。",
+      "temporal_modeling": "基础编码器联合建模多帧。高清后训练结合全局和局部视频视图，并增加输入帧数，以改善细粒度时间和空间证据。",
+      "training": "首先通过未掩码 token 重建学习视频表示，再使用多模态对比目标训练。第三阶段加入用于对话的下一 token 预测。额外的高清指令训练更新视频编码器与 Q-Former，并通过 LoRA 适配 LLM。",
       "datasets": [
         "K-Mash",
         "InternVid",
         "InternVid2",
         "WebVid",
-        "LLaVA/video instruction mixture"
+        "LLaVA／视频混合指令数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2403.15377",
@@ -611,9 +611,9 @@
         "https://github.com/OpenGVLab/InternVideo/tree/main/InternVideo2"
       ],
       "contribution_type": [
-        "video encoder",
-        "MLLM integration",
-        "multimodal pretraining"
+        "视频编码器",
+        "MLLM 集成",
+        "多模态预训练"
       ],
       "technical_sources": [
         {
@@ -635,12 +635,12 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2025-01-21",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yi Wang et al.",
-      "summary": "InternVideo2.5 augments InternVL2.5 with hierarchical visual compression and task preference optimization, combining longer video context with richer supervision for fine-grained perception and reasoning.",
-      "architecture": "The system builds on InternVL2.5. Hierarchical Token Compression merges semantically redundant spatiotemporal tokens within and between video segments before the language decoder. Task-specific visual perception heads interface with the backbone through learned task embeddings. Rich annotations and Task Preference Optimization jointly refine detailed localization, temporal perception, and the use of compressed long-range evidence.",
-      "temporal_modeling": "Hierarchical compression exploits redundancy within and across temporal segments while preserving essential motion and events, increasing the duration that can fit into the language context.",
-      "training": "Use successive visual-text alignment, long-video context extension, and task-specific visual training stages. Rich vision annotations and Task Preference Optimization supply additional preference supervision for perception tasks beyond generic video captions and question answering.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yi Wang 等",
+      "summary": "InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好优化，以更长的视频上下文与更丰富的监督支持细粒度感知和推理。",
+      "architecture": "系统基于 InternVL2.5 构建。Hierarchical Token Compression 在语言解码器之前合并视频片段内部及片段之间语义冗余的时空 token。任务专用的视觉感知头通过可学习任务嵌入与骨干模型交互。丰富的标注与 Task Preference Optimization 共同改善细致定位、时间感知，以及对压缩后长程证据的利用。",
+      "temporal_modeling": "分层压缩利用时间片段内部与片段之间的冗余，同时保留关键运动和事件，使语言上下文能够容纳更长的视频。",
+      "training": "依次进行视觉—文本对齐、长视频上下文扩展和任务专用视觉训练。丰富的视觉标注与 Task Preference Optimization 提供额外的感知任务偏好监督，补充通用视频描述和问答监督。",
       "datasets": [
         "LLaVA-Video-178K",
         "ShareGPT4o",
@@ -654,9 +654,9 @@
         "https://github.com/OpenGVLab/InternVideo/tree/main/InternVideo2.5"
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "preference optimization"
+        "模型架构",
+        "token 压缩",
+        "偏好优化"
       ],
       "technical_sources": [
         {
@@ -678,21 +678,21 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2026-06-10",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Ziang Yan et al.",
-      "summary": "InternVideo3 compresses multimodal attention states while retaining input tokens, pairing efficient long-context attention with closed-loop evidence collection, memory, and verification for video reasoning.",
-      "architecture": "A pretrained multimodal backbone is converted from grouped-query attention to Multimodal Multi-head Latent Attention, storing compact latent KV states and reconstructing head-specific keys and values during attention. Its visual-language token interface remains usable for video inputs. Multimodal Contextual Reasoning maintains observations, reasoning traces, tool actions, feedback, and memory in one evolving context for iterative answers.",
-      "temporal_modeling": "The full multimodal token stream is retained as cached states are compressed. A video agent can revisit temporal evidence through retrieval and verification tools.",
-      "training": "Continue pretraining after attention conversion, then apply short-to-long supervised video tuning, rule-based reinforcement learning on verifiable tasks, and on-policy teacher distillation. The paper separately instantiates retrieval and verification tools around the trained backbone.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Ziang Yan 等",
+      "summary": "InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将高效长上下文注意力与闭环证据收集、记忆和核验结合，用于视频推理。",
+      "architecture": "预训练多模态骨干模型的分组查询注意力被转换为 Multimodal Multi-head Latent Attention：缓存紧凑的潜在 KV 状态，并在注意力计算时重建各头的键和值。其视觉—语言 token 接口仍可用于视频输入。Multimodal Contextual Reasoning 将观测、推理轨迹、工具动作、反馈与记忆维护在持续演化的统一上下文中，迭代生成回答。",
+      "temporal_modeling": "在压缩缓存状态时保留完整的多模态 token 流。视频智能体可通过检索和核验工具重新查看时间相关证据。",
+      "training": "注意力转换后继续预训练，随后进行从短到长的监督式视频微调、针对可核验任务的基于规则的强化学习，以及同策略教师蒸馏。论文还在训练后的骨干模型外单独配置检索与核验工具。",
       "primary_sources": [
         "https://arxiv.org/abs/2606.12195",
         "https://arxiv.org/html/2606.12195v1",
         "https://github.com/OpenGVLab/InternVideo/tree/main/InternVideo3"
       ],
       "contribution_type": [
-        "attention architecture",
-        "long context",
-        "agentic system"
+        "注意力架构",
+        "长上下文",
+        "智能体系统"
       ],
       "technical_sources": [
         {
@@ -714,12 +714,12 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2024-12-13",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Orr Zohar et al.",
-      "summary": "Apollo combines image and video encoders with Perceiver token resampling, deriving a practical video-language architecture from systematic studies of sampling, fusion, training, and data.",
-      "architecture": "SigLIP-SO400M supplies spatial detail and InternVideo2 supplies video features. Encoder outputs are interpolated to compatible layouts, concatenated along channels, and compressed by a Perceiver Resampler to 32 tokens per frame. Clip timestamps and projected visual tokens are supplied to Qwen2.5 language backbones, released at 1.5B, 3B, and 7B model scales.",
-      "temporal_modeling": "The video encoder captures local dynamics; frame-rate sampling and timestamped clip sequences expose progression to the LLM. The paper studies frames and tokens per second independently.",
-      "training": "Apply the paper’s three-stage gradual training schedule, first learning the connector and then adapting language and visual components. Mixed text, image, multi-image, and video supervision is used when the LLM is trainable.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Orr Zohar 等",
+      "summary": "Apollo 将图像、视频编码器与 Perceiver token 重采样结合，通过系统研究采样、融合、训练和数据，形成实用的视频—语言架构。",
+      "architecture": "SigLIP-SO400M 提供空间细节，InternVideo2 提供视频特征。两个编码器的输出先插值到兼容布局，再沿通道维度拼接，并由 Perceiver Resampler 压缩为每帧 32 个 token。片段时间戳与投影后的视觉 token 一同输入 Qwen2.5 语言骨干模型，发布的模型规模为 1.5B、3B 和 7B。",
+      "temporal_modeling": "视频编码器捕获局部动态；按帧率采样与带时间戳的片段序列向 LLM 展示视频进程。论文分别研究每秒帧数与每秒 token 数的影响。",
+      "training": "采用论文中的三阶段渐进训练方案，先学习连接器，再适配语言和视觉组件。在 LLM 参与训练时，混合使用文本、图像、多图像和视频监督。",
       "primary_sources": [
         "https://arxiv.org/abs/2412.10360",
         "https://arxiv.org/html/2412.10360v1",
@@ -727,10 +727,10 @@
         "https://huggingface.co/Apollo-LMMs"
       ],
       "contribution_type": [
-        "architecture",
-        "design study",
-        "training recipe",
-        "benchmark"
+        "模型架构",
+        "架构设计研究",
+        "训练方案",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -748,7 +748,7 @@
           "url": "https://huggingface.co/Apollo-LMMs"
         }
       ],
-      "availability_note": "Use the official project and Apollo-LMMs model pages. Third-party code mirrors are not treated as an author implementation."
+      "availability_note": "使用官方项目页面与 Apollo-LMMs 模型页面。第三方代码镜像不视为作者官方实现。"
     },
     {
       "id": 18,
@@ -757,12 +757,12 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2024-06-13",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Muhammad Maaz et al.",
-      "summary": "VideoGPT+ combines complementary image and video encoders with segment-wise sampling and adaptive token pooling, preserving spatial detail and local dynamics for conversational video understanding.",
-      "architecture": "A CLIP image encoder captures detailed appearance, while an InternVideo2 video encoder captures motion within sampled segments. Separate MLP projectors map their features into language space. Adaptive spatial pooling controls token counts; projected image and video tokens are concatenated and passed with the question to a LoRA-adapted Phi-3-Mini-3.8B language model.",
-      "temporal_modeling": "Segment-wise sampling preserves groups of neighboring frames for the video encoder rather than relying only on sparse independent frames. Fusion supplies local motion alongside frame-level detail.",
-      "training": "Pretrain the image and video adapters in two separate stages on CC595K while freezing both encoders and the LLM. Then jointly tune the adapters and language-model LoRA on VideoInstruct-100K, VideoChat2 data, and VCG+112K video instructions.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Muhammad Maaz 等",
+      "summary": "VideoGPT+ 结合互补的图像和视频编码器、分段采样及自适应 token 池化，为对话式视频理解保留空间细节和局部动态。",
+      "architecture": "CLIP 图像编码器捕获细致的外观信息，InternVideo2 视频编码器捕获采样片段内的运动。独立的 MLP 投影层将两类特征映射到语言空间。自适应空间池化控制 token 数量，投影后的图像与视频 token 拼接后，与问题一同输入通过 LoRA 适配的 Phi-3-Mini-3.8B 语言模型。",
+      "temporal_modeling": "分段采样为视频编码器保留相邻帧组，而非仅使用稀疏、独立的帧。融合表示同时提供局部运动信息与帧级细节。",
+      "training": "冻结两个编码器与 LLM，在 CC595K 上分两个独立阶段分别预训练图像和视频适配器。随后使用 VideoInstruct-100K、VideoChat2 数据及 VCG+112K 视频指令，联合微调两个适配器和语言模型的 LoRA 参数。",
       "datasets": [
         "VideoInstruct-100K",
         "VideoChat2",
@@ -774,9 +774,9 @@
         "https://github.com/mbzuai-oryx/VideoGPT-plus"
       ],
       "contribution_type": [
-        "architecture",
-        "instruction data",
-        "benchmark"
+        "模型架构",
+        "指令数据",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -798,18 +798,18 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2024-06-30",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Jiawei Wang et al.",
-      "summary": "Tarsier uses a simple framewise CLIP-to-LLM architecture, focusing its contribution on large-scale multitask training, human-annotated descriptions, and evaluation of detailed video generation.",
-      "architecture": "A frozen CLIP ViT encodes each sampled frame independently. A frozen MLP maps frame features to the language model’s token space, and an end-of-image token separates successive frames. The concatenated visual sequence enters an LLaVA-NeXT-initialized language model for autoregressive generation. The architecture delegates inter-frame relationships entirely to the LLM rather than introducing a separate temporal encoder.",
-      "temporal_modeling": "Ordered frame tokens and end-of-image separators expose sequence structure to language-model attention. Training on captioning, recognition, localization, and QA teaches how frames relate over time.",
-      "training": "Conduct large-scale multitask pretraining followed by instruction tuning on moderate-scale human-annotated detailed descriptions. During the reported Tarsier training, the vision encoder and MLP stay frozen while the LLM learns with next-token prediction.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Jiawei Wang 等",
+      "summary": "Tarsier 采用简单的逐帧 CLIP 到 LLM 架构，主要贡献在于大规模多任务训练、人工标注描述及详细视频生成评测。",
+      "architecture": "冻结的 CLIP ViT 独立编码各采样帧。冻结的 MLP 将帧特征映射到语言模型的 token 空间，并用图像结束 token 分隔连续帧。拼接后的视觉序列输入由 LLaVA-NeXT 初始化的语言模型，进行自回归生成。帧间关系完全由 LLM 处理，架构没有另外加入时间编码器。",
+      "temporal_modeling": "按顺序排列的帧 token 与图像结束分隔符向语言模型注意力提供序列结构。描述、识别、定位和问答训练帮助模型学习帧之间随时间变化的关系。",
+      "training": "先进行大规模多任务预训练，再利用中等规模的人工标注详细描述进行指令微调。报告中的 Tarsier 训练始终冻结视觉编码器和 MLP，由 LLM 通过下一 token 预测学习。",
       "datasets": [
         "WebVid",
         "Ego4D",
         "Spoken Moments",
         "Kinetics",
-        "Tarsier human-annotated instruction data"
+        "Tarsier 人工标注指令数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2407.00634",
@@ -817,9 +817,9 @@
         "https://github.com/bytedance/tarsier"
       ],
       "contribution_type": [
-        "training recipe",
-        "instruction data",
-        "evaluation"
+        "训练方案",
+        "指令数据",
+        "评测"
       ],
       "technical_sources": [
         {
@@ -841,16 +841,16 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2025-01-14",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Liping Yuan et al.",
-      "summary": "The 2025 Tarsier2 report improves a Qwen2-VL-based video model through expanded multitask pretraining, frame-event supervision, and automatic preference optimization for comprehensive video understanding.",
-      "architecture": "The report initializes its 7B model from Qwen2-VL and retains that backbone’s visual tokenization and language interface. Video tokens are processed jointly with instructions for autoregressive text generation. The principal changes concern supervision and optimization rather than a newly introduced connector. This report version should be distinguished from earlier project checkpoints also named Tarsier2.",
-      "temporal_modeling": "Fine-grained annotations associate individual event descriptions with supporting frame intervals, teaching temporal grounding and reducing omitted events. The inherited video token sequence carries visual evidence to the LLM.",
-      "training": "Pretrain on 40M public and newly collected samples, then perform two-stage SFT using temporally grounded and natural descriptions. Automatically constructed preference pairs support DPO with fine-grained event evaluation, refining factual and comprehensive video descriptions.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Liping Yuan 等",
+      "summary": "2025 年的 Tarsier2 报告通过扩大多任务预训练、帧—事件监督和自动偏好优化，改进基于 Qwen2-VL 的模型，实现全面视频理解。",
+      "architecture": "报告中的 7B 模型从 Qwen2-VL 初始化，保留该骨干模型的视觉 token 化方式和语言接口。视频 token 与指令联合处理，用于自回归文本生成。主要改动涉及监督和优化，而非新提出的连接器。应将这一报告版本与此前项目中同样名为 Tarsier2 的检查点区分。",
+      "temporal_modeling": "细粒度标注将每个事件描述与支撑它的帧区间对应，训练时间定位能力并减少事件遗漏。继承的视频 token 序列将视觉证据传递给 LLM。",
+      "training": "先在 40M 个公开及新收集样本上预训练，再使用具有时间定位标注的描述与自然描述进行两阶段监督微调（SFT）。自动构建的偏好对配合细粒度事件评估，用于 DPO，改善视频描述的事实准确性和完整性。",
       "datasets": [
-        "40M pretraining mixture",
-        "150K SFT video clips",
-        "Tarsier2 preference data"
+        "40M 混合预训练数据",
+        "150K 个 SFT 视频片段",
+        "Tarsier2 偏好数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2501.07888",
@@ -858,9 +858,9 @@
         "https://github.com/bytedance/tarsier"
       ],
       "contribution_type": [
-        "training recipe",
-        "temporal supervision",
-        "preference optimization"
+        "训练方案",
+        "时间监督",
+        "偏好优化"
       ],
       "technical_sources": [
         {
@@ -874,7 +874,7 @@
           "url": "https://github.com/bytedance/tarsier"
         }
       ],
-      "version_note": "This card describes the 2025 report initialized from Qwen2-VL, rather than an earlier differently configured project checkpoint."
+      "version_note": "本条目介绍从 Qwen2-VL 初始化的 2025 年报告版本，而非此前配置不同的项目检查点。"
     },
     {
       "id": 21,
@@ -883,16 +883,16 @@
       "record_type": "model_or_version",
       "category": "video-native",
       "first_public_date": "2026-07-16",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Xinhao Li et al.",
-      "summary": "VideoChat3 inflates image-transformer attention into local 3D video attention, combining early spatiotemporal compression with adaptive resolution for offline, long-video, and proactive streaming understanding.",
-      "architecture": "I3D-ViT groups consecutive frames into short chunks and expands pretrained 2D spatial attention into 3D spatiotemporal attention. Spatial 2×2 merging and temporal pooling compress tokens before an MLP projector and language model. For streaming inputs, generated state tokens control frame-resolution quotas, allocating more visual detail around uncertain or important moments before issuing a response.",
-      "temporal_modeling": "Local 3D attention captures motion before compression. Chunk-wise temporal pooling reduces redundancy, while streaming state transitions regulate when additional evidence and higher resolution are needed.",
-      "training": "Apply four stages: visual-tokenizer pretraining, video-language alignment, general video instruction tuning, and long/streaming instruction tuning. Projector warm-up precedes joint adaptation; the final stage trains the projector and LLM using long-form and response-timing supervision.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Xinhao Li 等",
+      "summary": "VideoChat3 将图像 Transformer 的注意力扩展为局部 3D 视频注意力，结合早期时空压缩与自适应分辨率，支持离线、长视频和主动流式理解。",
+      "architecture": "I3D-ViT 将连续帧组成短片段，并将预训练二维空间注意力扩展为三维时空注意力。空间 2×2 合并与时间池化在 MLP 投影层和语言模型之前压缩 token。对于流式输入，生成的状态 token 控制帧分辨率配额，在回答之前为不确定或重要时刻分配更多视觉细节。",
+      "temporal_modeling": "局部 3D 注意力在压缩之前捕获运动。按片段进行的时间池化减少冗余，流式状态转换则决定何时需要更多证据和更高分辨率。",
+      "training": "采用四个阶段：视觉 tokenizer 预训练、视频—语言对齐、通用视频指令微调，以及长视频／流式指令微调。先预热投影层，再联合适配；最后阶段利用长视频和回答时机监督训练投影层与 LLM。",
       "datasets": [
         "VideoChat3-Academic2M",
         "VideoChat3-LV116K",
-        "streaming instruction data"
+        "流式指令数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2607.14935",
@@ -900,10 +900,10 @@
         "https://github.com/MCG-NJU/VideoChat3"
       ],
       "contribution_type": [
-        "video encoder",
-        "token compression",
-        "streaming architecture",
-        "instruction data"
+        "视频编码器",
+        "token 压缩",
+        "流式架构",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -925,25 +925,25 @@
       "record_type": "model_or_version",
       "category": "foundations",
       "first_public_date": "2024-04-30",
-      "date_basis": "official blog publication date",
-      "authors": "Yuanhan Zhang et al.",
-      "summary": "LLaVA-NeXT-Video transfers an image-trained visual-language architecture to multiple frames, then improves video understanding through instruction tuning, context extension, and direct preference optimization.",
-      "architecture": "LLaVA-NeXT’s pretrained vision encoder extracts features from multiple frames as an extension of its AnyRes multi-crop image representation. Projected visual tokens form a sequence for the language decoder; spatial pooling controls video token growth. The official report compares zero-shot image-model transfer, video-supervised checkpoints, and a DPO-refined model, with linear positional scaling extending inference context.",
-      "temporal_modeling": "Frame sequences replace image crops, allowing the language model to learn or infer temporal relations. Spatial pooling and context-length scaling make longer sequences practical.",
-      "training": "Begin with an image-only-trained LLaVA-NeXT checkpoint. Fine-tune on mixed image and video instruction data, then optionally apply DPO using AI feedback on video responses. The official technical source is the authors’ April 2024 blog.",
+      "date_basis": "官方博客发布日期",
+      "authors": "Yuanhan Zhang 等",
+      "summary": "LLaVA-NeXT-Video 将经过图像训练的视觉—语言架构迁移到多帧输入，再通过指令微调、上下文扩展和直接偏好优化改进视频理解。",
+      "architecture": "LLaVA-NeXT 的预训练视觉编码器将其 AnyRes 多裁剪图像表示扩展到多帧特征提取。投影后的视觉 token 组成语言解码器的输入序列，空间池化控制视频 token 的增长。官方报告比较图像模型的零样本迁移、经过视频监督的检查点，以及 DPO 改进后的模型，并使用线性位置缩放扩展推理上下文。",
+      "temporal_modeling": "以帧序列替代图像裁剪，使语言模型能够学习或推断时间关系。空间池化与上下文长度缩放支持更长序列的处理。",
+      "training": "从仅使用图像训练的 LLaVA-NeXT 检查点出发，在混合图像和视频指令数据上微调；还可利用 AI 对视频回答的反馈进行 DPO。官方技术来源是作者于 2024 年 4 月发布的博客。",
       "datasets": [
         "Video-ChatGPT",
-        "LLaVA image instructions",
-        "video preference data"
+        "LLaVA 图像指令",
+        "视频偏好数据"
       ],
       "primary_sources": [
         "https://llava-vl.github.io/blog/2024-04-30-llava-next-video/",
         "https://github.com/LLaVA-VL/LLaVA-NeXT"
       ],
       "contribution_type": [
-        "image-to-video transfer",
-        "training recipe",
-        "preference optimization"
+        "图像到视频迁移",
+        "训练方案",
+        "偏好优化"
       ],
       "technical_sources": [
         {
@@ -965,14 +965,14 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2024-08-06",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Bo Li et al.",
-      "summary": "LLaVA-OneVision unifies single-image, multi-image, and video understanding using SigLIP, a lightweight projector, and Qwen2, emphasizing task transfer through a staged multimodal curriculum.",
-      "architecture": "SigLIP encodes visual inputs and a two-layer MLP maps grid features into Qwen2 token embeddings. Single images use flexible AnyRes layouts; multiple images and video frames use lower token budgets. For videos, spatial interpolation reduces each frame to 196 tokens before ordered concatenation. The same autoregressive language decoder handles all three visual scenarios.",
-      "temporal_modeling": "Spatially downsampled frame tokens enter the LLM sequentially. Cross-scenario training transfers image and multi-image capabilities to temporal video tasks without a separate learned temporal connector.",
-      "training": "Train through language-image alignment, high-quality knowledge learning, and visual instruction tuning. The final stage first strengthens single-image instructions, then mixes single-image, multi-image, and video examples to encourage transfer across the three scenarios.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Bo Li 等",
+      "summary": "LLaVA-OneVision 通过 SigLIP、轻量投影层与 Qwen2 统一单图、多图和视频理解，并以分阶段多模态训练促进任务间迁移。",
+      "architecture": "SigLIP 编码视觉输入，两层 MLP 将网格特征映射到 Qwen2 的 token 嵌入空间。单图使用灵活的 AnyRes 布局，多图和视频帧使用更低的 token 预算。视频输入通过空间插值将每帧压缩为 196 个 token，再按顺序拼接。同一个自回归语言解码器处理全部三类视觉场景。",
+      "temporal_modeling": "经过空间降采样的帧 token 按顺序进入 LLM。跨场景训练将单图和多图能力迁移到视频时间任务，无需独立学习的时间连接器。",
+      "training": "依次进行语言—图像对齐、高质量知识学习和视觉指令微调。最后阶段先强化单图指令，再混合单图、多图与视频样本，以促进三类场景之间的能力迁移。",
       "datasets": [
-        "LLaVA-OneVision data mixture",
+        "LLaVA-OneVision 混合数据",
         "LCS-558K"
       ],
       "primary_sources": [
@@ -981,9 +981,9 @@
         "https://github.com/LLaVA-VL/LLaVA-NeXT"
       ],
       "contribution_type": [
-        "unified architecture",
-        "task transfer",
-        "training recipe"
+        "统一架构",
+        "任务迁移",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1005,15 +1005,15 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2024-10-03",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yuanhan Zhang et al.",
-      "summary": "LLaVA-Video develops a data-driven video assistant by tuning an image-capable LLaVA backbone on synthetic detailed captions and QA, with efficient frame-token representations.",
-      "architecture": "The model starts from an image-trained LLaVA-OneVision backbone: SigLIP visual features, a lightweight projector, and a Qwen2 language decoder. Video frames are represented as an ordered visual-token sequence. The updated paper additionally studies SlowFast input representations, assigning fewer tokens to fast frames and more to slow frames through different spatial pooling rates, while avoiding duplicate frame representations.",
-      "temporal_modeling": "Dense frame sampling exposes video progression; optional SlowFast pooling redistributes spatial detail across frames. The primary improvement comes from temporally detailed caption and QA supervision.",
-      "training": "Tune the image-capable backbone on LLaVA-Video-178K synthetic detailed captions, open-ended QA, and multiple-choice QA, together with existing visual instructions. GPT-4o supplies hierarchical video descriptions and questions; the work’s main contribution is data synthesis.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yuanhan Zhang 等",
+      "summary": "LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力的 LLaVA 骨干模型，结合高效帧 token 表示，构建数据驱动的视频助手。",
+      "architecture": "模型从经过图像训练的 LLaVA-OneVision 骨干模型出发，包含 SigLIP 视觉特征、轻量投影层和 Qwen2 语言解码器。视频帧表示为有序视觉 token 序列。更新后的论文还研究 SlowFast 输入表示：通过不同的空间池化率，为快路径帧分配较少 token、为慢路径帧分配较多 token，同时避免重复表示同一帧。",
+      "temporal_modeling": "密集帧采样展示视频进程，可选的 SlowFast 池化在不同帧之间重新分配空间细节。主要提升来自时间维度上细致的视频描述与问答监督。",
+      "training": "利用 LLaVA-Video-178K 中合成的详细描述、开放式问答和选择题问答，结合已有视觉指令，微调具备图像能力的骨干模型。GPT-4o 提供分层视频描述和问题；这项工作的主要贡献是数据合成。",
       "datasets": [
         "LLaVA-Video-178K",
-        "existing visual instruction mixture"
+        "已有混合视觉指令数据"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2410.02713",
@@ -1021,9 +1021,9 @@
         "https://github.com/LLaVA-VL/LLaVA-NeXT"
       ],
       "contribution_type": [
-        "instruction data",
-        "data synthesis",
-        "video representation"
+        "指令数据",
+        "数据合成",
+        "视频表示"
       ],
       "technical_sources": [
         {
@@ -1037,7 +1037,7 @@
           "url": "https://github.com/LLaVA-VL/LLaVA-NeXT"
         }
       ],
-      "version_note": "The displayed representation figure is from arXiv v3. It explains the published video input options; the card's date is the original v1 date."
+      "version_note": "展示的表示方式示意图来自 arXiv v3，用于说明已发表的视频输入选项；条目日期采用最初 v1 的日期。"
     },
     {
       "id": 25,
@@ -1046,12 +1046,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2026-05-25",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Xiang An et al.",
-      "summary": "Uses compressed video signals to allocate visual tokens around informative motion, joining codec canvases, sampled frames, and images in one perceptual architecture.",
-      "architecture": "The native OneVision-Encoder processes images, ordinary sampled frames, and compact codec canvases. Windowed attention limits local computation, while group visibility controls codec evidence interaction. A lightweight connector merges and projects visual embeddings into Qwen3-8B. Text and visual tokens share the autoregressive decoder; codec processing introduces no separate language branch or reconstruction decoder.",
-      "temporal_modeling": "Packet bit-cost defines adaptive temporal groups; motion and residual cues select spatial patches. Shared 3D RoPE preserves source coordinates across codec and frame inputs.",
-      "training": "Four progressive stages move from image grounding and short captions to long video instructions and spatial supervision. The final stage mixes codec inputs with sampled videos and images, supporting both video grounding and spatial reasoning.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Xiang An 等",
+      "summary": "利用压缩视频信号，将视觉 token 分配给信息量较高的运动区域，并在统一的感知架构中处理编解码画布、采样帧与图像。",
+      "architecture": "原生 OneVision-Encoder 处理图像、常规采样帧和紧凑的编解码画布。窗口注意力限制局部计算量，组可见性机制控制编解码证据之间的交互。轻量连接器合并视觉嵌入并将其投影至 Qwen3-8B。文本与视觉 token 共用自回归解码器；编解码处理没有引入独立的语言分支或重建解码器。",
+      "temporal_modeling": "数据包的比特开销决定自适应时间分组，运动和残差信息用于选择空间 patch。共享的 3D RoPE 在编解码输入与帧输入之间保留原始坐标。",
+      "training": "四个渐进阶段从图像定位和短描述逐步过渡到长视频指令与空间监督。最后阶段混合编解码输入、采样视频和图像，同时支持视频定位与空间推理。",
       "primary_sources": [
         {
           "label": "LLaVA-OneVision-2: Towards Next-Generation Perceptual Intelligence",
@@ -1063,10 +1063,10 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "video tokenization",
-        "training recipe",
-        "dataset"
+        "模型架构",
+        "视频 token 化",
+        "训练方案",
+        "数据集"
       ],
       "technical_sources": [
         {
@@ -1088,12 +1088,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2024-12-06",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Zhe Chen et al.",
-      "summary": "Scales an established vision-language architecture through improved visual encoders, curated multimodal data, preference optimization, and inference recipes, including multi-frame video understanding.",
-      "architecture": "InternViT-300M or InternViT-6B encodes each image tile or sampled frame. Pixel unshuffle reduces spatial token count before a two-layer MLP maps features into an InternLM2.5 or Qwen2.5 language model. Video frames enter the decoder as ordered visual inputs. The central stack follows earlier InternVL versions; improvements concentrate on scaling and optimization.",
-      "temporal_modeling": "Video training uses frame sequences with one tile per frame. Their ordering enters the language context, without a newly introduced dedicated temporal encoder.",
-      "training": "MLP warm-up precedes optional vision adaptation and full instruction tuning. Data filtering, progressive model scaling, loss reweighting, and mixed preference optimization improve learning; chain-of-thought inference and test-time scaling provide additional gains.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Zhe Chen 等",
+      "summary": "通过改进视觉编码器、筛选多模态数据、偏好优化及推理方案，扩展已有视觉语言架构的能力，支持多帧视频理解。",
+      "architecture": "InternViT-300M 或 InternViT-6B 编码每个图像分块或采样帧。Pixel unshuffle 先减少空间 token 数量，再由两层 MLP 将特征映射至 InternLM2.5 或 Qwen2.5 语言模型。视频帧作为有序视觉输入进入解码器。核心结构沿用早期 InternVL 版本，改进主要集中在规模扩展与优化。",
+      "temporal_modeling": "视频训练使用帧序列，每帧对应一个分块。帧的顺序进入语言上下文，没有新引入的专用时间编码器。",
+      "training": "MLP 预热之后进行可选的视觉适配及完整的指令微调。数据过滤、渐进式模型扩展、损失重加权及混合偏好优化改善学习效果；思维链推理与测试时扩展进一步提升性能。",
       "primary_sources": [
         {
           "label": "Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling",
@@ -1105,9 +1105,9 @@
         }
       ],
       "contribution_type": [
-        "training recipe",
-        "data curation",
-        "scaling"
+        "训练方案",
+        "数据整理",
+        "规模扩展"
       ],
       "technical_sources": [
         {
@@ -1129,12 +1129,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-04-14",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Jinguo Zhu et al.",
-      "summary": "Jointly develops language and visual abilities during multimodal pretraining, extending the InternVL stack with variable visual positions and stronger post-training and inference recipes.",
-      "architecture": "An InternViT encoder, pixel unshuffle, and a randomly initialized two-layer MLP connect to a pretrained Qwen2.5 or InternLM3 base decoder. Image tiles and video frames become visual tokens within mixed text contexts. Variable Visual Position Encoding assigns flexible position increments to visual tokens, improving context scalability while retaining the familiar encoder-projector-decoder stack.",
-      "temporal_modeling": "V2PE reduces visual position consumption with variable increments, accommodating longer multimodal contexts. Ordered frame inputs remain jointly interpreted by the autoregressive language backbone.",
-      "training": "Native multimodal pretraining jointly exposes the model to visual data and pure text, initializing from pretrained components. Supervised fine-tuning and mixed preference optimization follow; process reward models and test-time scaling further strengthen reasoning.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Jinguo Zhu 等",
+      "summary": "在多模态预训练中共同发展语言与视觉能力，为 InternVL 结构加入可变视觉位置编码，并改进后训练及推理方案。",
+      "architecture": "InternViT 编码器、pixel unshuffle 和随机初始化的两层 MLP 连接至预训练的 Qwen2.5 或 InternLM3 基础解码器。图像分块和视频帧转化为视觉 token，进入混合文本上下文。可变视觉位置编码为视觉 token 分配灵活的位置增量，在保留编码器—投影层—解码器结构的同时，提高上下文扩展能力。",
+      "temporal_modeling": "V2PE 通过可变增量减少视觉输入占用的位置，支持更长的多模态上下文。有序帧输入仍由自回归语言骨干模型共同解释。",
+      "training": "原生多模态预训练从预训练组件初始化，联合使用视觉数据和纯文本。随后进行监督微调（SFT）与混合偏好优化；过程奖励模型和测试时扩展进一步增强推理能力。",
       "primary_sources": [
         {
           "label": "InternVL3: Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models",
@@ -1146,9 +1146,9 @@
         }
       ],
       "contribution_type": [
-        "training recipe",
-        "position encoding",
-        "context extension"
+        "训练方案",
+        "位置编码",
+        "上下文扩展"
       ],
       "technical_sources": [
         {
@@ -1170,12 +1170,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-08-25",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Weiyun Wang et al.",
-      "summary": "Combines native multimodal learning and Cascade RL with optional visual resolution routing, improving reasoning and deployment efficiency across images, videos, and broader tasks.",
-      "architecture": "InternVL3.5 retains InternViT, spatial token compression, an MLP projector, and a Qwen3 or GPT-OSS language backbone. Its Flash variants add a Visual Resolution Router that selects the compression rate for each tile using semantic content. Decoupled Vision-Language Deployment schedules vision encoding and language inference on separate devices with overlapping execution.",
-      "temporal_modeling": "Videos remain sequences of visual frame tokens. Resolution routing changes their spatial budget; these efficiency mechanisms do not introduce a separate temporal encoder.",
-      "training": "Native multimodal pretraining and supervised tuning establish capabilities. Cascade RL combines offline and online optimization for reasoning. Flash additionally uses visual consistency and router training to preserve performance when reducing the visual token budget.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Weiyun Wang 等",
+      "summary": "结合原生多模态学习、Cascade RL 及可选的视觉分辨率路由，提升图像、视频和更广泛任务中的推理能力与部署效率。",
+      "architecture": "InternVL3.5 保留 InternViT、空间 token 压缩、MLP 投影层及 Qwen3 或 GPT-OSS 语言骨干模型。其 Flash 变体加入视觉分辨率路由器，根据语义内容为每个图像分块选择压缩率。解耦视觉语言部署将视觉编码与语言推理安排在不同设备上，并使两者重叠执行。",
+      "temporal_modeling": "视频仍以视觉帧 token 序列表示。分辨率路由调整其空间 token 预算；这些效率机制没有引入独立的时间编码器。",
+      "training": "原生多模态预训练和监督微调建立基础能力。Cascade RL 结合离线与在线优化来增强推理。Flash 额外使用视觉一致性与路由器训练，在减少视觉 token 预算时保持性能。",
       "primary_sources": [
         {
           "label": "InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency",
@@ -1187,9 +1187,9 @@
         }
       ],
       "contribution_type": [
-        "training recipe",
-        "token compression",
-        "deployment system"
+        "训练方案",
+        "token 压缩",
+        "部署系统"
       ],
       "technical_sources": [
         {
@@ -1211,12 +1211,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2024-09-18",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Peng Wang et al.",
-      "summary": "Unifies variable-resolution images and videos with tubelet encoding and multimodal rotary positions, explicitly separating temporal and spatial coordinates inside a general language model.",
-      "architecture": "A dynamic-resolution Vision Transformer encodes images and video using two-frame 3D tubelet patching, treating images as duplicated frames. Adjacent spatial patches are merged and projected into a Qwen2 language decoder. The resulting variable-length visual sequences are mixed with text; M-RoPE supplies separate temporal, height, and width components for multimodal position encoding.",
-      "temporal_modeling": "M-RoPE distinguishes frame time from spatial patch positions. Two-frame tubelets aggregate neighboring observations, while frame resolution adapts to a fixed video token budget.",
-      "training": "Training first develops the vision component with image-text data, then jointly updates all parameters using mixed multimodal and text corpora. Instruction tuning freezes the vision encoder and further adapts the language model for user-facing tasks.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Peng Wang 等",
+      "summary": "通过时空管块编码与多模态旋转位置编码统一处理可变分辨率的图像和视频，在通用语言模型中显式区分时间与空间坐标。",
+      "architecture": "动态分辨率 Vision Transformer 使用双帧 3D 时空管块划分来编码图像与视频，其中图像被视为重复的两帧。相邻空间 patch 合并后投影至 Qwen2 语言解码器。生成的可变长度视觉序列与文本混合；M-RoPE 为多模态位置编码分别提供时间、高度和宽度分量。",
+      "temporal_modeling": "M-RoPE 区分帧的时间坐标与空间 patch 位置。双帧时空管块聚合相邻观测，同时在固定视频 token 预算内调整帧分辨率。",
+      "training": "首先通过图文数据训练视觉组件，再使用混合多模态与文本语料联合更新全部参数。指令微调时冻结视觉编码器，进一步适配语言模型以完成面向用户的任务。",
       "primary_sources": [
         {
           "label": "Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution",
@@ -1228,9 +1228,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "position encoding",
-        "dynamic resolution"
+        "模型架构",
+        "位置编码",
+        "动态分辨率"
       ],
       "technical_sources": [
         {
@@ -1252,12 +1252,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-02-19",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Shuai Bai et al.",
-      "summary": "Adds efficient windowed vision attention, dynamic video sampling, and absolute-time positions to the Qwen vision-language stack for long videos and precise temporal localization.",
-      "architecture": "A dynamic-resolution ViT processes native-size images and video tubelets, using mostly window attention with selected global layers. Spatial merging maps visual features into the Qwen2.5 decoder. RMSNorm and SwiGLU align the vision architecture with the language backbone. The decoder consumes mixed text and visual tokens, with MRoPE time IDs tied to actual timestamps.",
-      "temporal_modeling": "Dynamic FPS training exposes variable sampling rates. Absolute-time temporal IDs preserve elapsed-time meaning, helping the model distinguish event speed and localize moments.",
-      "training": "Progressive multimodal pretraining increases capability and sequence length using image, video, document, grounding, and text data. Supervised fine-tuning and direct preference optimization then improve instruction adherence and behavioral alignment across supported tasks.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Shuai Bai 等",
+      "summary": "在 Qwen 视觉语言结构中加入高效窗口视觉注意力、动态视频采样和绝对时间位置编码，支持长视频理解及精确时间定位。",
+      "architecture": "动态分辨率 ViT 处理原生尺寸图像与视频时空管块，主要使用窗口注意力，并在选定层使用全局注意力。空间合并将视觉特征映射至 Qwen2.5 解码器。RMSNorm 和 SwiGLU 使视觉架构与语言骨干模型保持一致。解码器接收混合的文本与视觉 token，MRoPE 的时间 ID 与实际时间戳关联。",
+      "temporal_modeling": "动态 FPS 训练使模型接触不同采样率。绝对时间 ID 保留真实经过时间的含义，帮助模型区分事件速度并定位具体时刻。",
+      "training": "渐进式多模态预训练使用图像、视频、文档、定位与文本数据，逐步提升能力并增加序列长度。随后进行监督微调（SFT）与直接偏好优化，改善所支持任务中的指令遵循及行为对齐。",
       "primary_sources": [
         {
           "label": "Qwen2.5-VL Technical Report",
@@ -1269,9 +1269,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "position encoding",
-        "training recipe"
+        "模型架构",
+        "位置编码",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1293,12 +1293,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-11-26",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Shuai Bai et al.",
-      "summary": "Strengthens visual-language fusion with DeepStack, interleaved multimodal rotary positions, and textual video timestamps across dense and mixture-of-experts models with extended multimodal context.",
-      "architecture": "A vision encoder feeds an MLP merger and Qwen3 dense or MoE decoder. DeepStack routes visual features from multiple encoder depths into corresponding decoder layers through residual connections, improving fusion without adding context tokens. Interleaved-MRoPE distributes positional dimensions across temporal and spatial axes, while video frames are accompanied by explicit timestamp text.",
-      "temporal_modeling": "Textual timestamps directly anchor frames to video time. Interleaved-MRoPE balances temporal and spatial frequency allocation, complementing the frame sequence within long mixed contexts.",
-      "training": "Merger warm-up precedes full-parameter multimodal pretraining with progressively longer contexts. Video supervision includes timestamped dense captions and spatiotemporal grounding. Post-training combines supervised reasoning, teacher distillation, and reinforcement learning for stronger task execution.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Shuai Bai 等",
+      "summary": "通过 DeepStack、交错式多模态旋转位置编码和文本化视频时间戳增强视觉语言融合，支持具有扩展多模态上下文的稠密模型与混合专家模型。",
+      "architecture": "视觉编码器通过 MLP 合并模块连接至 Qwen3 稠密或 MoE 解码器。DeepStack 以残差连接将多个编码深度的视觉特征送入对应解码器层，无需增加上下文 token 即可改善融合。Interleaved-MRoPE 在时间和空间轴之间分配位置维度，同时为视频帧附加显式的时间戳文本。",
+      "temporal_modeling": "文本化时间戳直接将帧锚定到视频时间。Interleaved-MRoPE 平衡时间与空间频率的分配，与长混合上下文中的帧序列相配合。",
+      "training": "合并模块预热后，进行全参数多模态预训练，并逐步扩展上下文。视频监督包括带时间戳的密集描述与时空定位。后训练结合监督推理、教师蒸馏及强化学习，增强任务执行能力。",
       "primary_sources": [
         {
           "label": "Qwen3-VL Technical Report",
@@ -1310,9 +1310,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "position encoding",
-        "training recipe"
+        "模型架构",
+        "位置编码",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1334,12 +1334,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2026-02-16",
-      "date_basis": "Official Qwen3.5 release announcement; Qwen3.8-27B release: 2026-08-14",
-      "authors": "Qwen Team",
-      "summary": "Uses native vision-language learning with a hybrid recurrent-attention backbone; the later Qwen3.8-27B checkpoint explicitly retains image and video support on this foundation.",
-      "architecture": "Visual encoder outputs join text in a native multimodal causal model. Qwen3.5 combines Gated DeltaNet blocks with gated attention; its large release uses sparse experts. Qwen3.8-27B instead uses dense feed-forward blocks and a repeating three-DeltaNet-to-one-attention layout. The official model cards document these checkpoint-specific structures, rather than a standalone video-only architecture report.",
-      "temporal_modeling": "Video observations share the model's multimodal context. The hybrid language backbone improves sequence efficiency; architectural details should be attributed to the specific released checkpoint.",
-      "training": "Qwen3.5 describes early-fusion multimodal pretraining and large-scale reinforcement learning. Qwen3.8-27B is a later post-trained release improving reasoning and agent tasks. Its model card does not provide a complete reproducible video training dataset recipe.",
+      "date_basis": "Qwen3.5 官方发布公告；Qwen3.8-27B 发布日期：2026-08-14",
+      "authors": "Qwen 团队",
+      "summary": "采用原生视觉语言学习与混合循环—注意力骨干模型；后续发布的 Qwen3.8-27B 模型权重在这一基础上明确保留图像和视频支持。",
+      "architecture": "视觉编码器输出与文本共同进入原生多模态因果模型。Qwen3.5 结合 Gated DeltaNet 模块与门控注意力，其大规模版本使用稀疏专家。Qwen3.8-27B 则采用稠密前馈模块，以及三个 DeltaNet 模块对应一个注意力模块的重复布局。这些具体模型权重的结构由官方模型卡说明，并非来自独立的视频专用架构报告。",
+      "temporal_modeling": "视频观测共享模型的多模态上下文。混合语言骨干模型提高序列处理效率；架构细节应归属于具体发布的模型权重。",
+      "training": "Qwen3.5 描述了早期融合多模态预训练与大规模强化学习。Qwen3.8-27B 是后续经过后训练的版本，改进推理和智能体任务。其模型卡未提供完整、可复现的视频训练数据方案。",
       "primary_sources": [
         {
           "label": "Qwen3.5 official model card",
@@ -1355,9 +1355,9 @@
         }
       ],
       "contribution_type": [
-        "native multimodal training",
-        "hybrid backbone",
-        "model release"
+        "原生多模态训练",
+        "混合骨干模型",
+        "模型发布"
       ],
       "technical_sources": [
         {
@@ -1387,12 +1387,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-09-16",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Tianyu Yu et al.",
-      "summary": "Compresses images and adjacent video frames through one 3D-Resampler, pairing efficient visual tokens with unified document learning and short-versus-long reasoning post-training.",
-      "architecture": "SigLIP2-400M encodes image slices and sampled video frames; Qwen3-8B supplies the language backbone. A unified 3D-Resampler uses learned queries to compress both modalities. Images use spatial resampling, while temporally packed frame groups are jointly resampled with spatial and temporal positions. Concatenated group representations form the compact visual input to the language decoder.",
-      "temporal_modeling": "Adjacent frames share one resampling package with temporal query positions. Package size and sampling rate vary during training and can be adjusted during inference.",
-      "training": "Progressive pretraining first aligns the resampler, then adapts vision, then updates the full model. Dynamic visual corruption unifies document and OCR learning. Instruction tuning introduces the 3D-Resampler, followed by hybrid reinforcement learning for two reasoning modes.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Tianyu Yu 等",
+      "summary": "使用统一的 3D-Resampler 压缩图像和相邻视频帧，将高效视觉 token 与统一文档学习、短思考和长思考后训练相结合。",
+      "architecture": "SigLIP2-400M 编码图像切片与采样视频帧，Qwen3-8B 提供语言骨干模型。统一的 3D-Resampler 使用可学习查询来压缩两种输入：图像进行空间重采样，按时间打包的帧组则结合空间与时间位置联合重采样。拼接后的分组表示构成送入语言解码器的紧凑视觉输入。",
+      "temporal_modeling": "相邻帧共享一个重采样包，并使用带时间位置的查询。训练时改变包大小和采样率，推理时也可以调整。",
+      "training": "渐进式预训练先对齐重采样器，再适配视觉组件，最后更新完整模型。动态视觉扰动统一文档与 OCR 学习。指令微调引入 3D-Resampler，随后通过混合强化学习训练两种推理模式。",
       "primary_sources": [
         {
           "label": "MiniCPM-V 4.5: Cooking Efficient MLLMs via Architecture, Data, and Training Recipe",
@@ -1408,9 +1408,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "training recipe"
+        "模型架构",
+        "token 压缩",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1432,12 +1432,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2026-05-11",
-      "date_basis": "Official MiniCPM-V repository news: open-source release on 2026-05-11",
+      "date_basis": "MiniCPM-V 官方仓库动态：2026-05-11 开源发布",
       "authors": "OpenBMB / ModelBest",
-      "summary": "Targets mobile image and video understanding with a small language backbone and early visual compression, offering selectable token budgets within the visual encoder.",
-      "architecture": "The official model card specifies SigLIP2-400M and Qwen3.5-0.8B. Its visual path adopts intra-ViT early compression derived from LLaVA-UHD v4 and supports mixed 4x or 16x token reduction before language decoding. The processor controls image slices and sampled video frames. This release differs from MiniCPM-V 4.5's explicit unified 3D-Resampler visual architecture.",
-      "temporal_modeling": "Sampled video frames use the efficient visual path. Compression controls the spatial token budget; the model card's example specifies frame limits and stacking parameters.",
-      "training": "The release supplies instruction and thinking checkpoints and fine-tuning integrations. Its model card does not enumerate a complete pretraining corpus or staged video training recipe; the related visual-encoding paper describes a technique rather than this full checkpoint.",
+      "summary": "通过小型语言骨干模型与早期视觉压缩，面向移动端图像和视频理解，并在视觉编码器内提供可选择的 token 预算。",
+      "architecture": "官方模型卡指定使用 SigLIP2-400M 和 Qwen3.5-0.8B。其视觉路径采用源自 LLaVA-UHD v4 的 ViT 内部早期压缩，并支持在语言解码前混合使用 4 倍或 16 倍 token 压缩。处理器控制图像切片与视频采样帧。该版本不同于 MiniCPM-V 4.5 明确采用统一 3D-Resampler 的视觉架构。",
+      "temporal_modeling": "采样视频帧通过高效视觉路径处理。压缩控制空间 token 预算；模型卡中的示例给出了帧数限制和堆叠参数。",
+      "training": "该版本提供指令与思考模式的模型权重，以及微调集成。模型卡未列出完整预训练语料或分阶段视频训练方案；相关视觉编码论文描述的是一种技术，而非这套完整模型权重。",
       "primary_sources": [
         {
           "label": "MiniCPM-V 4.6 official model card",
@@ -1453,9 +1453,9 @@
         }
       ],
       "contribution_type": [
-        "model release",
-        "visual encoding",
-        "token compression"
+        "模型发布",
+        "视觉编码",
+        "token 压缩"
       ],
       "technical_sources": [
         {
@@ -1473,7 +1473,7 @@
           "url": "https://github.com/OpenBMB/MiniCPM-V"
         }
       ],
-      "version_note": "The official model card is the primary source for MiniCPM-V 4.6. LLaVA-UHD v4 is a related visual-compression method, not a standalone report with this model name."
+      "version_note": "MiniCPM-V 4.6 的主要来源是官方模型卡。LLaVA-UHD v4 是相关视觉压缩方法，并非以该模型名称发布的独立报告。"
     },
     {
       "id": 35,
@@ -1482,12 +1482,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2024-09-19",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Zuyan Liu et al.",
-      "summary": "Handles images, videos, and multi-view scenes at requested resolutions and token budgets, combining native-resolution visual encoding with dynamically adjustable spatial compression before language decoding.",
-      "architecture": "OryxViT encodes arbitrary-resolution visual inputs using variable-length attention and adaptive positions. A dynamic compressor pools features at selectable spatial ratios, attends back to preserve details, and uses a shared MLP to project into the language space. Flattened visual tokens join text in checkpoint-specific decoders: Qwen2-7B or Yi-1.5-34B for Oryx, and Qwen2.5-7B/32B for Oryx-1.5. The same stack handles still images, videos, and multi-view scenes.",
-      "temporal_modeling": "Ordered video frames and adjustable spatial compression trade visual detail for temporal coverage. Long-video supervision teaches continuity; the encoder primarily supplies native-resolution frame representations.",
-      "training": "Image alignment and supervised tuning first train the visual-language bridge. Joint instruction tuning then mixes image, video, and spatially annotated multi-view data. Open-source video instructions and synthesized long-video questions support broad temporal coverage.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Zuyan Liu 等",
+      "summary": "在指定分辨率与 token 预算下处理图像、视频和多视角场景，在语言解码前结合原生分辨率视觉编码与动态可调的空间压缩。",
+      "architecture": "OryxViT 使用可变长度注意力和自适应位置编码，编码任意分辨率的视觉输入。动态压缩器按可选空间比例池化特征，再以注意力读取原始特征来保留细节，并使用共享 MLP 投影至语言空间。展平后的视觉 token 与文本共同进入各模型权重对应的解码器：Oryx 使用 Qwen2-7B 或 Yi-1.5-34B，Oryx-1.5 使用 Qwen2.5-7B/32B。同一套结构处理静态图像、视频与多视角场景。",
+      "temporal_modeling": "有序视频帧与可调空间压缩在视觉细节和时间覆盖范围之间进行权衡。长视频监督使模型学习连续性；编码器主要提供原生分辨率的帧表示。",
+      "training": "图像对齐和监督微调首先训练视觉语言桥接模块。随后联合指令微调混合图像、视频与带空间标注的多视角数据。开源视频指令和合成长视频问答支持广泛的时间覆盖。",
       "primary_sources": [
         {
           "label": "Oryx MLLM: On-Demand Spatial-Temporal Understanding at Arbitrary Resolution",
@@ -1500,10 +1500,10 @@
         "https://github.com/Oryx-mllm/Oryx#model-zoo"
       ],
       "contribution_type": [
-        "architecture",
-        "dynamic resolution",
-        "token compression",
-        "training recipe"
+        "模型架构",
+        "动态分辨率",
+        "token 压缩",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1517,7 +1517,7 @@
           "url": "https://github.com/Oryx-mllm/Oryx"
         }
       ],
-      "version_note": "Oryx-1.5 was released on 2024-10-23 according to the official repository. The language backbone depends on the version and checkpoint size."
+      "version_note": "根据官方仓库，Oryx-1.5 于 2024-10-23 发布。语言骨干模型取决于版本与模型权重规模。"
     },
     {
       "id": 36,
@@ -1526,12 +1526,12 @@
       "record_type": "model_or_version",
       "category": "general-vlm",
       "first_public_date": "2025-04-21",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Guo Chen et al.",
-      "summary": "Extends a general vision-language stack through progressive long-context post-training and information-preserving sampling, supporting long videos and high-resolution images with carefully allocated context budgets.",
-      "architecture": "SigLIP visual features pass through an MLP projector into Qwen2.5. The model uses image tiling for variable resolution while retaining a straightforward visual-language stack. Image Area Preservation favors tiling that retains source content. Automatic Degrade Sampling allocates the available context across visual and textual inputs, preserving complete supervision and adjusting visual detail when required.",
-      "temporal_modeling": "Progressive context training accommodates more ordered frames. Automatic Degrade Sampling adapts frame and visual-token allocation within the context budget while preserving textual supervision.",
-      "training": "Mixed post-training gradually increases context length and combines diverse public visual instructions with Eagle-Video-110K. Its annotations combine local clip descriptions with global story-level information, building long-video understanding through data and training rather than a dedicated temporal encoder.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Guo Chen 等",
+      "summary": "通过渐进式长上下文后训练与信息保留采样扩展通用视觉语言结构，在合理分配上下文预算的同时支持长视频与高分辨率图像。",
+      "architecture": "SigLIP 视觉特征经过 MLP 投影层送入 Qwen2.5。模型使用图像分块处理可变分辨率，并保留直接的视觉语言结构。Image Area Preservation 优先选择能够保留原始内容的分块方式。Automatic Degrade Sampling 在视觉与文本输入之间分配可用上下文，保留完整监督信息，并按需调整视觉细节。",
+      "temporal_modeling": "渐进式上下文训练容纳更多有序帧。Automatic Degrade Sampling 在上下文预算内调整帧数与视觉 token 分配，同时保留文本监督。",
+      "training": "混合后训练逐步增加上下文长度，结合多样的公开视觉指令数据与 Eagle-Video-110K。该数据的标注融合局部片段描述与全局故事信息，通过数据和训练建立长视频理解能力，未使用专用时间编码器。",
       "primary_sources": [
         {
           "label": "Eagle 2.5: Boosting Long-Context Post-Training for Frontier Vision-Language Models",
@@ -1543,10 +1543,10 @@
         }
       ],
       "contribution_type": [
-        "training recipe",
-        "data curation",
-        "context extension",
-        "sampling"
+        "训练方案",
+        "数据整理",
+        "上下文扩展",
+        "采样"
       ],
       "technical_sources": [
         {
@@ -1568,12 +1568,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2023-07-31",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Enxin Song et al.",
-      "summary": "Converts dense frame tokens into short-term and long-term memories, enabling a video-language assistant to retain extended visual histories within manageable language input lengths.",
-      "architecture": "EVA-CLIP and a BLIP-2 image Q-Former produce frame representations in sliding windows. Dense tokens enter a short-term buffer and are consolidated into sparse long-term memory. A video Q-Former and linear projection map selected memory into a language model. Global and breakpoint modes choose representations for whole-video questions or a particular observed moment.",
-      "temporal_modeling": "Similarity-based consolidation merges redundant neighboring memories while maintaining chronology. The hierarchy retains recent detail and compressed history, extending video coverage beyond ordinary frame concatenation.",
-      "training": "MovieChat reuses pretrained Video-LLaMA-derived visual-language components, with its report centered on memory-based processing. MovieChat-1K provides long-video evaluation with global and breakpoint questions. The memory hierarchy does not itself establish a new large-scale pretraining recipe.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Enxin Song 等",
+      "summary": "将密集帧 token 转换为短期与长期记忆，使视频语言助手在可控的语言输入长度内保留更长的视觉历史。",
+      "architecture": "EVA-CLIP 与 BLIP-2 图像 Q-Former 在滑动窗口内生成帧表示。密集 token 进入短期缓冲区，再整合为稀疏长期记忆。视频 Q-Former 和线性投影层将选中的记忆映射至语言模型。全局模式与断点模式分别为整段视频问答或特定已观测时刻选择表示。",
+      "temporal_modeling": "基于相似度的整合在保持时间顺序的同时合并冗余的相邻记忆。分层结构保留近期细节和压缩后的历史，扩展了常规帧拼接之外的视频覆盖范围。",
+      "training": "MovieChat 复用源自 Video-LLaMA 的预训练视觉语言组件，报告重点是基于记忆的处理。MovieChat-1K 提供包含全局与断点问题的长视频评测。记忆层次结构本身没有建立新的大规模预训练方案。",
       "primary_sources": [
         {
           "label": "MovieChat: From Dense Token to Sparse Memory for Long Video Understanding",
@@ -1585,9 +1585,9 @@
         }
       ],
       "contribution_type": [
-        "memory architecture",
-        "token compression",
-        "benchmark"
+        "记忆架构",
+        "token 压缩",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -1609,12 +1609,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2023-11-28",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yanwei Li et al.",
-      "summary": "Represents video frames with instruction-conditioned context and pooled content tokens, sharply reducing long-video input length while preserving question-relevant visual cues for language generation.",
-      "architecture": "A visual encoder extracts frame patches, while a text decoder such as BERT or Q-Former forms instruction-conditioned queries. Context attention selects relevant visual evidence and projects it into a context token. Adaptive pooling supplies content tokens describing the frame. Both enter a Vicuna-family decoder; the two-token setting uses one token of each type per frame.",
-      "temporal_modeling": "Frames remain temporally ordered after query-guided compression. The content-token budget is configurable, so the advertised two-token representation describes a particular setting rather than every input.",
-      "training": "Modality alignment learns context attention and projectors from image and video captions. Instruction tuning updates the multimodal interface and language model. Long-video tuning uses movie questions and subtitles to extend the system to hour-scale narratives.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yanwei Li 等",
+      "summary": "使用以指令为条件的上下文 token 与池化内容 token 表示视频帧，显著缩短长视频输入，同时为语言生成保留问题相关视觉线索。",
+      "architecture": "视觉编码器提取帧 patch，BERT 或 Q-Former 等文本解码器构造以指令为条件的查询。上下文注意力选择相关视觉证据，并将其投影为上下文 token。自适应池化提供描述帧的内容 token。两者共同进入 Vicuna 家族解码器；双 token 设置为每帧使用一个上下文 token 和一个内容 token。",
+      "temporal_modeling": "经过查询引导的压缩后，帧仍保持时间顺序。内容 token 预算可配置，因此所介绍的双 token 表示对应一种具体设置，并非适用于所有输入。",
+      "training": "模态对齐使用图像与视频描述学习上下文注意力和投影层。指令微调更新多模态接口与语言模型。长视频微调使用电影问题和字幕，使系统扩展至小时级叙事。",
       "primary_sources": [
         {
           "label": "LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models",
@@ -1626,9 +1626,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "query conditioning",
-        "token compression"
+        "模型架构",
+        "问题条件化",
+        "token 压缩"
       ],
       "technical_sources": [
         {
@@ -1650,12 +1650,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-04-08",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Bo He et al.",
-      "summary": "Augments a querying transformer with bounded visual and query memories, processing videos sequentially while preserving historical evidence for language-based long-term understanding and conversation.",
-      "architecture": "A frozen visual encoder extracts each incoming frame's features. A trainable Q-Former maintains two memory banks: historical visual features and earlier query states. Its attention reads these banks alongside current observations, and a projection bridges queries to a frozen language model. The framework builds on InstructBLIP and supports Vicuna or Flan-T5 decoders.",
-      "temporal_modeling": "Memory-bank compression merges similar historical entries at fixed capacity. Sequential updates carry visual and latent query information through time without concatenating every frame into the LLM.",
-      "training": "Pretrained image-language components provide initialization. Task-specific training updates the Q-Former and projection while preserving frozen backbones. Experiments cover video reasoning, question answering, captioning, and an off-the-shelf memory extension, illustrating transfer of the memory mechanism.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Bo He 等",
+      "summary": "为查询 Transformer 加入容量受限的视觉记忆与查询记忆，按序处理视频，并保留历史证据以支持基于语言的长期理解和对话。",
+      "architecture": "冻结的视觉编码器提取每个新输入帧的特征。可训练的 Q-Former 维护两个记忆库，分别保存历史视觉特征与先前查询状态。其注意力同时读取这些记忆和当前观测，投影层将查询连接至冻结的语言模型。该框架基于 InstructBLIP，支持 Vicuna 或 Flan-T5 解码器。",
+      "temporal_modeling": "记忆库压缩在固定容量下合并相似历史条目。序列更新沿时间传递视觉信息与潜在查询信息，无需将每一帧拼接进 LLM。",
+      "training": "使用预训练图像语言组件初始化。任务特定训练更新 Q-Former 与投影层，同时保持骨干模型冻结。实验覆盖视频推理、问答、描述生成及直接应用的记忆扩展，展示记忆机制的迁移能力。",
       "primary_sources": [
         {
           "label": "MA-LMM: Memory-Augmented Large Multimodal Model for Long-Term Video Understanding",
@@ -1667,8 +1667,8 @@
         }
       ],
       "contribution_type": [
-        "memory architecture",
-        "sequential processing"
+        "记忆架构",
+        "顺序处理"
       ],
       "technical_sources": [
         {
@@ -1690,12 +1690,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-04-04",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yuetian Weng et al.",
-      "summary": "Combines compressed local video segments with global semantic features, preserving the order of short events while giving a language model an economical long-video representation.",
-      "architecture": "CLIP-ViT-L/14 extracts frame patch features and class tokens from multiple depths. Within each temporal segment, hierarchical token merging creates compact local features. Global class-token features summarize the wider video, and both representations are combined in temporal order. A linear projector maps the video representation into a frozen Vicuna-7B decoder initialized from LLaVA.",
-      "temporal_modeling": "Segment representations preserve chronology while hierarchical merging removes local redundancy. Global semantic features add context spanning the complete clip to the language model's temporal interpretation.",
-      "training": "Training uses Video-ChatGPT video instructions to learn the linear visual-language projection. The pretrained CLIP encoder and Vicuna remain frozen. The lightweight tuning setup isolates the benefit of combining local aggregation with global semantic information.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yuetian Weng 等",
+      "summary": "结合压缩后的局部视频片段与全局语义特征，在保持短事件顺序的同时，为语言模型提供紧凑的长视频表示。",
+      "architecture": "CLIP-ViT-L/14 从多个深度提取帧 patch 特征与 class token。每个时间片段内的分层 token 合并生成紧凑局部特征。全局 class token 特征概括更广范围的视频，两种表示按时间顺序组合。线性投影层将视频表示映射至从 LLaVA 初始化并冻结的 Vicuna-7B 解码器。",
+      "temporal_modeling": "片段表示保留时间顺序，分层合并去除局部冗余。全局语义特征为语言模型的时间理解补充覆盖整段视频的上下文。",
+      "training": "使用 Video-ChatGPT 视频指令学习线性视觉语言投影层。预训练 CLIP 编码器与 Vicuna 保持冻结。轻量微调设置用于检验局部聚合与全局语义信息结合所带来的收益。",
       "primary_sources": [
         {
           "label": "LongVLM: Efficient Long Video Understanding via Large Language Models",
@@ -1707,9 +1707,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "global local representation"
+        "模型架构",
+        "token 压缩",
+        "全局／局部表示"
       ],
       "technical_sources": [
         {
@@ -1731,12 +1731,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-06-24",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Peiyuan Zhang et al.",
-      "summary": "Transfers an extended language context into vision through image-only alignment, showing that long-video capacity can emerge without dedicated long-video supervision in the base model.",
-      "architecture": "LongVA first extends the Qwen2-7B language backbone. A LLaVA-style visual encoder and projector then align images with this decoder. UniRes treats image tiles and video frames through a consistent visual encoding scheme: training images provide multiple grids, and inference videos reuse those grids as ordered frames. Spatial pooling controls each frame's token count.",
-      "temporal_modeling": "Long-context language attention aggregates ordered frame representations. UniRes minimizes the image-to-video encoding mismatch, allowing the language model's enlarged context to accept many video frames.",
-      "training": "Continued text pretraining extends context using long documents and adjusted RoPE. Visual alignment follows the LLaVA image-training recipe under a train-short, test-long protocol. Optional preference tuning improves answers, but base long-video transfer does not require video training.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Peiyuan Zhang 等",
+      "summary": "通过仅使用图像的对齐，将扩展后的语言上下文能力迁移至视觉，表明基础模型无需专门的长视频监督也可以获得长视频处理能力。",
+      "architecture": "LongVA 首先扩展 Qwen2-7B 语言骨干模型的上下文。随后，LLaVA 式视觉编码器和投影层将图像与该解码器对齐。UniRes 以一致的视觉编码方案处理图像分块和视频帧：训练图像提供多个网格，推理时复用同一套网格编码方式来表示有序视频帧。空间池化控制每帧 token 数量。",
+      "temporal_modeling": "长上下文语言注意力聚合有序帧表示。UniRes 尽量减少图像到视频之间的编码差异，使扩展后的语言模型上下文能够接收大量视频帧。",
+      "training": "使用长文档和调整后的 RoPE 继续进行文本预训练，以扩展上下文。视觉对齐遵循 LLaVA 图像训练方案，并采用短输入训练、长输入测试的设置。可选的偏好微调改善回答，但基础长视频迁移无需视频训练。",
       "primary_sources": [
         {
           "label": "Long Context Transfer from Language to Vision",
@@ -1748,9 +1748,9 @@
         }
       ],
       "contribution_type": [
-        "context extension",
-        "training recipe",
-        "language to vision transfer"
+        "上下文扩展",
+        "训练方案",
+        "语言到视觉迁移"
       ],
       "technical_sources": [
         {
@@ -1772,12 +1772,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-10-22",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Xiaoqian Shen et al.",
-      "summary": "Adapts temporal and spatial compression to the video and question, using complementary visual features to preserve useful evidence within a limited language context window.",
-      "architecture": "DINOv2 and SigLIP supply complementary frame features. DINO similarity removes redundant frames before feature fusion. A cross-modal query selects frames whose spatial detail matters for the question, while others receive stronger spatial pooling. Additional cross-frame spatial reduction removes repeated patches. Projected tokens enter Qwen2 or a lightweight Llama3.2 decoder for video-language understanding.",
-      "temporal_modeling": "Compression first operates across frames, then within frames, then across repeated spatial tokens. Query-aware allocation preserves relevant detail while ordered retained observations support temporal reasoning.",
-      "training": "Image-language alignment and tuning are combined using LLaVA-OneVision image data. Video training draws from public instruction datasets including VideoChat2-IT. The adaptive compressor is trained within the video-language system instead of relying solely on uniform frame sampling.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Xiaoqian Shen 等",
+      "summary": "根据视频和问题调整时间与空间压缩，利用互补视觉特征，在有限语言上下文窗口内保留有用证据。",
+      "architecture": "DINOv2 和 SigLIP 提供互补帧特征。特征融合前，利用 DINO 相似度移除冗余帧。跨模态查询选择对问题而言空间细节重要的帧，其他帧则接受更强的空间池化。额外的跨帧空间压缩去除重复 patch。投影后的 token 进入 Qwen2 或轻量 Llama3.2 解码器，完成视频语言理解。",
+      "temporal_modeling": "压缩依次在帧之间、帧内部以及重复空间 token 之间进行。根据查询分配预算可保留相关细节，保留下来的有序帧观测支持时间推理。",
+      "training": "使用 LLaVA-OneVision 图像数据结合图像语言对齐与微调。视频训练使用包括 VideoChat2-IT 在内的公开指令数据集。自适应压缩器在视频语言系统内训练，而非仅依赖均匀帧采样。",
       "primary_sources": [
         {
           "label": "LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding",
@@ -1789,9 +1789,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "query conditioning"
+        "模型架构",
+        "token 压缩",
+        "问题条件化"
       ],
       "technical_sources": [
         {
@@ -1813,12 +1813,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-08-19",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Yukang Chen et al.",
-      "summary": "Scales long-video understanding through context extension, long-video instruction training, and multimodal sequence parallelism, coordinating a conventional visual-language model with a distributed training system.",
-      "architecture": "LongVILA retains the VILA vision-encoder, multimodal-projector, and language-decoder stack, with Qwen2 backbones in its experiments. Frame tokens occupy an enlarged language context rather than a specialized fixed-size video resampler. Multi-Modal Sequence Parallelism shards long mixed sequences across devices and balances visual encoding with language attention, enabling training on substantially longer video inputs.",
-      "temporal_modeling": "Ordered frame tokens are modeled directly by extended-context language attention. Long-video instruction data trains global narratives and detailed questions, while sequence parallelism handles training cost.",
-      "training": "Five stages cover multimodal alignment, pretraining, short instruction tuning, text-based context extension, and long-video supervised tuning. The final stage updates all model parameters using MM-SP and automatically annotated long videos with caption and question tasks.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Yukang Chen 等",
+      "summary": "通过上下文扩展、长视频指令训练与多模态序列并行扩展长视频理解，将常规视觉语言模型与分布式训练系统结合。",
+      "architecture": "LongVILA 保留 VILA 的视觉编码器—多模态投影层—语言解码器结构，实验使用 Qwen2 骨干模型。帧 token 占用扩展后的语言上下文，而非经过专门的固定大小视频重采样器。多模态序列并行将长混合序列分片到多个设备，平衡视觉编码与语言注意力的计算，使明显更长的视频输入能够用于训练。",
+      "temporal_modeling": "有序帧 token 直接由扩展上下文中的语言注意力建模。长视频指令数据训练全局叙事与细节问答，序列并行处理训练成本问题。",
+      "training": "五个阶段包括多模态对齐、预训练、短输入指令微调、基于文本的上下文扩展和长视频监督微调（SFT）。最终阶段使用 MM-SP 及自动标注的长视频描述和问答任务，更新所有模型参数。",
       "primary_sources": [
         {
           "label": "LongVILA: Scaling Long-Context Visual Language Models for Long Videos",
@@ -1830,9 +1830,9 @@
         }
       ],
       "contribution_type": [
-        "context extension",
-        "training recipe",
-        "distributed system"
+        "上下文扩展",
+        "训练方案",
+        "分布式系统"
       ],
       "technical_sources": [
         {
@@ -1854,12 +1854,12 @@
       "record_type": "model_or_version",
       "category": "long-video",
       "first_public_date": "2024-12-31",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Xinhao Li et al.",
-      "summary": "Compresses video tokens hierarchically before and inside language decoding, combining local spatiotemporal merging with inference-time visual dropout for efficient understanding of long frame sequences.",
-      "architecture": "UMT-L encodes short multi-frame clips with spatiotemporal attention. Similar-token merging and an MLP connector compress each clip before its tokens enter Qwen2-7B. A second, video-level stage progressively drops visual tokens across language layers during inference. The hierarchy exploits both local frame redundancy and the decoder's changing need for broad versus detailed video evidence.",
-      "temporal_modeling": "Clip-level attention and merging summarize neighboring frames. Shallow language layers retain broad coverage, while deeper layers increasingly concentrate on relevant moments through progressive token dropout.",
-      "training": "Visual pretraining and short-to-long instruction learning combine images, short clips, and longer video supervision. Training teaches the compressed clip interface; the video-level dropout stage is applied during inference, rather than being used as ordinary training-time token masking.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Xinhao Li 等",
+      "summary": "在语言解码前及解码器内部对视频 token 进行分层压缩，结合局部时空合并与推理时视觉 token 丢弃，高效理解长帧序列。",
+      "architecture": "UMT-L 使用时空注意力编码包含多帧的短片段。相似 token 合并与 MLP 连接器先压缩每个片段，再将 token 送入 Qwen2-7B。第二个视频级阶段在推理期间，沿语言模型各层逐步丢弃视觉 token。这种分层结构利用局部帧冗余，以及解码器对广泛视频证据和细节证据需求的变化。",
+      "temporal_modeling": "片段级注意力与合并概括相邻帧。浅层语言层保留广泛覆盖，深层则通过渐进式 token 丢弃越来越集中于相关时刻。",
+      "training": "视觉预训练与从短到长的指令学习结合图像、短片段和较长视频监督。训练使模型学会使用压缩片段接口；视频级丢弃阶段应用于推理，而非作为常规训练时 token 掩码使用。",
       "primary_sources": [
         {
           "label": "VideoChat-Flash: Hierarchical Compression for Long-Context Video Modeling",
@@ -1871,9 +1871,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "token compression",
-        "inference efficiency"
+        "模型架构",
+        "token 压缩",
+        "推理效率"
       ],
       "technical_sources": [
         {
@@ -1887,7 +1887,7 @@
           "url": "https://github.com/OpenGVLab/VideoChat-Flash"
         }
       ],
-      "version_note": "The v1 submission is 2024-12-31 even though the arXiv identifier begins with 2501."
+      "version_note": "虽然 arXiv 编号以 2501 开头，v1 提交日期实际为 2024-12-31。"
     },
     {
       "id": 45,
@@ -1896,12 +1896,12 @@
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2024-06-17",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Joya Chen et al.",
-      "summary": "VideoLLM-online turns a conventional frame-to-language model into an online assistant through streaming dialogue objectives, timestamped supervision, and continuous cached inference.",
-      "architecture": "CLIP ViT-L independently encodes incoming frames. A compact CLS and optional pooled spatial representation passes through an MLP projector into Llama-2 or Llama-3. Frame and language tokens enter the decoder in chronological order. A parallel visual encoder buffers frames while the language decoder maintains a continuous KV cache, supporting responses during an ongoing stream.",
-      "temporal_modeling": "LIVE predicts whether each incoming frame should trigger language or silence. Streaming EOS predictions supervise response timing without repeatedly appending redundant dialogue turns.",
-      "training": "Train the projector and LoRA-equipped LLM with autoregressive language loss plus streaming EOS loss. Ego4D narrations supply online supervision; offline temporal annotations are converted into timestamped question-response sequences. CLIP remains frozen in the reported training setup.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Joya Chen 等",
+      "summary": "VideoLLM-online 通过流式对话目标、带时间戳的监督和连续缓存推理，将常规的帧到语言模型转变为在线助手。",
+      "architecture": "CLIP ViT-L 独立编码输入帧。紧凑的 CLS 表示及可选的池化空间表示经 MLP 投影层映射到 Llama-2 或 Llama-3。帧 token 和语言 token 按时间顺序进入解码器。视觉编码器并行运行并缓冲帧，语言解码器则维护连续的 KV 缓存，使模型能够在视频流持续输入时作出响应。",
+      "temporal_modeling": "LIVE 预测每个输入帧应触发语言输出还是保持静默。流式 EOS 预测为响应时机提供监督，无需反复追加冗余的对话轮次。",
+      "training": "以自回归语言损失和流式 EOS 损失训练投影层及配备 LoRA 的 LLM。Ego4D 叙述提供在线监督；离线时间标注被转换为带时间戳的问答序列。论文报告的训练设置中，CLIP 保持冻结。",
       "datasets": [
         "Ego4D Narration Stream",
         "COIN Dialogue Stream"
@@ -1910,10 +1910,10 @@
         "https://arxiv.org/abs/2406.11816"
       ],
       "contribution_type": [
-        "streaming model",
-        "training objective",
-        "data format",
-        "inference pipeline"
+        "流式模型",
+        "训练目标",
+        "数据格式",
+        "推理流程"
       ],
       "technical_sources": [
         {
@@ -1935,19 +1935,19 @@
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2024-05-25",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Rui Qian et al.",
-      "summary": "VideoStreaming separates reusable streaming video encoding from question answering, combining propagated clip memories with question-conditioned selection to represent long videos compactly.",
-      "architecture": "CLIP frame features are spatially merged and projected into a small Phi-2 language model. Learnable summarization tokens condense each clip while incorporating memory from previous clips. Historical clip representations are stored independently of questions. Adaptive Memory Selection retrieves relevant timestamps, and a second projector supplies selected memory tokens to Vicuna for question answering and reasoning.",
-      "temporal_modeling": "Memory propagation carries earlier clip context into later representations. Question-conditioned memory selection restores details from relevant historical clips while preserving their temporal order.",
-      "training": "First align the single-clip projector and train the compact encoder on image and short-video tasks. Then jointly train streaming encoding, selection, and the answering LLM on long-video QA, using pseudo temporal labels to warm up selection before weak supervision.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Rui Qian 等",
+      "summary": "VideoStreaming 将可复用的流式视频编码与问答分离，结合跨片段传播的记忆和由问题引导的选择，以紧凑表示处理长视频。",
+      "architecture": "CLIP 帧特征经过空间合并后，被投影到小型 Phi-2 语言模型。可学习的摘要 token 在融入前序片段记忆的同时压缩当前片段。历史片段表示独立于问题存储。Adaptive Memory Selection 检索相关时间点，再由第二个投影层将选出的记忆 token 送入 Vicuna，完成问答和推理。",
+      "temporal_modeling": "记忆传播将早期片段的上下文带入后续表示。由问题引导的记忆选择恢复相关历史片段的细节，同时保留它们的时间顺序。",
+      "training": "首先对齐单片段投影层，并在图像和短视频任务上训练紧凑编码器。随后在长视频问答任务上联合训练流式编码、选择模块和回答问题的 LLM；选择模块先用伪时间标签预热，再接受弱监督。",
       "primary_sources": [
         "https://arxiv.org/abs/2405.16009"
       ],
       "contribution_type": [
-        "memory architecture",
-        "retrieval",
-        "training recipe"
+        "记忆架构",
+        "检索",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -1956,29 +1956,29 @@
         }
       ],
       "official_entries": [],
-      "availability_note": "No author-linked public implementation was verified in the initial audit."
+      "availability_note": "初步核查中，未核实到由作者链接的公开实现。"
     },
     {
       "id": 47,
-      "name": "Flash-VStream (STAR Memory)",
+      "name": "Flash-VStream（STAR Memory）",
       "slug": "47-flash-vstream-star-memory",
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2024-06-12",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Haoji Zhang et al.",
-      "summary": "The original Flash-VStream combines asynchronous frame processing and question answering with STAR Memory, enabling online understanding without re-encoding the entire video history.",
-      "architecture": "A frame handler continuously encodes video and updates STAR Memory alongside a feature buffer. Its spatial, temporal, abstract, and retrieved memory components retain complementary evidence under a bounded budget. A question handler reads the latest memory, projects visual features, and invokes the LLM. The two processes run independently, allowing new frames to arrive during question answering.",
-      "temporal_modeling": "Spatial memory preserves recent detail; weighted temporal clustering summarizes historical events, and semantic attention updates abstract history. Retrieved memory recovers detailed frames nearest to major temporal clusters.",
-      "training": "Use two stages: modality alignment trains semantic attention and the projector with frozen vision and language backbones; instruction tuning additionally updates the LLM. Training follows LLaMA-VID image/video caption and QA data. This STAR Memory version differs from the later Flash Memory model.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Haoji Zhang 等",
+      "summary": "初代 Flash-VStream 将异步帧处理、问答和 STAR Memory 结合，实现在线视频理解，无需重新编码全部视频历史。",
+      "architecture": "帧处理器持续编码视频，并同步更新 STAR Memory 和特征缓冲区。空间、时间、抽象和检索记忆四个组成部分在有界预算内保留互补证据。问题处理器读取最新记忆，投影视觉特征，再调用 LLM。两个进程独立运行，问答期间仍可接收新帧。",
+      "temporal_modeling": "空间记忆保留近期细节；加权时间聚类概括历史事件，语义注意力更新抽象历史。检索记忆恢复与主要时间聚类最接近的详细帧。",
+      "training": "训练分为两个阶段：模态对齐阶段冻结视觉和语言骨干模型，训练语义注意力和投影层；指令微调阶段进一步更新 LLM。训练沿用 LLaMA-VID 的图像／视频描述和问答数据。这一 STAR Memory 版本与后续 Flash Memory 模型不同。",
       "primary_sources": [
         "https://arxiv.org/abs/2406.08085",
         "https://arxiv.org/html/2406.08085v1#S3.SS2"
       ],
       "contribution_type": [
-        "streaming model",
-        "memory architecture",
-        "asynchronous inference"
+        "流式模型",
+        "记忆架构",
+        "异步推理"
       ],
       "technical_sources": [
         {
@@ -1995,27 +1995,27 @@
     },
     {
       "id": 48,
-      "name": "Flash-VStream (Flash Memory)",
+      "name": "Flash-VStream（Flash Memory）",
       "slug": "48-flash-vstream-flash-memory",
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2025-06-30",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Haoji Zhang et al.",
-      "summary": "The later Flash-VStream replaces STAR Memory with Flash Memory, balancing compressed long-term context and selected high-resolution details for asynchronous streaming video interaction.",
-      "architecture": "The Qwen2-VL-based frame handler continuously produces visual features and maintains a feature bank. Context Synopsis Memory clusters low-resolution features across frames to summarize history. Detail Augmentation Memory retrieves high-resolution features from informative frames. These memories are interleaved chronologically, then read by the independent question handler and passed through the merger projector to the LLM.",
-      "temporal_modeling": "Context clusters estimate information density over time; detail selection concentrates high-resolution evidence on informative moments while preserving chronological memory organization for temporal reasoning.",
-      "training": "Initialize vision encoder, merger projector, and LLM from Qwen2-VL-7B. Freeze the vision encoder and apply LoRA to projector and LLM linear layers on a 9K LLaVA-Video subset. This is the 2025 Flash Memory paper and Qwen implementation.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Haoji Zhang 等",
+      "summary": "后续版本的 Flash-VStream 用 Flash Memory 替代 STAR Memory，在压缩的长期上下文与选取的高分辨率细节之间取得平衡，支持异步流式视频交互。",
+      "architecture": "基于 Qwen2-VL 的帧处理器持续产生视觉特征并维护特征库。Context Synopsis Memory 对跨帧的低分辨率特征进行聚类，以概括历史。Detail Augmentation Memory 从信息丰富的帧中检索高分辨率特征。两类记忆按时间顺序交错排列，由独立的问题处理器读取，再经合并投影层送入 LLM。",
+      "temporal_modeling": "上下文聚类估计信息密度随时间的分布；细节选择将高分辨率证据集中到信息丰富的时刻，同时保持记忆的时间顺序，以支持时间推理。",
+      "training": "视觉编码器、合并投影层和 LLM 均由 Qwen2-VL-7B 初始化。冻结视觉编码器，在包含 9K 样本的 LLaVA-Video 子集上，对投影层和 LLM 的线性层应用 LoRA。该条目对应 2025 年的 Flash Memory 论文及 Qwen 实现。",
       "datasets": [
-        "LLaVA-Video subset"
+        "LLaVA-Video 子集"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2506.23825"
       ],
       "contribution_type": [
-        "streaming model",
-        "memory architecture",
-        "asynchronous inference"
+        "流式模型",
+        "记忆架构",
+        "异步推理"
       ],
       "technical_sources": [
         {
@@ -2032,25 +2032,25 @@
     },
     {
       "id": 49,
-      "name": "StreamChat (Liu et al.)",
+      "name": "StreamChat（Liu 等）",
       "slug": "49-streamchat-liu-et-al",
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2024-12-11",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Jihao Liu et al.",
-      "summary": "Liu et al.'s StreamChat updates visual context at every text decoding step, allowing generated answers to track changes occurring after a question arrives.",
-      "architecture": "SigLIP frame tokens are mapped by an MLP into Qwen2.5. Inserted cross-attention blocks use text queries and visual keys and values, while visual feedforward experts update visual representations between blocks. Linear gates stabilize the added branches. A separate thread continually updates a FIFO visual-token queue that the decoder reads for each newly generated token.",
-      "temporal_modeling": "Parallel 3D-RoPE assigns concurrent visual and text tokens the same temporal coordinate. Causal timestamp masks prevent text from seeing future frames during training.",
-      "training": "Progressively align the adapter, then unfreeze visual components during multimodal pretraining. Full-parameter instruction tuning mixes existing image/video instructions with densely timestamped streaming instructions derived from Ego4D and Vript. This cross-attention model is distinct from Xiong et al.'s memory system.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Jihao Liu 等",
+      "summary": "Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使生成的回答能够跟随问题提出之后发生的视频变化。",
+      "architecture": "SigLIP 帧 token 经 MLP 映射到 Qwen2.5。新增的交叉注意力模块以文本为查询，以视觉表示为键和值；视觉前馈专家则在模块之间更新视觉表示。线性门控稳定新增分支。独立线程持续更新 FIFO 视觉 token 队列，解码器在生成每个新 token 时读取该队列。",
+      "temporal_modeling": "Parallel 3D-RoPE 为同时出现的视觉和文本 token 分配相同的时间坐标。因果时间戳掩码在训练期间防止文本访问未来帧。",
+      "training": "先逐步对齐适配器，再在多模态预训练期间解冻视觉组件。全参数指令微调混合已有的图像／视频指令，以及由 Ego4D 和 Vript 构建的带密集时间戳的流式指令。这一交叉注意力模型与 Xiong 等人的记忆系统不同。",
       "primary_sources": [
         "https://arxiv.org/abs/2412.08646"
       ],
       "contribution_type": [
-        "streaming model",
-        "cross-attention",
-        "positional encoding",
-        "instruction data"
+        "流式模型",
+        "交叉注意力",
+        "位置编码",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -2064,7 +2064,7 @@
           "url": "https://jihaonew.github.io/projects/streamchat.html"
         }
       ],
-      "availability_note": "The official project advertised code as forthcoming at the audit date; Xiong et al.'s similarly named repository is a different system."
+      "availability_note": "截至核查日期，官方项目页面仍将代码标为即将发布；Xiong 等人的同名仓库对应另一套系统。"
     },
     {
       "id": 50,
@@ -2073,25 +2073,25 @@
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2025-04-24",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Linli Yao et al.",
-      "summary": "TimeChat-Online removes static temporal redundancy before language decoding, preserving original token positions and using video changes to trigger proactive responses during streaming interaction.",
-      "architecture": "Qwen2.5-VL encodes densely sampled video frames. Differential Token Drop compares spatially corresponding tokens in consecutive frames and removes sufficiently similar features. The surviving tokens retain their original multimodal RoPE indices before entering the projector and language model. A FIFO bank stores recent compressed tokens, and low drop ratios identify scene changes that can trigger proactive responding.",
-      "temporal_modeling": "Adjacent-frame differences retain changing content; preserving temporal, height, and width indices avoids positional distortion after pruning. Scene-oriented change signals determine proactive response times.",
-      "training": "Freeze the vision encoder and fine-tune the full projector and LLM on mixed offline and online instruction data. TimeChat-Online-139K includes timestamped streaming questions and unanswerable cases. DTD itself is nonparametric, but the complete online assistant receives supervised training.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Linli Yao 等",
+      "summary": "TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 token 的原始位置，并利用视频变化在流式交互中触发主动响应。",
+      "architecture": "Qwen2.5-VL 编码密集采样的视频帧。Differential Token Drop 比较相邻帧中空间位置对应的 token，移除足够相似的特征。保留下来的 token 在进入投影层和语言模型之前仍使用原始的多模态 RoPE 索引。FIFO 存储库保留近期压缩后的 token，较低的丢弃比例用于识别场景变化，并可触发主动响应。",
+      "temporal_modeling": "相邻帧差异保留发生变化的内容；保留时间、高度和宽度索引可避免剪枝造成位置失真。基于场景变化的信号决定主动响应时机。",
+      "training": "冻结视觉编码器，在混合的离线和在线指令数据上对整个投影层和 LLM 进行微调。TimeChat-Online-139K 包含带时间戳的流式问题及无法回答的案例。DTD 本身不含可训练参数，但完整的在线助手需要接受监督训练。",
       "datasets": [
         "TimeChat-Online-139K",
-        "LLaVA-Video-178K subsets",
-        "Tarsier2 subsets"
+        "LLaVA-Video-178K 子集",
+        "Tarsier2 子集"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2504.17343"
       ],
       "contribution_type": [
-        "streaming model",
-        "token pruning",
-        "instruction data",
-        "proactive interaction"
+        "流式模型",
+        "token 剪枝",
+        "指令数据",
+        "主动交互"
       ],
       "technical_sources": [
         {
@@ -2113,12 +2113,12 @@
       "record_type": "model_or_version",
       "category": "streaming",
       "first_public_date": "2025-10-10",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Ruyi Xu et al.",
-      "summary": "StreamingVLM aligns short-chunk training with continuous inference, reusing bounded visual and textual KV windows to sustain coherent commentary over indefinitely long video streams.",
-      "architecture": "A Qwen2.5-VL backbone processes interleaved video and text while retaining a compact KV cache. Attention sinks stabilize attention, a short recent-vision window captures ongoing actions, and a longer text window carries prior commentary. Evicted states are omitted rather than recomputed. Contiguous RoPE shifts indices into a bounded range so streaming positions remain close to training conditions.",
-      "temporal_modeling": "Recent visual evidence and longer textual history provide different temporal horizons. Overlapping training chunks preserve context continuity and approximate the cache structure used in streaming inference.",
-      "training": "Fine-tune Qwen2.5-VL-7B-Instruct on overlapped streaming commentary chunks with full attention. A subsequent annealing stage uses high-quality action commentary. The reported data combine Inf-Streams training samples and Live-WhisperX-526K; streaming behavior requires this SFT rather than cache changes alone.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Ruyi Xu 等",
+      "summary": "StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视觉和文本 KV 窗口，在无限长的视频流中维持连贯解说。",
+      "architecture": "Qwen2.5-VL 骨干模型处理交错的视频和文本，同时保留紧凑的 KV 缓存。注意力汇聚位置（attention sinks）稳定注意力，较短的近期视觉窗口捕捉正在发生的动作，较长的文本窗口保留先前解说。被移出的状态直接丢弃，无需重新计算。Contiguous RoPE 将索引平移到有界范围内，使流式位置保持接近训练条件。",
+      "temporal_modeling": "近期视觉证据和较长文本历史提供不同的时间范围。重叠的训练片段维持上下文连续性，并近似流式推理使用的缓存结构。",
+      "training": "在相互重叠的流式解说片段上，使用完整注意力微调 Qwen2.5-VL-7B-Instruct。随后通过退火阶段使用高质量动作解说。论文报告的数据结合了 Inf-Streams 训练样本和 Live-WhisperX-526K；流式能力依赖这一步监督微调（SFT），仅修改缓存并不足够。",
       "datasets": [
         "Inf-Streams-Train",
         "Live-WhisperX-526K"
@@ -2127,10 +2127,10 @@
         "https://arxiv.org/abs/2510.09608"
       ],
       "contribution_type": [
-        "streaming model",
-        "KV-cache policy",
-        "training recipe",
-        "benchmark"
+        "流式模型",
+        "KV 缓存策略",
+        "训练方案",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -2152,12 +2152,12 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2023-12-04",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Shuhuai Ren et al.",
-      "summary": "TimeChat links frame content with explicit timestamps and produces variable-length video tokens, supporting temporal grounding, dense captioning, and highlight detection through natural-language instructions.",
-      "architecture": "A timestamp-aware frame encoder binds each frame's visual features to a timestamp description through an image Q-Former. A sliding video Q-Former aggregates these frame tokens within successive windows. Its variable-length output is projected into a LLaMA-2 decoder alongside the query and optional transcribed speech. The model then generates descriptions and timestamped temporal predictions as text.",
-      "temporal_modeling": "Timestamp descriptions anchor frame-level evidence to absolute time, while the sliding Q-Former models local temporal relations and scales the token sequence with video duration.",
-      "training": "Initialize from pretrained visual-language components, then instruction-tune Q-Formers and projector with LoRA adaptation of the LLM. TimeIT provides time-aware supervision across multiple video tasks. Training uses language modeling on answers, enabling shared decoding for localization and description.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Shuhuai Ren 等",
+      "summary": "TimeChat 将帧内容与显式时间戳关联，并产生可变长度的视频 token，使自然语言指令能够统一支持时间定位、密集描述和精彩片段检测。",
+      "architecture": "时间戳感知帧编码器通过图像 Q-Former，将每帧的视觉特征与时间戳描述绑定。滑动视频 Q-Former 在连续窗口内聚合这些帧 token。其可变长度输出经投影后，与查询及可选的语音转写文本一起送入 LLaMA-2 解码器。模型随后以文本形式生成描述和带时间戳的时间预测。",
+      "temporal_modeling": "时间戳描述将帧级证据锚定到绝对时间；滑动 Q-Former 建模局部时间关系，并使 token 序列长度随视频时长变化。",
+      "training": "从预训练视觉语言组件初始化，再对 Q-Former 和投影层进行指令微调，并使用 LoRA 适配 LLM。TimeIT 为多种视频任务提供时间感知监督。训练对答案使用语言建模目标，使定位和描述共用同一解码过程。",
       "datasets": [
         "TimeIT"
       ],
@@ -2165,9 +2165,9 @@
         "https://arxiv.org/abs/2312.02051"
       ],
       "contribution_type": [
-        "temporal model",
-        "Q-Former connector",
-        "instruction data"
+        "时间建模",
+        "Q-Former 连接器",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -2189,19 +2189,19 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2023-11-30",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Bin Huang et al.",
-      "summary": "VTimeLLM builds temporal boundary awareness primarily through staged supervision, adapting a simple visual encoder and projector to timestamped event understanding with a language decoder.",
-      "architecture": "A frozen CLIP frame encoder extracts a feature for each uniformly sampled frame, and a visual adapter maps the sequence into Vicuna's embedding space. Visual tokens and user questions enter the autoregressive LLM together. The architecture uses a lightweight connection; its central innovation is the boundary-aware training curriculum that teaches event descriptions and temporal intervals through textual answers.",
-      "temporal_modeling": "One hundred sampled frames provide an ordered video representation. Single- and multi-turn temporal QA associate events with relative boundaries, enabling localization and dense captioning.",
-      "training": "Align the visual adapter with image-text pairs; train LLM LoRA modules on large-scale multi-event video data with boundary-aware QA; then instruction-tune on high-quality dialogues. The second stage freezes the aligned adapter, separating temporal learning from initial visual alignment.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Bin Huang 等",
+      "summary": "VTimeLLM 主要通过分阶段监督建立时间边界感知能力，将简单的视觉编码器和投影层与语言解码器结合，用于带时间戳的事件理解。",
+      "architecture": "冻结的 CLIP 帧编码器为每个均匀采样帧提取特征，视觉适配器将该序列映射到 Vicuna 的嵌入空间。视觉 token 与用户问题共同进入自回归 LLM。架构采用轻量连接；核心创新是边界感知训练课程，通过文本答案教会模型生成事件描述和时间区间。",
+      "temporal_modeling": "100 个采样帧构成有序的视频表示。单轮和多轮时间问答将事件与相对边界关联，使模型能够进行时间定位和密集描述。",
+      "training": "先用图文对对齐视觉适配器；再利用大规模多事件视频数据和边界感知问答训练 LLM 的 LoRA 模块；最后在高质量对话上进行指令微调。第二阶段冻结已对齐的适配器，使时间学习与初始视觉对齐分开进行。",
       "primary_sources": [
         "https://arxiv.org/abs/2311.18445"
       ],
       "contribution_type": [
-        "temporal model",
-        "training curriculum",
-        "instruction data"
+        "时间建模",
+        "训练课程",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -2223,12 +2223,12 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2024-02-18",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Long Qian et al.",
-      "summary": "Momentor adds a continuous temporal token space and grounded event-sequence training to support segment-level video comprehension, localization, and reasoning over multiple events.",
-      "architecture": "CLIP independently encodes sampled frames, and a linear projector aligns them with LLaMA. The Temporal Perception Module extends the vocabulary with temporal tokens and injects time into frame representations. Continuous interpolation represents timestamps between discrete tokens; neighboring token propagation regularizes their embeddings. The decoder generates temporal boundaries and language, allowing grounded descriptions and cross-segment instruction following through one interface.",
-      "temporal_modeling": "Interpolated temporal embeddings reduce timestamp quantization error. Grounded Event-Sequence Modeling connects ordered event descriptions to boundaries, while neighboring-token updates encourage continuity of temporal representations.",
-      "training": "Use modality alignment, grounded event-sequence modeling, and instruction tuning on Moment-10M. The reported implementation freezes CLIP and the LLaMA-7B backbone, updating the projection layer and temporal module. Segment-level and cross-segment instructions teach finer temporal reasoning than video-level QA alone.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Long Qian 等",
+      "summary": "Momentor 引入连续的时间 token 空间和带定位信息的事件序列训练，以支持片段级视频理解、时间定位及多事件推理。",
+      "architecture": "CLIP 独立编码采样帧，线性投影层将它们与 LLaMA 对齐。Temporal Perception Module 用时间 token 扩展词表，并将时间信息注入帧表示。连续插值表示离散 token 之间的时间戳，相邻 token 传播则约束它们的嵌入。解码器同时生成时间边界和语言，以同一接口支持带定位信息的描述及跨片段指令遵循。",
+      "temporal_modeling": "插值时间嵌入减小时间戳量化误差。Grounded Event-Sequence Modeling 将有序事件描述与边界关联，而相邻 token 更新促使时间表示保持连续。",
+      "training": "在 Moment-10M 上依次进行模态对齐、带定位信息的事件序列建模和指令微调。论文报告的实现冻结 CLIP 和 LLaMA-7B 骨干模型，更新投影层和时间模块。片段级与跨片段指令提供比单纯视频级问答更细粒度的时间推理监督。",
       "datasets": [
         "Moment-10M"
       ],
@@ -2236,10 +2236,10 @@
         "https://arxiv.org/abs/2402.11435"
       ],
       "contribution_type": [
-        "temporal model",
-        "temporal tokens",
-        "training objective",
-        "instruction data"
+        "时间建模",
+        "时间 token",
+        "训练目标",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -2261,12 +2261,12 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2024-03-15",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Yueqian Wang et al.",
-      "summary": "HawkEye extends VideoChat2 through grounding-oriented instructions and recursive cropping, refining coarse temporal choices into precise video segments while retaining general video conversation abilities.",
-      "architecture": "HawkEye retains VideoChat2's visual encoder, Q-Former, query tokens, and language decoder. It formats grounding as four coarse temporal choices: beginning, middle, end, or throughout. At inference, recursive grounding crops the selected temporal region and asks again, progressively narrowing the segment. The resulting boundaries are mapped back to the original video's timestamps for user-facing output.",
-      "temporal_modeling": "Coarse temporal categories avoid brittle direct timestamp generation. Recursive cropping repeatedly increases temporal resolution, and randomized training crops vary each query's relative position.",
-      "training": "Add InternVid-G temporal grounding and segment-caption instructions to VideoChat2 instruction data. Freeze the visual encoder, tune Q-Former and query tokens, and apply LoRA to the LLM. Random crops balance temporal categories and reduce shortcuts between query wording and answers.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Yueqian Wang 等",
+      "summary": "HawkEye 通过面向时间定位的指令和递归裁剪扩展 VideoChat2，将粗粒度时间选择逐步细化为精确视频片段，同时保留通用视频对话能力。",
+      "architecture": "HawkEye 保留 VideoChat2 的视觉编码器、Q-Former、查询 token 和语言解码器。它将定位格式化为四种粗粒度时间选择：开头、中间、结尾或全程。推理时，递归定位裁剪选中的时间区域并再次提问，逐步缩小片段范围。最终边界被映射回原视频的时间戳，作为用户可见输出。",
+      "temporal_modeling": "粗粒度时间类别避免直接生成时间戳时的脆弱性。递归裁剪反复提高时间分辨率，随机训练裁剪则改变每个查询的相对位置。",
+      "training": "将 InternVid-G 时间定位和片段描述指令加入 VideoChat2 指令数据。冻结视觉编码器，微调 Q-Former 和查询 token，并对 LLM 应用 LoRA。随机裁剪平衡时间类别，并减少模型利用问题措辞与答案之间的捷径。",
       "datasets": [
         "InternVid-G",
         "VideoChat2-IT"
@@ -2275,9 +2275,9 @@
         "https://arxiv.org/abs/2403.10228"
       ],
       "contribution_type": [
-        "temporal model",
-        "instruction data",
-        "recursive inference"
+        "时间建模",
+        "指令数据",
+        "递归推理"
       ],
       "technical_sources": [
         {
@@ -2299,24 +2299,24 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2024-05-22",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Yongxin Guo et al.",
-      "summary": "VTG-LLM injects timestamp knowledge into visual inputs and textual outputs, combining explicit temporal embeddings with slot-based compression for video temporal grounding and related tasks.",
-      "architecture": "A fixed visual encoder and Q-Former extract frame tokens. Sequence-time embeddings add both frame order and absolute timestamps to the visual representation. Slot-based token compression maps the growing frame-token sequence to a fixed budget before the language decoder. Special absolute-time tokens encode timestamp characters in prompts and answers, providing a shared representation for video evidence and generated temporal boundaries.",
-      "temporal_modeling": "Sequence-time embeddings distinguish chronological order from absolute time. Dedicated time tokens make generated timestamps explicit, while compression preserves useful information under a fixed token budget.",
-      "training": "Train with VTG-IT-120K time-aware instructions and a sampled Valley subset, covering temporal grounding, dense captioning, and highlight detection. Initialize pretrained visual-language components and tune the temporal modules and language adaptation according to the paper's instruction-training setup.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Yongxin Guo 等",
+      "summary": "VTG-LLM 将时间戳知识注入视觉输入和文本输出，结合显式时间嵌入与基于槽位的压缩，用于视频时间定位及相关任务。",
+      "architecture": "固定的视觉编码器和 Q-Former 提取帧 token。Sequence-time embeddings 将帧顺序和绝对时间戳同时加入视觉表示。基于槽位的 token 压缩在进入语言解码器之前，将随帧数增长的 token 序列映射到固定预算。特殊的绝对时间 token 编码提示和答案中的时间戳字符，使视频证据与生成的时间边界采用共用表示。",
+      "temporal_modeling": "Sequence-time embeddings 区分时间先后顺序与绝对时间。专用时间 token 使生成的时间戳显式化，而压缩在固定 token 预算内保留有用信息。",
+      "training": "使用 VTG-IT-120K 时间感知指令和采样的 Valley 子集训练，覆盖时间定位、密集描述和精彩片段检测。从预训练视觉语言组件初始化，按论文的指令训练设置微调时间模块和语言适配部分。",
       "datasets": [
         "VTG-IT-120K",
-        "Valley subset"
+        "Valley 子集"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2405.13382"
       ],
       "contribution_type": [
-        "temporal model",
-        "temporal embeddings",
-        "token compression",
-        "instruction data"
+        "时间建模",
+        "时间嵌入",
+        "token 压缩",
+        "指令数据"
       ],
       "technical_sources": [
         {
@@ -2338,20 +2338,20 @@
       "record_type": "model_or_version",
       "category": "grounding",
       "first_public_date": "2024-10-08",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Yongxin Guo et al.",
-      "summary": "TRACE treats temporally grounded outputs as causal event sequences, explicitly combining timestamps, saliency scores, and descriptions to unify video grounding tasks within autoregressive generation.",
-      "architecture": "CLIP frame features undergo slot-based compression and are concatenated with timestamp tokens. Separate encoders and output heads represent time, score, and text. Initialized from VideoLLaMA2, the language backbone decodes structured events rather than plain timestamp strings: each event contains its boundaries, an optional relevance score, and a description. Earlier events condition subsequent generation through causal event modeling.",
-      "temporal_modeling": "Frame timestamps anchor visual evidence, while causal event sequences capture dependencies among temporal boundaries, saliency, and event semantics across multiple grounded moments.",
-      "training": "First initialize vision compression and task-specific encoders and heads. Then fine-tune the language backbone and task modules while freezing the vision encoder. Mixed temporal-task supervision teaches structured event generation; optional downstream fine-tuning specializes the same architecture for grounding datasets.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Yongxin Guo 等",
+      "summary": "TRACE 将带时间定位的输出视为因果事件序列，显式结合时间戳、显著性分数和描述，在自回归生成中统一视频时间定位任务。",
+      "architecture": "CLIP 帧特征经过基于槽位的压缩，再与时间戳 token 拼接。独立的编码器和输出头分别表示时间、分数和文本。语言骨干模型由 VideoLLaMA2 初始化，解码结构化事件，而非普通时间戳字符串：每个事件包含边界、可选的相关性分数和描述。因果事件建模使此前的事件影响后续生成。",
+      "temporal_modeling": "帧时间戳锚定视觉证据，因果事件序列则捕捉多个定位时刻中时间边界、显著性及事件语义之间的依赖关系。",
+      "training": "首先初始化视觉压缩模块和任务专用的编码器及输出头。随后冻结视觉编码器，微调语言骨干模型和任务模块。混合的时间任务监督教会模型生成结构化事件；可选的下游微调使同一架构适应特定时间定位数据集。",
       "primary_sources": [
         "https://arxiv.org/abs/2410.05643",
         "https://github.com/gyxxyg/TRACE#model-zoo"
       ],
       "contribution_type": [
-        "temporal model",
-        "structured decoding",
-        "training objective"
+        "时间建模",
+        "结构化解码",
+        "训练目标"
       ],
       "technical_sources": [
         {
@@ -2373,12 +2373,12 @@
       "record_type": "model_or_version",
       "category": "omni",
       "first_public_date": "2024-08-09",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Chaoyou Fu et al.",
-      "summary": "Introduces open video-image-text-audio interaction through modality adapters and a shared language backbone; VITA-1.5 subsequently integrates end-to-end speech generation with progressive multimodal training.",
-      "architecture": "Original VITA connects InternViT visual tokens and an audio encoder to Mixtral through separate adapters, using modality-state tokens and two model instances for interaction control. VITA-1.5 keeps visual and audio input adapters but adds a speech-generation path driven directly by language embeddings, replacing the earlier external speech-synthesis pipeline and reducing reliance on cascaded modules.",
-      "temporal_modeling": "Sampled video frames enter as ordered visual tokens. Audio interaction uses dedicated state and interruption handling; VITA-1.5 improves speech synchronization through direct embedding-conditioned generation.",
-      "training": "VITA stages language tuning, modality alignment, and multimodal instruction tuning. VITA-1.5 progressively develops vision-language understanding, audio input, and speech output using caption, question-answer, speech-transcription, and text-speech data while balancing modality conflicts.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Chaoyou Fu 等",
+      "summary": "通过模态适配器与共享语言骨干模型实现开放的视频、图像、文本、音频交互；VITA-1.5 随后以渐进式多模态训练整合端到端语音生成。",
+      "architecture": "初代 VITA 通过独立适配器，将 InternViT 视觉 token 和音频编码器连接至 Mixtral，并使用模态状态 token 及两个模型实例控制交互。VITA-1.5 保留视觉与音频输入适配器，同时加入由语言嵌入直接驱动的语音生成路径，替代早期外部语音合成流程，减少对级联模块的依赖。",
+      "temporal_modeling": "采样视频帧作为有序视觉 token 输入。音频交互使用专门的状态与打断处理；VITA-1.5 通过直接以嵌入为条件的生成改善语音同步。",
+      "training": "VITA 分阶段进行语言微调、模态对齐与多模态指令微调。VITA-1.5 使用描述、问答、语音转写及文本语音数据，逐步建立视觉语言理解、音频输入与语音输出能力，同时平衡模态冲突。",
       "primary_sources": [
         {
           "label": "VITA: Towards Open-Source Interactive Omni Multimodal LLM",
@@ -2394,9 +2394,9 @@
         }
       ],
       "contribution_type": [
-        "omni architecture",
-        "interaction system",
-        "training recipe"
+        "全模态架构",
+        "交互系统",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -2414,7 +2414,7 @@
           "url": "https://github.com/VITA-MLLM/VITA"
         }
       ],
-      "version_note": "The diagram is from the original VITA report. VITA-1.5 changes the speech-generation and progressive-training path as described in the linked 1.5 report."
+      "version_note": "图示来自初代 VITA 报告。VITA-1.5 对语音生成与渐进式训练路径进行了修改，具体见所链接的 1.5 报告。"
     },
     {
       "id": 59,
@@ -2423,12 +2423,12 @@
       "record_type": "model_or_version",
       "category": "omni",
       "first_public_date": "2026-02-03",
-      "date_basis": "Official MiniCPM repository release on 2026-02-03; report arXiv v1: 2026-04-30",
-      "authors": "Junbo Cui et al.",
-      "summary": "Aligns visual, audio, text, and speech streams on a shared timeline, enabling continuous perception, concurrent speaking, and proactive responses through the Omni-Flow interaction framework.",
-      "architecture": "SigLIP-family vision features pass through a resampler, while Whisper-medium audio features use a temporally compressing MLP. Qwen3-8B generates text and hidden states for a lightweight speech-token decoder and waveform renderer. Hidden-state connections keep modality modules end-to-end trainable. Omni-Flow converts parallel input and output streams into time-local groups consumed by the shared backbone.",
-      "temporal_modeling": "Small time windows interleave perception, listen/speak control, and output generation. Time-aligned text and speech allow fresh audiovisual evidence to influence responses during ongoing speech.",
-      "training": "Speech-module pretraining starts from MiniCPM visual-language checkpoints and Whisper. Joint pretraining then updates the full system with balanced modality mixtures. Supervised tuning and reinforcement learning add full-duplex, proactive, and high-quality conversational behavior.",
+      "date_basis": "MiniCPM 官方仓库于 2026-02-03 发布；报告 arXiv v1 提交日期：2026-04-30",
+      "authors": "Junbo Cui 等",
+      "summary": "通过 Omni-Flow 交互框架，将视觉、音频、文本与语音流对齐到共享时间线，实现持续感知、边感知边说话及主动响应。",
+      "architecture": "SigLIP 家族的视觉特征经过重采样器，Whisper-medium 音频特征经过压缩时间维度的 MLP。Qwen3-8B 生成文本与隐藏状态，为轻量语音 token 解码器和波形生成模块提供输入。隐藏状态连接使模态模块可以端到端训练。Omni-Flow 将并行输入输出流转换为按局部时间组织的分组，由共享骨干模型处理。",
+      "temporal_modeling": "小时间窗口交错执行感知、听说控制及输出生成。按时间对齐的文本与语音，使模型在持续说话过程中能够利用新到来的音视频证据调整响应。",
+      "training": "语音模块预训练从 MiniCPM 视觉语言模型权重和 Whisper 初始化。随后使用平衡的模态混合进行联合预训练，更新完整系统。监督微调（SFT）与强化学习进一步建立全双工、主动响应及高质量对话行为。",
       "primary_sources": [
         {
           "label": "MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction",
@@ -2444,9 +2444,9 @@
         }
       ],
       "contribution_type": [
-        "omni architecture",
-        "full duplex interaction",
-        "training recipe"
+        "全模态架构",
+        "全双工交互",
+        "训练方案"
       ],
       "technical_sources": [
         {
@@ -2468,12 +2468,12 @@
       "record_type": "model_or_version",
       "category": "omni",
       "first_public_date": "2025-03-26",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Jin Xu et al.",
-      "summary": "Separates multimodal reasoning from speech generation using Thinker and Talker, aligning audio and video in time while producing streaming text and spoken responses.",
-      "architecture": "Qwen2.5-VL vision and Qwen2-Audio-derived audio encoders feed the Thinker language decoder. Time-aligned Multimodal RoPE integrates audio timestamps and frame spatial positions. Thinker emits text and hidden representations to Talker, a speech-generation decoder sharing conversation context. Speech codec tokens are rendered through a streaming waveform decoder, yielding one end-to-end trainable multimodal system.",
-      "temporal_modeling": "Block-wise audiovisual processing and TMRoPE place audio segments and video frames on a common time scale. Streaming generation begins before the complete response is available.",
-      "training": "Encoder and adapter alignment first freezes the language backbone. Joint multimodal pretraining then updates all components, followed by longer-context training. Supervised instruction tuning and preference optimization refine understanding, conversational behavior, and speech generation.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Jin Xu 等",
+      "summary": "使用 Thinker 与 Talker 分离多模态推理和语音生成，将音频与视频按时间对齐，同时生成流式文本与语音响应。",
+      "architecture": "Qwen2.5-VL 视觉编码器和源自 Qwen2-Audio 的音频编码器连接至 Thinker 语言解码器。时间对齐的多模态 RoPE 整合音频时间戳与帧空间位置。Thinker 将文本与隐藏表示输出至 Talker；Talker 是共享对话上下文的语音生成解码器。语音编解码 token 由流式波形解码器转换为声音，组成可端到端训练的多模态系统。",
+      "temporal_modeling": "分块音视频处理与 TMRoPE 将音频片段和视频帧放在共同时间尺度上。无需等待完整响应生成完毕，即可开始流式输出。",
+      "training": "编码器与适配器对齐阶段首先冻结语言骨干模型。联合多模态预训练随后更新全部组件，再进行更长上下文训练。监督指令微调与偏好优化改善理解、对话行为及语音生成。",
       "primary_sources": [
         {
           "label": "Qwen2.5-Omni Technical Report",
@@ -2485,9 +2485,9 @@
         }
       ],
       "contribution_type": [
-        "omni architecture",
-        "temporal alignment",
-        "streaming generation"
+        "全模态架构",
+        "时间对齐",
+        "流式生成"
       ],
       "technical_sources": [
         {
@@ -2509,12 +2509,12 @@
       "record_type": "model_or_version",
       "category": "omni",
       "first_public_date": "2025-09-22",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Jin Xu et al.",
-      "summary": "Uses a Thinker-Talker mixture-of-experts system for audiovisual understanding and speech, combining a new audio encoder with multi-codebook speech prediction and efficient waveform streaming.",
-      "architecture": "An AuT audio encoder and SigLIP2-initialized vision encoder produce representations for the Thinker MoE language model. Talker consumes Thinker features and conversational context, predicting speech codecs with multiple codebooks. A small multi-token-prediction module generates residual codebooks, and a causal convolutional Code2Wav network renders audio incrementally, replacing the earlier heavier blockwise waveform generation path.",
-      "temporal_modeling": "Time-aligned audiovisual inputs support joint perception. Multi-codebook prediction and causal waveform rendering stream speech frame by frame while retaining shared multimodal conversation context.",
-      "training": "Encoder alignment precedes joint multimodal pretraining and longer-context training. AuT learns from speech recognition and audio-understanding data. Instruction tuning, distillation, and reinforcement learning refine outputs, with dedicated variants for reasoning and audio captioning.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Jin Xu 等",
+      "summary": "采用 Thinker-Talker 混合专家系统进行音视频理解和语音生成，结合新音频编码器、多码本语音预测及高效流式波形生成。",
+      "architecture": "AuT 音频编码器和以 SigLIP2 初始化的视觉编码器，为 Thinker MoE 语言模型生成表示。Talker 使用 Thinker 特征与对话上下文，预测具有多个码本的语音编解码 token。小型多 token 预测模块生成残差码本，因果卷积 Code2Wav 网络逐步生成音频，替代早期较重的分块波形生成路径。",
+      "temporal_modeling": "按时间对齐的音视频输入支持联合感知。多码本预测与因果波形生成逐帧输出流式语音，同时保留共享的多模态对话上下文。",
+      "training": "编码器对齐之后，进行联合多模态预训练与更长上下文训练。AuT 使用语音识别和音频理解数据学习。指令微调、蒸馏与强化学习改进输出，并提供面向推理与音频描述的专用变体。",
       "primary_sources": [
         {
           "label": "Qwen3-Omni Technical Report",
@@ -2526,9 +2526,9 @@
         }
       ],
       "contribution_type": [
-        "omni architecture",
-        "audio encoding",
-        "streaming generation"
+        "全模态架构",
+        "音频编码",
+        "流式生成"
       ],
       "technical_sources": [
         {
@@ -2550,12 +2550,12 @@
       "record_type": "model_or_version",
       "category": "omni",
       "first_public_date": "2026-04-17",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Qwen Team",
-      "summary": "Scales audiovisual reasoning and speech generation with hybrid-attention experts, explicit timestamps, and adaptive text-speech alignment; the reviewed public entry exposes a hosted service.",
-      "architecture": "SigLIP2 visual features and AuT audio features feed a hybrid-attention MoE Thinker. A corresponding hybrid MoE Talker conditions on the shared context and text outputs. Multi-codebook speech prediction and a causal waveform renderer enable streaming. ARIA dynamically aligns text and speech units before interleaving, reducing instability from different tokenizer rates in conversational generation.",
-      "temporal_modeling": "Explicit timestamps and interleaved audiovisual inputs structure long contexts. Chunk-wise input processing supports streaming; ARIA aligns output speech with text and ongoing conversation.",
-      "training": "The report describes large-scale heterogeneous multimodal pretraining and staged Thinker/Talker post-training. Speech learning includes general and longer-context training plus alignment. Public documentation supports hosted inference; released model weights or a complete training implementation were not verified.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Qwen 团队",
+      "summary": "通过混合注意力专家、显式时间戳及自适应文本语音对齐，扩展音视频推理与语音生成；经核验的公开入口提供托管服务。",
+      "architecture": "SigLIP2 视觉特征与 AuT 音频特征输入采用混合注意力的 MoE Thinker。对应的混合 MoE Talker 以共享上下文和文本输出为条件。多码本语音预测与因果波形生成模块支持流式输出。ARIA 在交错排列前动态对齐文本与语音单元，减少对话生成过程中两种 tokenizer 速率不同导致的不稳定。",
+      "temporal_modeling": "显式时间戳与交错的音视频输入组织长上下文。分块输入处理支持流式运行；ARIA 将输出语音与文本及持续对话对齐。",
+      "training": "报告描述了大规模异构多模态预训练与分阶段 Thinker/Talker 后训练。语音学习包括通用训练、更长上下文训练及对齐。公开文档支持托管推理；尚未核验公开模型权重或完整训练实现。",
       "primary_sources": [
         {
           "label": "Qwen3.5-Omni Technical Report",
@@ -2567,9 +2567,9 @@
         }
       ],
       "contribution_type": [
-        "omni architecture",
-        "hybrid backbone",
-        "temporal alignment"
+        "全模态架构",
+        "混合骨干模型",
+        "时间对齐"
       ],
       "technical_sources": [
         {
@@ -2583,7 +2583,7 @@
           "url": "https://www.alibabacloud.com/help/en/model-studio/qwen-omni"
         }
       ],
-      "availability_note": "The technical report and hosted API were verified. Public weights and a reproducible training implementation were not verified. Later API names do not establish an independent architecture card."
+      "availability_note": "已核验技术报告与托管 API。尚未核验公开权重及可复现训练实现。后续 API 名称不足以据此建立独立架构条目。"
     },
     {
       "id": 63,
@@ -2592,12 +2592,12 @@
       "record_type": "model_or_version",
       "category": "efficient",
       "first_public_date": "2025-03-27",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Abdelrahman Shaker et al.",
-      "summary": "Combines efficient spatial and temporal encoders with attention-based frame selection and a small language model, targeting lower-cost video question answering and edge-device deployment.",
-      "architecture": "CLIP-B/16 extracts spatial features from all sampled frames. Attention-based scoring selects salient frames for VideoMamba-M temporal encoding. Efficient Token Projectors refine features, reduce tokens through pooling, and add positional context before spatial and temporal representations are fused. A Qwen2.5 small language model consumes the compact visual-language sequence and generates responses to video questions.",
-      "temporal_modeling": "Frame scoring limits temporal-encoder computation to selected observations. VideoMamba captures motion context, while projected spatial and temporal tokens preserve complementary evidence for the decoder.",
-      "training": "Image-projector and video-projector warm-up keep pretrained encoders and the language model frozen. Instruction tuning then trains both projectors and applies LoRA to the language model using mixed image and video conversation data.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Abdelrahman Shaker 等",
+      "summary": "结合高效空间与时间编码器、基于注意力的帧选择及小型语言模型，面向低成本视频问答和边缘设备部署。",
+      "architecture": "CLIP-B/16 从所有采样帧提取空间特征。基于注意力的评分选择显著帧，交由 VideoMamba-M 进行时间编码。Efficient Token Projectors 细化特征，通过池化减少 token，并在融合空间与时间表示前加入位置上下文。Qwen2.5 小型语言模型接收紧凑的视觉语言序列，生成视频问题的回答。",
+      "temporal_modeling": "帧评分将时间编码器计算限制在选定观测上。VideoMamba 捕获运动上下文，投影后的空间与时间 token 为解码器保留互补证据。",
+      "training": "图像投影层与视频投影层预热时，保持预训练编码器及语言模型冻结。随后，指令微调使用混合图像与视频对话数据训练两个投影层，并对语言模型应用 LoRA。",
       "primary_sources": [
         {
           "label": "Mobile-VideoGPT: Fast and Accurate Model for Mobile Video Understanding",
@@ -2609,9 +2609,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "frame selection",
-        "efficient projector"
+        "模型架构",
+        "帧选择",
+        "高效投影层"
       ],
       "technical_sources": [
         {
@@ -2633,12 +2633,12 @@
       "record_type": "model_or_version",
       "category": "efficient",
       "first_public_date": "2025-04-02",
-      "date_basis": "arXiv v1 submission date",
-      "authors": "Min Shi et al.",
-      "summary": "Keeps detailed visual evidence available through cross-attention while compressed preview tokens enter self-attention, allowing instruction-aware video reading inside a hybrid language decoder.",
-      "architecture": "ConvNeXt-XXL and a projector form slow visual features. Strided sampling and temporal pooling create compressed fast tokens concatenated with text for Qwen2-7B self-attention. Selected decoder layers add cross-attention from text to uncompressed slow features. A dynamic gate and warm-up factor control this residual pathway, preserving detail without loading every visual token into self-attention.",
-      "temporal_modeling": "Fast tokens give a broad temporal preview, while text-conditioned cross-attention reads detailed slow evidence. Temporal pooling controls preview length without discarding the accessible slow representation.",
-      "training": "Cross-attention projections inherit language self-attention weights where applicable, with a warm-up gate stabilizing integration. Visual-language alignment precedes mixed image, video, and text instruction tuning, teaching the hybrid decoder to select useful fine-grained evidence.",
+      "date_basis": "arXiv v1 提交日期",
+      "authors": "Min Shi 等",
+      "summary": "通过交叉注意力保留可访问的详细视觉证据，并将压缩预览 token 输入自注意力，使混合语言解码器能够根据指令读取视频。",
+      "architecture": "ConvNeXt-XXL 与投影层生成慢路径视觉特征。步幅采样和时间池化构造压缩后的快路径 token，与文本拼接后进入 Qwen2-7B 自注意力。在选定解码器层加入文本到未压缩慢路径特征的交叉注意力。动态门控与预热系数控制这条残差路径，保留细节而无需将每个视觉 token 都装入自注意力。",
+      "temporal_modeling": "快路径 token 提供广泛的时间预览，以文本为条件的交叉注意力则读取详细慢路径证据。时间池化控制预览长度，同时保留可访问的慢路径表示。",
+      "training": "交叉注意力投影在适用位置继承语言自注意力权重，预热门控稳定整合过程。视觉语言对齐之后进行混合图像、视频与文本指令微调，训练混合解码器选择有用的细粒度证据。",
       "primary_sources": [
         {
           "label": "Slow-Fast Architecture for Video Multi-Modal Large Language Models",
@@ -2650,9 +2650,9 @@
         }
       ],
       "contribution_type": [
-        "architecture",
-        "hybrid attention",
-        "query conditioning"
+        "模型架构",
+        "混合注意力",
+        "问题条件化"
       ],
       "technical_sources": [
         {
@@ -2674,19 +2674,19 @@
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2025-03-01",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Shangzhe Di et al.",
-      "summary": "ReKV is a training-free inference method that stores streaming video KV states outside GPU memory and retrieves relevant states when a question arrives.",
-      "architecture": "A pretrained decoder-based Video-LLM encodes the stream once using sliding-window attention. Video KV states leaving the active window are offloaded to RAM or disk. A query selects relevant cached keys and values through cosine-similarity retrieval, accelerated by compressed representations. Retrieved states return to GPU memory and serve as context for autoregressive answer generation, avoiding repeated video encoding.",
-      "temporal_modeling": "The sliding window captures local temporal context during encoding; indexed historical KV blocks retain evidence from earlier video regions for query-conditioned retrieval and reuse.",
-      "training": "No additional training is required. ReKV changes attention, cache storage, and retrieval during inference while reusing pretrained Video-LLM weights. Its experiments attach the method to existing video-capable backbones; it is a cache-management method rather than a separately trained model.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Shangzhe Di 等",
+      "summary": "ReKV 是一种无需训练的推理方法，将流式视频的 KV 状态存储在 GPU 显存之外，并在问题到来时检索相关状态。",
+      "architecture": "预训练的基于解码器的 Video-LLM 使用滑动窗口注意力，对视频流编码一次。离开活动窗口的视频 KV 状态被卸载到内存或磁盘。查询通过余弦相似度检索相关的缓存键和值，压缩表示加速这一过程。检索到的状态被送回 GPU 显存，为自回归答案生成提供上下文，避免重复编码视频。",
+      "temporal_modeling": "滑动窗口在编码过程中捕捉局部时间上下文；带索引的历史 KV 块保留早期视频区域的证据，供问题引导的检索与复用。",
+      "training": "无需额外训练。ReKV 在推理期间修改注意力、缓存存储和检索，同时复用预训练 Video-LLM 权重。实验将该方法接入已有的支持视频的骨干模型；它是一种缓存管理方法，而非单独训练的模型。",
       "primary_sources": [
         "https://arxiv.org/abs/2503.00540"
       ],
       "contribution_type": [
-        "training-free method",
-        "KV-cache retrieval",
-        "streaming inference"
+        "免训练方法",
+        "KV 缓存检索",
+        "流式推理"
       ],
       "technical_sources": [
         {
@@ -2703,28 +2703,28 @@
     },
     {
       "id": 66,
-      "name": "StreamChat (Xiong et al.)",
+      "name": "StreamChat（Xiong 等）",
       "slug": "66-streamchat-xiong-et-al",
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2025-01-23",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Haomiao Xiong et al.",
-      "summary": "Xiong et al.'s StreamChat is a training-free memory orchestration framework, combining hierarchical video evidence and dialogue history for streaming understanding and multi-round interaction.",
-      "architecture": "Selective Frame Stacking encodes and buffers informative visual features. Memory Formation organizes them into recent short-term memory, a long-term memory tree, and a dialogue memory. Contextual Summarization retrieves question-relevant evidence and constructs context for an existing MLLM. Parallel scheduling separates frame processing from interaction, so the system can keep accumulating memory while answering user questions.",
-      "temporal_modeling": "Short-term memory tracks ongoing events; hierarchical long-term memory compresses earlier video. Retrieved dialogue history supports continuity across multiple questions about different temporal regions.",
-      "training": "No additional training is required. The framework reuses pretrained visual-language models and embedding-based retrieval, introducing storage, compression, summarization, and scheduling around them. This memory system and StreamBench contribution are distinct from Liu et al.'s separately trained StreamChat cross-attention architecture.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Haomiao Xiong 等",
+      "summary": "Xiong 等人的 StreamChat 是无需训练的记忆编排框架，结合分层视频证据和对话历史，支持流式理解与多轮交互。",
+      "architecture": "Selective Frame Stacking 编码并缓冲信息丰富的视觉特征。Memory Formation 将它们组织为近期短期记忆、长期记忆树和对话记忆。Contextual Summarization 检索与问题相关的证据，并为已有 MLLM 构建上下文。并行调度将帧处理与交互分开，使系统在回答用户问题时仍能继续积累记忆。",
+      "temporal_modeling": "短期记忆跟踪正在发生的事件，分层长期记忆压缩较早的视频。检索到的对话历史支持围绕不同时间区域的多轮问答保持连续性。",
+      "training": "无需额外训练。框架复用预训练视觉语言模型和基于嵌入的检索，在其外围引入存储、压缩、摘要和调度。这一记忆系统及其 StreamBench 贡献，与 Liu 等人单独训练的 StreamChat 交叉注意力架构不同。",
       "datasets": [
-        "StreamBench (evaluation)"
+        "StreamBench（评测）"
       ],
       "primary_sources": [
         "https://arxiv.org/abs/2501.13468"
       ],
       "contribution_type": [
-        "training-free system",
-        "hierarchical memory",
-        "retrieval",
-        "benchmark"
+        "免训练系统",
+        "层次化记忆",
+        "检索",
+        "评测基准"
       ],
       "technical_sources": [
         {
@@ -2746,19 +2746,19 @@
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2024-12-12",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Xizi Wang et al.",
-      "summary": "TimeRefine improves existing temporal-grounding Video-LLMs by generating coarse boundaries followed by iterative offsets, supplemented with an auxiliary head that penalizes localization error.",
-      "architecture": "The method retains a host Video-LLM's visual encoder, connector, and language decoder, demonstrated with VTimeLLM and VTG-LLM. It reformats the decoder output as an initial temporal interval followed by refinement predictions and offsets. An auxiliary regression head supplements the next-token head during training. The last interval and offsets yield the final localized segment, adding temporal precision without replacing the host architecture.",
-      "temporal_modeling": "Iterative residual offsets refine coarse predictions. The auxiliary L1 objective distinguishes near-miss boundaries from distant errors, which ordinary token classification does not directly express.",
-      "training": "This method requires training. Grounding QA targets are converted into refinement sequences using progressively decreasing timestamp noise; non-grounding targets remain unchanged. Apply the host model's original training data and settings while adding next-token and auxiliary regression supervision.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Xizi Wang 等",
+      "summary": "TimeRefine 通过先生成粗略边界、再迭代预测偏移量，改进已有的时间定位 Video-LLM；辅助输出头进一步惩罚定位误差。",
+      "architecture": "该方法保留所接入 Video-LLM 的视觉编码器、连接器和语言解码器，并在 VTimeLLM 和 VTG-LLM 上进行验证。它将解码器输出改为初始时间区间，后接细化预测和偏移量。辅助回归头在训练期间补充下一 token 预测头。最终区间和偏移量得到定位片段，在不替换原架构的情况下提高时间精度。",
+      "temporal_modeling": "迭代残差偏移量细化粗略预测。辅助 L1 目标区分接近正确边界的预测与偏离较远的错误，而常规 token 分类无法直接表达这种差异。",
+      "training": "该方法需要训练。通过逐步减小的时间戳噪声，将定位问答目标转换为细化序列；非定位目标保持不变。沿用所接入模型原有的训练数据和设置，并增加下一 token 预测与辅助回归监督。",
       "primary_sources": [
         "https://arxiv.org/abs/2412.09601"
       ],
       "contribution_type": [
-        "plug-in training method",
-        "iterative decoding",
-        "auxiliary objective"
+        "可插拔训练方法",
+        "迭代解码",
+        "辅助训练目标"
       ],
       "technical_sources": [
         {
@@ -2780,20 +2780,20 @@
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2026-04-10",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Junxi Wang et al.",
-      "summary": "StreamMeCo compresses an agent's long-term memory graph and prioritizes recent relevant evidence, reducing retrieval cost for streaming video understanding without changing the visual-language backbone.",
-      "architecture": "Applied to a memory-based video agent M3-Agent, StreamMeCo operates after perceptual evidence has entered a graph. Edge-free Minmax Sampling (EMsampling) compresses isolated nodes, while Edge-aware Weighting Pruning (EWpruning) removes less useful connected nodes using importance and similarity signals. Time-decay Memory Retrieval (TMR) reweights query matches with temporal decay. The retained and retrieved graph evidence then supports the host agent's language-model reasoning.",
-      "temporal_modeling": "Timestamp-aware decay favors recent relevant memories during retrieval, while graph compression limits growing historical storage and preserves important entity-linked evidence from earlier observations.",
-      "training": "The proposed compression and retrieval procedures require no new model training. They operate on memory graphs produced by an existing agent, with sampling, pruning, and decay parameters selected in evaluation. The contribution belongs to the agent memory layer rather than a new video encoder.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Junxi Wang 等",
+      "summary": "StreamMeCo 压缩智能体的长期记忆图，并优先选择近期相关证据，在不改变视觉语言骨干模型的情况下降低流式视频理解的检索成本。",
+      "architecture": "StreamMeCo 应用于基于记忆的视频智能体 M3-Agent，在感知证据进入图之后运行。Edge-free Minmax Sampling（EMsampling）压缩孤立节点，Edge-aware Weighting Pruning（EWpruning）依据重要性和相似度信号移除价值较低的连接节点。Time-decay Memory Retrieval（TMR）通过时间衰减重新加权查询匹配。保留并检索到的图证据随后支持原智能体的语言模型推理。",
+      "temporal_modeling": "时间戳感知衰减在检索时优先选择近期相关记忆；图压缩限制持续增长的历史存储，同时保留早期观察中与实体相关的重要证据。",
+      "training": "所提出的压缩和检索流程无需新增模型训练。它们操作已有智能体生成的记忆图，采样、剪枝和衰减参数在评测中选择。贡献位于智能体记忆层，而非新的视频编码器。",
       "primary_sources": [
         "https://arxiv.org/abs/2604.09000",
         "https://arxiv.org/html/2604.09000v1"
       ],
       "contribution_type": [
-        "agent memory method",
-        "graph compression",
-        "temporal retrieval"
+        "智能体记忆方法",
+        "图记忆压缩",
+        "时间检索"
       ],
       "technical_sources": [
         {
@@ -2815,19 +2815,19 @@
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2026-02-08",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Ziyang Fan et al.",
-      "summary": "FlashVID compresses video tokens without training, combining attention-and-diversity selection with tree-based spatiotemporal merging to retain representative evidence under limited language-model input budgets.",
-      "architecture": "A pretrained Video-LLM's visual encoder first produces frame tokens. Attention and Diversity-based Token Selection chooses informative, diverse representatives using calibrated attention and feature diversity. Tree-based Spatiotemporal Token Merging then groups redundant features through constrained redundancy trees spanning space and time. The compressed token sequence enters the original connector and LLM, allowing the unchanged backbone to process more frames within its token budget.",
-      "temporal_modeling": "Merging considers cross-frame spatial changes instead of matching only identical positions. Tree depth and breadth constraints limit temporal span and preserve local video dynamics.",
-      "training": "No additional training is required. Selection and merging use existing visual features and attention signals while preserving pretrained weights. The paper evaluates the method with LLaVA-OneVision, LLaVA-Video, and Qwen2.5-VL, illustrating a reusable inference module rather than a new checkpoint.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Ziyang Fan 等",
+      "summary": "FlashVID 无需训练即可压缩视频 token，结合基于注意力与多样性的选择，以及基于树的时空合并，在有限的语言模型输入预算内保留代表性证据。",
+      "architecture": "预训练 Video-LLM 的视觉编码器首先生成帧 token。Attention and Diversity-based Token Selection 利用校准后的注意力和特征多样性，选择信息丰富且多样的代表性 token。Tree-based Spatiotemporal Token Merging 随后通过跨越空间和时间的受约束冗余树，对冗余特征分组。压缩后的 token 序列进入原连接器和 LLM，使骨干模型在保持不变的情况下，可在 token 预算内处理更多帧。",
+      "temporal_modeling": "合并考虑跨帧的空间变化，而非仅匹配相同位置。树深度与宽度约束限制时间跨度，并保留视频的局部动态。",
+      "training": "无需额外训练。选择与合并利用已有视觉特征和注意力信号，并保留预训练权重。论文在 LLaVA-OneVision、LLaVA-Video 和 Qwen2.5-VL 上评测该方法，说明它是可复用的推理模块，而非新的模型检查点。",
       "primary_sources": [
         "https://arxiv.org/abs/2602.08024"
       ],
       "contribution_type": [
-        "training-free method",
-        "token selection",
-        "spatiotemporal merging"
+        "免训练方法",
+        "token 选择",
+        "时空合并"
       ],
       "technical_sources": [
         {
@@ -2849,19 +2849,19 @@
       "record_type": "method_or_system",
       "category": "methods",
       "first_public_date": "2024-07-22",
-      "date_basis": "arXiv v1 submission date (UTC)",
-      "authors": "Mingze Xu et al.",
-      "summary": "SlowFast-LLaVA extends an image-trained LLaVA-NeXT model to video without fine-tuning, combining sparse detailed frames with dense spatially pooled frames under a fixed token budget.",
-      "architecture": "The existing image encoder extracts features independently for uniformly sampled frames. A slow pathway keeps relatively few frames with detailed spatial tokens. A fast pathway retains many more frames but applies stronger spatial pooling. Their aggregated visual representations are provided to the unchanged LLaVA-NeXT connector and decoder with a video-oriented prompt, trading spatial detail against temporal coverage explicitly.",
-      "temporal_modeling": "Dense fast-path frames capture changes between sparsely sampled slow-path frames. Temporal evidence comes from ordered multiframe inputs rather than a separately trained video encoder.",
-      "training": "No additional training is required. The method reuses image-trained LLaVA-NeXT weights and adjusts sampling, feature pooling, token aggregation, and prompting. It differs from the later trained Slow-Fast Video MLLM, whose decoder includes a separate cross-attention route.",
+      "date_basis": "arXiv v1 提交日期（UTC）",
+      "authors": "Mingze Xu 等",
+      "summary": "SlowFast-LLaVA 无需微调即可将图像训练的 LLaVA-NeXT 扩展到视频，在固定 token 预算内结合稀疏的细节帧与密集的空间池化帧。",
+      "architecture": "现有图像编码器独立提取均匀采样帧的特征。慢速路径保留较少的帧及详细的空间 token。快速路径保留更多帧，但使用更强的空间池化。聚合后的视觉表示配合面向视频的提示，送入保持不变的 LLaVA-NeXT 连接器和解码器，显式权衡空间细节与时间覆盖范围。",
+      "temporal_modeling": "快速路径中的密集帧捕捉慢速路径稀疏采样帧之间的变化。时间证据来自有序的多帧输入，而非单独训练的视频编码器。",
+      "training": "无需额外训练。该方法复用图像训练的 LLaVA-NeXT 权重，仅调整采样、特征池化、token 聚合和提示。它与后续需要训练的 Slow-Fast Video MLLM 不同，后者的解码器包含独立的交叉注意力路径。",
       "primary_sources": [
         "https://arxiv.org/abs/2407.15841"
       ],
       "contribution_type": [
-        "training-free method",
-        "dual-rate input",
-        "spatial pooling"
+        "免训练方法",
+        "双速率输入",
+        "空间池化"
       ],
       "technical_sources": [
         {
@@ -2876,5 +2876,6 @@
         }
       ]
     }
-  ]
+  ],
+  "language": "zh-CN"
 }

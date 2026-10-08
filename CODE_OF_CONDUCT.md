@@ -1,5 +1,5 @@
-# Code of conduct
+# 社区行为准则
 
-Use respectful, constructive language. Discuss evidence and implementation choices, credit original authors, and disclose relevant conflicts of interest. Harassment, personal attacks, discriminatory comments, and publication of private information are unacceptable.
+请使用尊重、建设性的语言，围绕证据和实现方案展开讨论，注明原作者贡献，并披露相关利益关系。社区不接受骚扰、人身攻击、歧视性言论或公开他人私人信息。
 
-Maintainers may edit or remove contributions that violate these expectations. Raise repository-related concerns through the repository's private reporting channel if one is configured; otherwise use GitHub's reporting tools for abusive content. Do not post personal information in public issues.
+维护者可编辑或移除违反上述要求的内容。如仓库已设置私下反馈渠道，请通过该渠道反映问题；否则可使用 GitHub 的举报工具处理不当内容。请勿在公开 Issue 中发布私人信息。
