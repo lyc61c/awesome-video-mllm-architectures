@@ -80,7 +80,7 @@ def card(entry, figure):
     if figure.get("supplementary"):
         item = figure["supplementary"]
         lines.extend([link(item.get("link_label", "作者补充图"), item["file"]) + " · " + link("原始来源与署名", item["source_url"]) + "。", ""])
-    lines.extend(["</details>", "", "[返回模型索引](#models)", ""])
+    lines.extend(["</details>", "", "[返回模型索引](#models)", "", "---", ""])
     return lines
 
 
