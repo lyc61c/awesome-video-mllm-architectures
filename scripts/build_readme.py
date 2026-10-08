@@ -79,18 +79,20 @@ def readme(catalog, figures):
     entries = catalog["entries"]
     models = [entry for entry in entries if entry["record_type"] == "model_or_version"]
     methods = [entry for entry in entries if entry["record_type"] == "method_or_system"]
+    agents = [entry for entry in methods if entry["category"] == "agentic"]
+    reusable_methods = [entry for entry in methods if entry["category"] != "agentic"]
     counts = Counter(figure["kind"] for figure in figures.values())
     original = sum(count for kind, count in counts.items() if kind != "editorial_schematic")
     lines = ["<!-- 由 scripts/build_readme.py 生成；请编辑 data/architectures.json 和图源清单。 -->", "",
              "# Awesome Video MLLM Architectures", "",
              "![Awesome Video MLLM Architectures](assets/banner.svg)", "",
-             "本仓库整理视频多模态大语言模型（Video MLLM）的关键架构，以模型图和中文说明介绍视觉编码、视觉语言连接、时间建模，以及长视频与流式视频的压缩、缓存和记忆机制。", "",
+             "本仓库整理视频多模态大语言模型（Video MLLM）的关键架构，以模型图和中文说明介绍视觉编码、视觉语言连接、时间建模，以及长视频与流式视频的压缩、缓存和记忆机制，同时梳理视频智能体的主动检索、工具调用与协作流程。", "",
              f"**{len(entries)} 个图文条目** · {len(models)} 个模型／版本／家族条目 · {len(methods)} 个方法／系统条目 · 资料核验截至 **{catalog['research_cutoff']}**。", "",
              f"每个条目包含模型图、结构介绍、时间建模机制、训练或推理方式，以及论文、代码和官方项目入口。主图包括 {original} 张作者原图与 {counts['editorial_schematic']} 张明确标注的本仓库示意图。家族版本与训练方案可能沿用同一骨干模型，因此条目数量不等于独立架构数量。", "",
              "仓库的组织方式参考 [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures)。所有介绍依据一手资料重新撰写，模型图均记录出处。初始调研过程见[中文调研稿](RESEARCH.zh-CN.md)。", "",
              "## 目录", "",
              "- [模型索引](#models)", "- [分类阅读](#reading-routes)", "- [发布时间线](#release-timeline)",
-             "- [模型架构介绍](#model-architectures)", "- [方法与系统](#methods-and-systems)",
+             "- [模型架构介绍](#model-architectures)", "- [视频智能体](#agentic-video-understanding)", "- [方法与系统](#methods-and-systems)",
              "- [调研来源](#discovery-sources)", "- [引用与使用](#citation-and-reuse)",
              "- [贡献指南](CONTRIBUTING.md)", "", '<a id="models"></a>', "", "## 模型索引", "",
              "按已核验的首次公开日期分组；同一家族的后续版本在对应条目中说明。方法与系统另列索引。", ""]
@@ -100,7 +102,8 @@ def readme(catalog, figures):
         lines.extend(["<details open>" if year == years[0] else "<details>", f"<summary>{year} 年（{len(group)} 个条目）</summary>", ""])
         lines.extend("- " + anchor(entry) for entry in group)
         lines.extend(["", "</details>", ""])
-    lines.extend(["**方法与系统：** " + " · ".join(anchor(entry) for entry in methods) + "。", "", '<a id="reading-routes"></a>', "", "## 分类阅读", "",
+    lines.extend(["**视频智能体：** " + " · ".join(anchor(entry) for entry in agents) + "。", "",
+                  "**方法与系统：** " + " · ".join(anchor(entry) for entry in reusable_methods) + "。", "", '<a id="reading-routes"></a>', "", "## 分类阅读", "",
                   "可按下列路线比较模型的关键机制。分类依据主要贡献和阅读重点划分，模型能力可以跨越多个类别。", "",
                   "| 阅读方向 | 重点比较的机制 | 条目 |", "| --- | --- | --- |"])
     for category in catalog["categories"]:
@@ -117,13 +120,18 @@ def readme(catalog, figures):
     for entry in ordered:
         if entry["record_type"] == "model_or_version":
             lines.extend(card(entry, figures[entry["id"]]))
+    lines.extend(['<a id="agentic-video-understanding"></a>', "", "## 视频智能体", "",
+                  "本节介绍以视频为证据，通过主动查看片段、检索记忆、调用工具或协调多个角色完成任务的系统与训练方法。按首次公开日期从新到旧排列；结构介绍区分既有视觉语言骨干、外围编排，以及工具调用和推理的训练方式。", ""])
+    for entry in ordered:
+        if entry["record_type"] == "method_or_system" and entry["category"] == "agentic":
+            lines.extend(card(entry, figures[entry["id"]]))
     lines.extend(['<a id="methods-and-systems"></a>', "", "## 方法与系统", "",
                   "本节介绍作用于既有模型的 KV 缓存检索、token 压缩、时间边界修正，以及智能体与记忆系统。图示说明各方法在整体流程中的作用位置。", ""])
     for entry in ordered:
-        if entry["record_type"] == "method_or_system":
+        if entry["record_type"] == "method_or_system" and entry["category"] != "agentic":
             lines.extend(card(entry, figures[entry["id"]]))
     lines.extend(['<a id="discovery-sources"></a>', "", "## 调研来源", "",
-                  "初始调研检查了 15 个 awesome 仓库，并从 5 个核心清单中提取 153 个名称级候选。当前 70 个图文条目经过筛选，并以原论文、作者代码及官方模型卡核验技术内容；awesome 清单用于发现候选，具体架构和视频支持情况以一手资料为准。", "",
+                  f"初始调研检查了 15 个 awesome 仓库，并从 5 个核心清单中提取 153 个名称级候选。当前 {len(entries)} 个图文条目经过筛选，并以原论文、作者代码及官方模型卡核验技术内容；awesome 清单用于发现候选，具体架构和视频支持情况以一手资料为准。视频智能体分支的补充依据与选取理由见[扩充记录](docs/agentic-expansion.md)。", "",
                   "- [Awesome 仓库审计与候选提取](docs/source-audit.md)",
                   "- [参考仓库的结构与 README 分析](docs/reference-repository-analysis.md)",
                   "- [收录范围、分类、日期与公开情况](docs/curation-policy.md)",

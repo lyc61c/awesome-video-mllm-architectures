@@ -4,11 +4,11 @@
 
 ![Awesome Video MLLM Architectures](assets/banner.svg)
 
-本仓库整理视频多模态大语言模型（Video MLLM）的关键架构，以模型图和中文说明介绍视觉编码、视觉语言连接、时间建模，以及长视频与流式视频的压缩、缓存和记忆机制。
+本仓库整理视频多模态大语言模型（Video MLLM）的关键架构，以模型图和中文说明介绍视觉编码、视觉语言连接、时间建模，以及长视频与流式视频的压缩、缓存和记忆机制，同时梳理视频智能体的主动检索、工具调用与协作流程。
 
-**70 个图文条目** · 64 个模型／版本／家族条目 · 6 个方法／系统条目 · 资料核验截至 **2026-10-08**。
+**85 个图文条目** · 64 个模型／版本／家族条目 · 21 个方法／系统条目 · 资料核验截至 **2026-10-08**。
 
-每个条目包含模型图、结构介绍、时间建模机制、训练或推理方式，以及论文、代码和官方项目入口。主图包括 65 张作者原图与 5 张明确标注的本仓库示意图。家族版本与训练方案可能沿用同一骨干模型，因此条目数量不等于独立架构数量。
+每个条目包含模型图、结构介绍、时间建模机制、训练或推理方式，以及论文、代码和官方项目入口。主图包括 80 张作者原图与 5 张明确标注的本仓库示意图。家族版本与训练方案可能沿用同一骨干模型，因此条目数量不等于独立架构数量。
 
 仓库的组织方式参考 [Awesome VLM Architectures](https://github.com/gokayfem/awesome-vlm-architectures)。所有介绍依据一手资料重新撰写，模型图均记录出处。初始调研过程见[中文调研稿](RESEARCH.zh-CN.md)。
 
@@ -18,6 +18,7 @@
 - [分类阅读](#reading-routes)
 - [发布时间线](#release-timeline)
 - [模型架构介绍](#model-architectures)
+- [视频智能体](#agentic-video-understanding)
 - [方法与系统](#methods-and-systems)
 - [调研来源](#discovery-sources)
 - [引用与使用](#citation-and-reuse)
@@ -123,6 +124,8 @@
 
 </details>
 
+**视频智能体：** [VideoAgent（Wang 等）](#71-videoagent-wang) · [VideoAgent（Fan 等）](#72-videoagent-fan) · [OmAgent](#73-omagent) · [DrVideo](#74-drvideo) · [GraphVideoAgent](#75-graphvideoagent) · [M3-Agent](#76-m3-agent) · [AdaVideoRAG](#77-adavideorag) · [VideoLucy](#78-videolucy) · [VideoARM](#79-videoarm) · [WorldMM](#80-worldmm) · [DVD（Deep Video Discovery）](#81-dvd) · [LongVT](#82-longvt) · [FrameThinker](#83-framethinker) · [LVAgent](#84-lvagent) · [VideoMind（Chain-of-LoRA）](#85-videomind-chain-of-lora)。
+
 **方法与系统：** [ReKV](#65-rekv) · [StreamChat（Xiong 等）](#66-streamchat-xiong-et-al) · [TimeRefine](#67-timerefine) · [StreamMeCo](#68-streammeco) · [FlashVID](#69-flashvid) · [SlowFast-LLaVA](#70-slowfast-llava)。
 
 <a id="reading-routes"></a>
@@ -141,6 +144,7 @@
 | 时间定位 | 时间戳、事件边界与定位监督 | [TimeChat](#52-timechat), [VTimeLLM](#53-vtimellm), [Momentor](#54-momentor), [HawkEye](#55-hawkeye), [VTG-LLM](#56-vtg-llm), [TRACE](#57-trace) |
 | 音视频／全模态交互 | 音视频同步、语音生成与全双工交互 | [VITA / VITA-1.5](#58-vita-vita-1-5), [MiniCPM-o 4.5](#59-minicpm-o-4-5), [Qwen2.5-Omni](#60-qwen2-5-omni), [Qwen3-Omni](#61-qwen3-omni), [Qwen3.5-Omni](#62-qwen3-5-omni) |
 | 高效模型设计 | 紧凑骨干、帧选择与双速率解码器 | [Mobile-VideoGPT](#63-mobile-videogpt), [Slow-Fast Video MLLM](#64-slow-fast-video-mllm) |
+| 视频智能体 | 主动证据搜索、工具调用、长期记忆与多智能体协作 | [VideoAgent（Wang 等）](#71-videoagent-wang), [VideoAgent（Fan 等）](#72-videoagent-fan), [OmAgent](#73-omagent), [DrVideo](#74-drvideo), [GraphVideoAgent](#75-graphvideoagent), [M3-Agent](#76-m3-agent), [AdaVideoRAG](#77-adavideorag), [VideoLucy](#78-videolucy), [VideoARM](#79-videoarm), [WorldMM](#80-worldmm), [DVD（Deep Video Discovery）](#81-dvd), [LongVT](#82-longvt), [FrameThinker](#83-framethinker), [LVAgent](#84-lvagent), [VideoMind（Chain-of-LoRA）](#85-videomind-chain-of-lora) |
 | 可复用方法与系统 | 可插拔压缩、KV 检索、边界修正与智能体记忆 | [ReKV](#65-rekv), [StreamChat（Xiong 等）](#66-streamchat-xiong-et-al), [TimeRefine](#67-timerefine), [StreamMeCo](#68-streammeco), [FlashVID](#69-flashvid), [SlowFast-LLaVA](#70-slowfast-llava) |
 
 <a id="release-timeline"></a>
@@ -160,20 +164,31 @@
 | 2026-02-16 | [Qwen3.5 → Qwen3.8-27B](#32-qwen3-5-qwen3-8-27b) | 模型／家族 | 原生多模态训练、混合骨干模型、模型发布 |
 | 2026-02-08 | [FlashVID](#69-flashvid) | 方法／系统 | 免训练方法、token 选择、时空合并 |
 | 2026-02-03 | [MiniCPM-o 4.5](#59-minicpm-o-4-5) | 模型／家族 | 全模态架构、全双工交互、训练方案 |
+| 2025-12-13 | [VideoARM](#79-videoarm) | 方法／系统 | 免训练系统、动态分层记忆、按需视听工具调用 |
+| 2025-12-02 | [WorldMM](#80-worldmm) | 方法／系统 | 多类型记忆系统、跨尺度检索、原始视觉证据回看 |
 | 2025-11-26 | [Qwen3-VL](#31-qwen3-vl) | 模型／家族 | 模型架构、位置编码、训练方案 |
+| 2025-11-25 | [LongVT](#82-longvt) | 方法／系统 | 原生工具调用、多模态推理轨迹、监督微调、强化学习、轨迹自蒸馏 |
+| 2025-10-14 | [VideoLucy](#78-videolucy) | 方法／系统 | 免训练系统、层级记忆回溯、多角色协作 |
 | 2025-10-10 | [StreamingVLM](#51-streamingvlm) | 模型／家族 | 流式模型、KV 缓存策略、训练方案、评测基准 |
+| 2025-09-29 | [FrameThinker](#83-framethinker) | 方法／系统 | 主动选帧、多轮工具推理、监督微调、强化学习、思考与行动一致性检查 |
 | 2025-09-22 | [Qwen3-Omni](#61-qwen3-omni) | 模型／家族 | 全模态架构、音频编码、流式生成 |
 | 2025-09-16 | [MiniCPM-V 4.5](#33-minicpm-v-4-5) | 模型／家族 | 模型架构、token 压缩、训练方案 |
 | 2025-08-25 | [InternVL3.5](#28-internvl3-5) | 模型／家族 | 训练方案、token 压缩、部署系统 |
+| 2025-08-13 | [M3-Agent](#76-m3-agent) | 方法／系统 | 长期多模态记忆、实体关联、检索推理强化学习 |
 | 2025-06-30 | [Flash-VStream（Flash Memory）](#48-flash-vstream-flash-memory) | 模型／家族 | 流式模型、记忆架构、异步推理 |
+| 2025-06-16 | [AdaVideoRAG](#77-adavideorag) | 方法／系统 | 免训练系统、难度自适应路由、多模态图检索 |
+| 2025-05-23 | [DVD（Deep Video Discovery）](#81-dvd) | 方法／系统 | 免训练系统、自主工具调用、多粒度检索、主动证据获取 |
 | 2025-04-24 | [TimeChat-Online](#50-timechat-online) | 模型／家族 | 流式模型、token 剪枝、指令数据、主动交互 |
 | 2025-04-21 | [Eagle 2.5](#36-eagle-2-5) | 模型／家族 | 训练方案、数据整理、上下文扩展、采样 |
 | 2025-04-14 | [InternVL3](#27-internvl3) | 模型／家族 | 训练方案、位置编码、上下文扩展 |
 | 2025-04-02 | [Slow-Fast Video MLLM](#64-slow-fast-video-mllm) | 模型／家族 | 模型架构、混合注意力、问题条件化 |
 | 2025-03-27 | [Mobile-VideoGPT](#63-mobile-videogpt) | 模型／家族 | 模型架构、帧选择、高效投影层 |
 | 2025-03-26 | [Qwen2.5-Omni](#60-qwen2-5-omni) | 模型／家族 | 全模态架构、时间对齐、流式生成 |
+| 2025-03-17 | [VideoMind（Chain-of-LoRA）](#85-videomind-chain-of-lora) | 方法／系统 | 角色适配器、共享基座、监督微调、时间定位、证据验证 |
+| 2025-03-13 | [LVAgent](#84-lvagent) | 方法／系统 | 多智能体协作、动态团队选择、反思与共识、视频片段检索、检索器微调 |
 | 2025-03-01 | [ReKV](#65-rekv) | 方法／系统 | 免训练方法、KV 缓存检索、流式推理 |
 | 2025-02-19 | [Qwen2.5-VL](#30-qwen2-5-vl) | 模型／家族 | 模型架构、位置编码、训练方案 |
+| 2025-01-27 | [GraphVideoAgent](#75-graphvideoagent) | 方法／系统 | 免训练系统、动态实体关系图、时间状态跟踪 |
 | 2025-01-23 | [StreamChat（Xiong 等）](#66-streamchat-xiong-et-al) | 方法／系统 | 免训练系统、层次化记忆、检索、评测基准 |
 | 2025-01-22 | [VideoLLaMA 3](#13-videollama-3) | 模型／家族 | 模型架构、token 压缩、训练方案 |
 | 2025-01-21 | [InternVideo2.5](#15-internvideo2-5) | 模型／家族 | 模型架构、token 压缩、偏好优化 |
@@ -193,7 +208,9 @@
 | 2024-08-06 | [LLaVA-OneVision](#23-llava-onevision) | 模型／家族 | 统一架构、任务迁移、训练方案 |
 | 2024-07-22 | [SlowFast-LLaVA](#70-slowfast-llava) | 方法／系统 | 免训练方法、双速率输入、空间池化 |
 | 2024-06-30 | [Tarsier](#19-tarsier) | 模型／家族 | 训练方案、指令数据、评测 |
+| 2024-06-24 | [OmAgent](#73-omagent) | 方法／系统 | 免训练系统、递归任务分解、原视频回看 |
 | 2024-06-24 | [LongVA](#41-longva) | 模型／家族 | 上下文扩展、训练方案、语言到视觉迁移 |
+| 2024-06-18 | [DrVideo](#74-drvideo) | 方法／系统 | 免训练系统、文档检索、迭代证据增补 |
 | 2024-06-17 | [VideoLLM-online](#45-videollm-online) | 模型／家族 | 流式模型、训练目标、数据格式、推理流程 |
 | 2024-06-13 | [VideoGPT+](#18-videogpt) | 模型／家族 | 模型架构、指令数据、评测基准 |
 | 2024-06-12 | [Flash-VStream（STAR Memory）](#47-flash-vstream-star-memory) | 模型／家族 | 流式模型、记忆架构、异步推理 |
@@ -207,6 +224,8 @@
 | 2024-04-04 | [MiniGPT4-Video](#08-minigpt4-video) | 模型／家族 | 模型架构、字幕集成 |
 | 2024-03-30 | [ST-LLM](#09-st-llm) | 模型／家族 | 模型架构、时间学习 |
 | 2024-03-22 | [InternVideo2（MLLM 分支）](#14-internvideo2-mllm-branch) | 模型／家族 | 视频编码器、MLLM 集成、多模态预训练 |
+| 2024-03-18 | [VideoAgent（Fan 等）](#72-videoagent-fan) | 方法／系统 | 免训练系统、结构化记忆、对象重识别 |
+| 2024-03-15 | [VideoAgent（Wang 等）](#71-videoagent-wang) | 方法／系统 | 免训练系统、主动证据检索、自我反思 |
 | 2024-03-15 | [HawkEye](#55-hawkeye) | 模型／家族 | 时间建模、指令数据、递归推理 |
 | 2024-02-18 | [Momentor](#54-momentor) | 模型／家族 | 时间建模、时间 token、训练目标、指令数据 |
 | 2023-12-04 | [TimeChat](#52-timechat) | 模型／家族 | 时间建模、Q-Former 连接器、指令数据 |
@@ -2166,6 +2185,475 @@ Flamingo 通过 Perceiver Resampler 和门控交叉注意力连接冻结的视�
 
 ---
 
+<a id="agentic-video-understanding"></a>
+
+## 视频智能体
+
+本节介绍以视频为证据，通过主动查看片段、检索记忆、调用工具或协调多个角色完成任务的系统与训练方法。按首次公开日期从新到旧排列；结构介绍区分既有视觉语言骨干、外围编排，以及工具调用和推理的训练方式。
+
+<a id="79-videoarm"></a>
+
+### VideoARM
+
+VideoARM 将按需观察、推理、工具调用与记忆更新组成闭环，在回答问题的过程中动态构建分层多模态记忆，逐步聚焦相关片段并控制处理成本。
+
+[论文](https://arxiv.org/abs/2512.12360) · [代码](https://github.com/MILVLG/videoarm) · [官方项目](https://milvlg.github.io/videoarm/)
+
+**作者：** Yufei Yin 等  
+**首次公开日期：** 2025-12-13（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、动态分层记忆、按需视听工具调用
+
+<p align="center"><a href="assets/architectures/79-paper.png"><img src="assets/architectures/79-paper.png" width="820" alt="VideoARM: VideoARM：感知、结果与工作记忆分层保存证据，控制器在观察、思考、行动与记忆更新之间闭环。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** HM³ 分为保存当前原始帧与音频的 Sensory Memory、保存工具输出和时间区间的 Result Memory、保存控制器推理轨迹与目标的 Working Memory。控制器读取记忆，协调 Interval Localizer 与 Clip Explorer 定位全局或局部范围，再调用 Scene Snapper、Audio Transcriber 或 Clip Analyzer 获得场景描述、语音文本、局部答案与置信度。新证据写回记忆，工具上下文与短期感知池按阶段清理，直到回答或达到步数预算。
+
+**时间建模：** Interval Localizer 以可调采样密度观察较长区间，Clip Explorer 在局部区间进行细粒度探查。保留帧索引、音频区间和按轮次组织的工具结果，使控制器能从全局场景缩小到局部事件，并根据已经观察到的证据调整下一次范围。
+
+**训练／推理方式：** 无需额外微调。论文通过 API 使用 OpenAI o3 实现控制与时间范围决策，以 GPT-4.1 或 GPT-4o 实现场景描述和片段分析，以 whisper-1 完成语音转录。架构创新集中在记忆管理和工具调度流程。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2512.12360) · [来源 2](https://milvlg.github.io/videoarm/) · [来源 3](https://github.com/MILVLG/videoarm) · [来源 4](https://arxiv.org/html/2512.12360v2)。
+
+</details>
+
+---
+
+<a id="80-worldmm"></a>
+
+### WorldMM
+
+WorldMM 构建多时间尺度的情节记忆、持续更新的语义记忆和保留原始视觉证据的视觉记忆，由检索智能体按问题反复选择记忆来源，再交给回答智能体生成答案。
+
+[论文](https://arxiv.org/abs/2512.02425) · [代码](https://github.com/wgcyeo/WorldMM) · [官方项目](https://worldmm.github.io/)
+
+**作者：** Woongyeong Yeo 等  
+**首次公开日期：** 2025-12-02（arXiv v1 提交日期（UTC））  
+**主要贡献：** 多类型记忆系统、跨尺度检索、原始视觉证据回看
+
+<p align="center"><a href="assets/architectures/80-paper.png"><img src="assets/architectures/80-paper.png" width="820" alt="WorldMM: WorldMM：构建情节、语义与视觉记忆，由检索智能体跨记忆与时间尺度收集证据并支持回答。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 情节记忆将多尺度片段描述转成事件知识图；语义记忆增量合并人物关系、习惯等概念知识，更新过时或冲突的关系；视觉记忆同时保存多模态特征和帧时间戳索引。Retrieval Agent 选择记忆类型与检索查询：情节检索用 Personalized PageRank 并进行跨尺度重排，语义检索面向图关系，视觉检索通过特征相似度或时间戳访问原始帧。Response Agent 根据累计证据与检索历史回答。
+
+**时间建模：** 情节图覆盖秒、分、小时等时间尺度，例如 EgoLifeQA 使用 30 秒、3 分钟、10 分钟和 1 小时间隔。每轮检索跨尺度比较候选证据，语义图积累更长期的关系，时间戳访问则补充文字摘要遗漏的瞬时视觉细节。
+
+**训练／推理方式：** 论文复用已有模型完成记忆构建、检索和回答，没有引入额外的端到端视频骨干训练。实验以 GPT-5-mini 构建文本记忆，以 VLM2Vec-V2 编码视觉特征，并分别评测 GPT-5 与 Qwen3-VL-8B-Instruct 作为检索及回答模型的系统配置。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2512.02425) · [来源 2](https://worldmm.github.io/) · [来源 3](https://github.com/wgcyeo/WorldMM) · [来源 4](https://arxiv.org/html/2512.02425v2)。
+
+</details>
+
+---
+
+<a id="82-longvt"></a>
+
+### LongVT
+
+LongVT 将视频裁剪工具调用直接纳入多模态推理轨迹，通过全局预览、局部重看与自我修正寻找长视频中的稀疏证据。
+
+[论文](https://arxiv.org/abs/2511.20785) · [官方项目](https://evolvinglmms-lab.github.io/LongVT/) · [代码](https://github.com/EvolvingLMMs-Lab/LongVT)
+
+**作者：** Zuhao Yang 等  
+**首次公开日期：** 2025-11-25（arXiv v1 提交日期（UTC））  
+**主要贡献：** 原生工具调用、多模态推理轨迹、监督微调、强化学习、轨迹自蒸馏
+
+<p align="center"><a href="assets/architectures/82-paper.png"><img src="assets/architectures/82-paper.png" width="820" alt="LongVT: 作者原图：LongVT 的全局预览、局部裁剪与联合奖励框架。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 基于 Qwen2.5-VL-7B，模型先读取全局采样帧形成时间位置假设，再原生调用 crop_video(start_time, end_time)。执行器裁剪对应视频并重采样更密集的帧，将视觉观察返回同一模型继续推理。interleaved Multimodal Chain-of-Tool-Thought（iMCoTT）交替记录文本思考、时间窗口、工具返回的视频帧和后续判断；发现窗口错误时重新裁剪，证据足够时输出答案。时间选择来自模型自身，不依赖额外定位专家或外部检索器。
+
+**时间建模：** 全局到局部的策略使模型先覆盖完整时间轴，再将计算集中在短暂关键片段。工具参数保留真实起止时间，多轮裁剪允许修正时间假设；训练中的时间重叠奖励将答案与实际证据区间联系起来。
+
+**训练／推理方式：** 论文 v3 采用三个阶段：冷启动 SFT 学习窗口预测、工具调用及多模态轨迹；GRPO 智能体 RL 联合优化答案准确性、输出格式与时间 IoU；随后进行 agentic reinforcement fine-tuning（RFT），将筛选出的高质量 RL 轨迹用于监督微调，巩固定位和工具行为。VideoSIAH 同时提供普通推理数据、工具轨迹与 RL 问答；这里的 RFT 是对自身轨迹的监督再训练，不应当描述为免训练编排。
+
+**资料中提及的数据：** VideoSIAH、VideoSIAH-Eval（评测）、VideoMME（评测）、VideoMMMU（评测）、LVBench（评测）。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2511.20785) · [来源 2](https://arxiv.org/html/2511.20785v3) · [来源 3](https://arxiv.org/pdf/2511.20785v3)。
+
+</details>
+
+---
+
+<a id="78-videolucy"></a>
+
+### VideoLucy
+
+VideoLucy 用从粗到细的层级记忆与多角色协作，反复回看问题相关片段、补足遗漏细节，使长视频问答能够按需深入到更密集的时间证据。
+
+[论文](https://arxiv.org/abs/2510.12422) · [代码](https://github.com/worldbench/VideoLucy) · [官方项目](https://videolucy.github.io/)
+
+**作者：** Jialong Zuo 等  
+**首次公开日期：** 2025-10-14（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、层级记忆回溯、多角色协作
+
+<p align="center"><a href="assets/architectures/78-paper.png"><img src="assets/architectures/78-paper.png" width="820" alt="VideoLucy: VideoLucy 系统总览与既有方案对比：层级采样、多层片段描述、协作智能体与记忆回溯。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** Captioning Agent 将视频片段转成记忆文本；Localization Agent 根据现有记忆定位相关时间段；Instruction Agent 分析缺失证据并生成定向描述指令；Answering Agent 判断能否回答。系统先建立稀疏粗粒度记忆，回答不确定时，由定位和指令角色引导描述角色重新观察所选片段，补充当前层记忆及更深层记忆，再更新记忆列表并重试。四种角色通过提示复用一套 MLLM 和一套 LLM。
+
+**时间建模：** 层级包括长范围粗记忆、短范围细记忆和超细记忆：层级越深，覆盖时间越短、采样越密。记忆描述由连续多帧生成；相关时间段的邻域扩展缓解事件被切分的问题。实际时间范围随视频长度与基准配置调整，超细层在 EgoMem 上仍对应数秒片段。
+
+**训练／推理方式：** 无需额外训练。论文默认以 Qwen2.5-VL-7B 生成片段描述，以 DeepSeek-R1 承担文本推理、定位、指令与回答，通过提示和迭代流程赋予角色。新贡献是层级记忆回溯系统与 EgoMem 基准。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2510.12422) · [来源 2](https://videolucy.github.io/) · [来源 3](https://github.com/worldbench/VideoLucy) · [来源 4](https://arxiv.org/html/2510.12422v1)。
+
+</details>
+
+---
+
+<a id="83-framethinker"></a>
+
+### FrameThinker
+
+FrameThinker 学习多轮主动选帧策略，让 Qwen2.5-VL 在推理过程中重看相关区间，并检验思考与实际选帧动作是否一致。
+
+[论文](https://arxiv.org/abs/2509.24304) · [代码](https://github.com/lcqysl/FrameThinker)
+
+**作者：** Zefeng He 等  
+**首次公开日期：** 2025-09-29（arXiv v1 提交日期（UTC））  
+**主要贡献：** 主动选帧、多轮工具推理、监督微调、强化学习、思考与行动一致性检查
+
+<p align="center"><a href="assets/architectures/83-paper.png"><img src="assets/architectures/83-paper.png" width="820" alt="FrameThinker: 作者原图：FrameThinker 的主动选帧、CCV 检查与 SFT／RL 训练流程。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** Qwen2.5-VL-7B-Instruct 先稀疏扫描视频，随后按思考—行动—观察循环生成结构化轨迹。动作空间包括 choose frames between START_FRAME and END_FRAME、get frame number at time MM:SS 和 output answer，分别用于局部取帧、时间戳转帧号和终止回答。执行器把新帧或帧号作为下一轮观察。规则式 Cognitive Consistency Verification（CCV）检查重复操作、逻辑连续性和思考—行动的一致性；推理时检测到不合理动作后，结束探索并用简化提示要求直接作答。
+
+**时间建模：** 模型可围绕自己判断的关键区间多次取帧，将短暂视觉证据插入推理上下文。时间戳到帧索引的显式动作连接自然语言时间条件与视频实际位置；每轮仅读取少量帧，避免一次性密集输入整段视频。
+
+**训练／推理方式：** 先用 2,392 条示例进行 SFT，学习思考与动作语法，损失仅作用于模型生成的轨迹 token。再用约 28K 样本进行 GRPO，结合最终答案正确性和以正确答案为条件的动作奖励；CCV 将不一致轨迹的最终奖励置零；推理时终止违规探索并直接回答。最终方案不使用格式奖励，也不直接奖励更多轮数，以降低跳过工具或重复调用的投机行为。图中的数据准备属于前处理；参数学习阶段为 SFT 与 RL 两阶段。
+
+**资料中提及的数据：** FrameThinker SFT／RL 数据、Video-Holmes（训练／评测设置见论文）、LongVideo-Reason（评测）、LongVideoBench（评测）、MLVU（评测）、Video-MME（评测）、LVBench（评测）。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2509.24304) · [来源 2](https://arxiv.org/html/2509.24304v2)。
+
+</details>
+
+---
+
+<a id="76-m3-agent"></a>
+
+### M3-Agent
+
+M3-Agent 将持续视听感知、实体中心的长期记忆和多轮检索推理连接起来：既记录具体经历，也积累人物属性、关系与一般知识，支持基于长视频记忆的问答。
+
+[论文](https://arxiv.org/abs/2508.09736) · [代码](https://github.com/bytedance-seed/m3-agent) · [官方项目](https://m3-agent.github.io/)
+
+**作者：** Lin Long 等  
+**首次公开日期：** 2025-08-13（arXiv v1 提交日期（UTC））  
+**主要贡献：** 长期多模态记忆、实体关联、检索推理强化学习
+
+<p align="center"><a href="assets/architectures/76-paper.png"><img src="assets/architectures/76-paper.png" width="820" alt="M3-Agent: M3-Agent：并行的视听记忆构建与控制推理，共享实体中心的多模态长期记忆图。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 系统并行运行 Memorization 与 Control 两个过程。记忆侧按片段处理视频和音频，结合人脸检测、说话人分离与身份关联，生成情节记忆和语义记忆；文本、人脸、声音及其关联组成实体中心的多模态记忆图。控制侧依据问题进行多轮推理，通过 search_node 检索实体或通过 search_clip 检索经历，将返回证据纳入下一轮上下文，再决定继续搜索还是回答。图中的统一 MLLM 表示概念框架，实际训练使用两个独立策略模型。
+
+**时间建模：** 视频流按 30 秒片段增量写入外部记忆，节点保留时间戳；跨片段的人脸与声音身份关联维持人物一致性。按时间检索事件与按实体关联检索知识共同支持远距离推理，重复出现的信息通过权重累积帮助处理记忆冲突。
+
+**训练／推理方式：** 记忆侧以 Qwen2.5-Omni-7B 初始化，在合成的情节、身份关联和语义记忆示范上进行监督微调。控制侧以 Qwen3 初始化，使用 DAPO 强化学习优化多轮检索和最终回答，奖励依据答案正确性评估。论文主配置包含 32B 控制模型；记忆生成的监督学习与控制推理的强化学习是不同训练环节。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2508.09736) · [来源 2](https://github.com/bytedance-seed/m3-agent) · [来源 3](https://arxiv.org/html/2508.09736v4)。
+
+</details>
+
+---
+
+<a id="77-adavideorag"></a>
+
+### AdaVideoRAG
+
+AdaVideoRAG 根据问题难度选择直接问答、普通多模态检索或图检索，在长视频理解中按需增加检索与推理成本。其核心是查询路由和外部知识索引。
+
+[论文](https://arxiv.org/abs/2506.13589) · [代码](https://github.com/xzc-zju/AdaVideoRAG)
+
+**作者：** Zhucun Xue 等  
+**首次公开日期：** 2025-06-16（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、难度自适应路由、多模态图检索
+
+<p align="center"><a href="assets/architectures/77-paper.png"><img src="assets/architectures/77-paper.png" width="820" alt="AdaVideoRAG: AdaVideoRAG：问题意图路由连接文本、视觉和知识图索引，以分级检索支持视频问答。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** Query Intent Classification 使用轻量 LLM 将问题分成三个难度等级。Omni-Knowledge Indexing 把片段描述、ASR 和 OCR 建成文本库，以 ImageBind 特征建立视觉库，并组织实体及关系知识图。简单问题直接交给既有 MLLM；中等问题改写为适合各模态的子查询，联合文本与视觉检索；复杂问题加入知识图检索。Integration and Generation 汇总检索文本及对应视觉证据，交给原视频 MLLM 生成答案。
+
+**时间建模：** 视频按连续的 30 秒片段索引，文本与视觉证据通过片段对应关系对齐。知识图组织实体的时空与语义关系，用于跨片段关联和多跳推理；其时间建模发生在索引与检索层。
+
+**训练／推理方式：** 框架无需额外微调：意图分类通过提示调用 Qwen2.5-7B，感知、编码和回答均复用预训练模型。论文将该检索框架接入 Video-LLaVA、Qwen2.5-VL 和 VideoLLaMA3 等骨干，贡献是可组合的推理系统，而非新的视频模型权重。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2506.13589) · [来源 2](https://github.com/xzc-zju/AdaVideoRAG) · [来源 3](https://arxiv.org/html/2506.13589v3)。
+
+</details>
+
+---
+
+<a id="81-dvd"></a>
+
+### DVD（Deep Video Discovery）
+
+DVD 将长视频整理为多粒度数据库，让推理 LLM 自主选择全局浏览、片段检索和原始帧检查，通过多轮证据搜索回答问题。
+
+[论文](https://arxiv.org/abs/2505.18079) · [代码](https://github.com/microsoft/DeepVideoDiscovery)
+
+**作者：** Xiaoyi Zhang 等  
+**首次公开日期：** 2025-05-23（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、自主工具调用、多粒度检索、主动证据获取
+
+<p align="center"><a href="assets/architectures/81-paper.png"><img src="assets/architectures/81-paper.png" width="820" alt="DVD（Deep Video Discovery）: 作者原图：DVD 的多粒度数据库构建与智能体搜索框架。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 系统分为离线数据库构建与在线搜索回答两部分。视频被切成短片段，VLM 顺序生成描述并维护包含人物外观、身份、动作和时间范围的 subject registry；描述被嵌入为检索向量，原始帧同时保留。Global Browse 返回主体信息与问题相关的全局事件摘要；Clip Search 按语义相似度返回描述和时间范围；Frame Inspect 在指定区间读取原始帧并调用 VLM 回答子问题。推理 LLM 在观察—推理—行动循环中自行组合三个工具，积累调用结果后选择 Answer 终止。
+
+**时间建模：** 默认以 5 秒为单位分片，并以每秒 2 帧解码。数据库保留片段的时间范围和帧索引；智能体可反复改写检索问题，再回到具体区间检查细节。全局、片段和帧三个粒度覆盖跨时段关系与短暂视觉证据。
+
+**训练／推理方式：** 无需为 DVD 额外训练模型；数据库构建、语义检索和工具编排复用已有模型。论文 v4 使用 GPT-4.1／GPT-4.1-mini 生成描述，使用 o3 执行推理及 Frame Inspect。它扩展的是推理时证据访问方式，而非新增视频编码器；描述生成与原始帧读取仍有离线和在线成本。
+
+**资料中提及的数据：** LVBench（评测）、LongVideoBench（评测）、Video-MME（评测）、EgoSchema（评测）。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2505.18079) · [来源 2](https://arxiv.org/html/2505.18079v4)。
+
+</details>
+
+---
+
+<a id="85-videomind-chain-of-lora"></a>
+
+### VideoMind（Chain-of-LoRA）
+
+VideoMind 共享一个 Qwen2-VL 基座，通过切换角色专用 LoRA 完成规划、时间定位和证据验证，再用原始基座生成回答。
+
+[论文](https://arxiv.org/abs/2503.13444) · [官方项目](https://videomind.github.io/) · [代码](https://github.com/yeliudev/VideoMind)
+
+**作者：** Ye Liu 等  
+**首次公开日期：** 2025-03-17（arXiv v1 提交日期（UTC））  
+**主要贡献：** 角色适配器、共享基座、监督微调、时间定位、证据验证
+
+<p align="center"><a href="assets/architectures/85-paper.png"><img src="assets/architectures/85-paper.png" width="820" alt="VideoMind（Chain-of-LoRA）: 作者原图：VideoMind 在共享骨干上切换角色 LoRA 的整体工作流。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** Planner 根据问题选择定位—验证—回答、仅定位—验证或直接回答三种计划，并可改写定位查询。Grounder 使用 `<REG>` token、视觉隐藏状态和额外时间戳解码器生成候选区间；Verifier 对候选区间进行局部重看，以 Yes／No 概率选出最可信证据。Answerer 根据选定片段或全视频作答。Chain-of-LoRA 让前三个角色共享同一 Qwen2-VL 2B／7B 骨干并切换不同适配器，Answerer 则关闭角色适配器复用原模型，减少部署多个完整模型的开销。
+
+**时间建模：** 时间戳解码器先将每帧视觉 token 池化，融合 `<REG>` 查询并构建四级时间特征金字塔，以前景分类及边界回归预测区间。Verifier 将候选边界向两侧扩展后重看，并用 `<SEG-START>`／`<SEG-END>` 显式标记原区间。规划、定位、验证和回答采用不同帧预算及分辨率，按需将精细感知集中到候选时段。
+
+**训练／推理方式：** 分别训练 Planner、Grounder 和 Verifier 的 LoRA，推理时一起加载并按计划激活。论文 v3 使用 39K 规划样本、210K 定位样本和 232K 验证样本：规划与二元验证通过 SFT 学习；定位解码器使用前景分类、边界回归和帧—查询对比损失。Answerer 无额外微调。该工作贡献的是经过角色监督训练的共享基座与适配器编排，不是 RL 工具策略，也不是整体免训练系统。
+
+**资料中提及的数据：** VideoMind-SFT、NExT-QA、QVHighlights、DiDeMo、TACoS、InternVid-VTime、CosMo-Cap、QuerYD、HiREST。
+
+**公开情况：** 本条目指 Liu 等人的 Chain-of-LoRA 视频推理智能体，与同名视频数据集及其他 VideoMind 系统区分。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2503.13444) · [来源 2](https://arxiv.org/html/2503.13444v3)。
+
+</details>
+
+---
+
+<a id="84-lvagent"></a>
+
+### LVAgent
+
+LVAgent 将不同预训练 MLLM 组成动态团队，通过视频片段检索、独立回答与相互反思，逐轮调整证据和参与讨论的智能体。
+
+[论文](https://arxiv.org/abs/2503.10200) · [代码](https://github.com/64327069/LVAgent)
+
+**作者：** Boyu Chen 等  
+**首次公开日期：** 2025-03-13（arXiv v1 提交日期（UTC））  
+**主要贡献：** 多智能体协作、动态团队选择、反思与共识、视频片段检索、检索器微调
+
+<p align="center"><a href="assets/architectures/84-paper.png"><img src="assets/architectures/84-paper.png" width="820" alt="LVAgent: 作者原图：LVAgent 的选择、感知、行动与反思四步协作框架。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 框架包括 Selection、Perception、Action、Reflection。Selection 在无标签视频子集上用多数答案形成伪标签，选出表现较好的三个 MLLM。Perception 先粗看少量帧，决定全局采样或生成检索线索，再用 ASP-CLIP 查找问题相关片段。Action 让各模型基于各自证据给出答案及理由，达成多数共识时提前停止。未达成共识时进入 Reflection：各模型评议理由，移除最低分智能体，并将历史答案、理由与评分用于下一轮证据检索。
+
+**时间建模：** 检索将视频划为六个等长区间，以区间帧集合与问题及智能体提炼线索的相似度选择证据。全局采样提供跨时段背景；多轮讨论重新生成线索并检索片段，逐步修正遗漏的时间信息。
+
+**训练／推理方式：** MLLM 的团队选择、讨论和反思通过提示编排实现，不需额外微调这些 MLLM；但完整系统并非全部免训练。论文 v5 明确在自建 LongVR 的 82K 视频—描述样本上微调 ASP-CLIP 检索器，以改善长片段检索。LongVR 来自 ActivityNet、OpenVid-1M、ViTT、MovieChat-Caption 和 YouCook2，经时长及描述质量筛选后用于检索适配。应区分预训练 MLLM 的推理时协作与检索器的监督训练。
+
+**资料中提及的数据：** LongVR（检索器训练）、EgoSchema（评测）、Video-MME（评测）、MLVU（评测）、LongVideoBench（评测）。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2503.10200) · [来源 2](https://arxiv.org/html/2503.10200v5)。
+
+</details>
+
+---
+
+<a id="75-graphvideoagent"></a>
+
+### GraphVideoAgent
+
+GraphVideoAgent 以动态实体关系图替代单纯的顺序帧描述记忆，让实体状态、跨帧关系与时间一致性共同指导长视频问答中的主动证据检索。
+
+[论文](https://arxiv.org/abs/2501.15953) · [官方项目](https://doi.org/10.1145/3746027.3755537)
+
+**作者：** Meng Chu、Yicong Li、Tat-Seng Chua  
+**首次公开日期：** 2025-01-27（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、动态实体关系图、时间状态跟踪
+
+<p align="center"><a href="assets/architectures/75-paper.png"><img src="assets/architectures/75-paper.png" width="820" alt="GraphVideoAgent: 作者原图：GraphVideoAgent 的整体架构。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 系统从初始均匀采样帧生成描述，并通过实体抽取与依存分析构建图：节点存储出现帧、视觉特征、描述和状态历史，边表示空间、交互与动作关系。LLM 执行答案预测、自我反思与缺失信息判断；图关系相关性、视觉相似度及时间一致性共同给候选帧评分。新增帧更新图和推理状态，直到证据充分或达到轮数上限。
+
+**时间建模：** 图中显式记录实体状态变化与关系发生时间，并在实体、关系和全局三个层面更新。以关系与状态约束候选时间区间，帮助联结分散事件、维持对象身份并支持因果问题推理。
+
+**训练／推理方式：** 无需额外训练；以预训练 EVA-CLIP、LaViLa 和 GPT-4 等组件构建图与执行零样本问答，检索评分权重采用经验设置。新增贡献是动态图记忆和图引导推理，不是新训练的 Video-LLM 骨干。
+
+**资料中提及的数据：** EgoSchema、NExT-QA。
+
+**公开情况：** arXiv 题名为 Understanding Long Videos via LLM-Powered Entity Relation Graphs，ACM MM 发表题名为 GraphVideoAgent: Enhancing Long-form Video Understanding with Entity Relation Graphs；本次未核验到作者公开代码。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2501.15953) · [来源 2](https://arxiv.org/html/2501.15953v1)。
+
+</details>
+
+---
+
+<a id="73-omagent"></a>
+
+### OmAgent
+
+OmAgent 将场景级多模态检索与递归任务分解结合，并允许智能体回看原视频，使复杂问题能在多步工具调用中补齐文本摘要遗漏的细节。
+
+[论文](https://arxiv.org/abs/2406.16620) · [代码](https://github.com/om-ai-lab/OmAgent) · [官方项目](https://aclanthology.org/2024.emnlp-main.559/)
+
+**作者：** Lu Zhang 等  
+**首次公开日期：** 2024-06-24（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、递归任务分解、原视频回看
+
+<p align="center"><a href="assets/architectures/73-paper.png"><img src="assets/architectures/73-paper.png" width="820" alt="OmAgent: 作者原图：OmAgent 的整体架构。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** Video2RAG 先做场景切分、人物视觉标注、语音识别与说话人区分，再由 MLLM 汇总带时间戳的场景描述并建立向量索引。检索结果进入 Divide-and-Conquer 循环：Conqueror 判断能否直接作答或调用工具，Divider 递归拆分复杂任务，Rescuer 处理执行异常，Tool Manager 管理工具。Rewinder 可回看指定原视频片段，最终汇总子任务结果。
+
+**时间建模：** 场景的起止时间及音频转写时间共同支撑检索；系统可从问题提取时间约束过滤证据。Rewinder 在推理过程中重新观察对应区间，而非仅依赖固定的预生成描述。
+
+**训练／推理方式：** 该视频理解方案无需额外训练，复用现有 MLLM、感知模型、嵌入模型与外部工具。任务树、提示词与分治循环承担推理控制，论文贡献是系统架构和工具编排。
+
+**资料中提及的数据：** 论文自建长视频问答基准（100 个视频、约 2000 组问答）、MBPP（通用任务评测）、FreshQA（通用任务评测）。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2406.16620) · [来源 2](https://arxiv.org/html/2406.16620v3)。
+
+</details>
+
+---
+
+<a id="74-drvideo"></a>
+
+### DrVideo
+
+DrVideo 将长视频转写成可检索、可增补的文本档案，由规划与交互智能体循环补充关键帧细节，将长视频推理转化为文档检索与理解。
+
+[论文](https://arxiv.org/abs/2406.12846) · [作者论文](https://openaccess.thecvf.com/content/CVPR2025/papers/Ma_DrVideo_Document_Retrieval_Based_Long_Video_Understanding_CVPR_2025_paper.pdf)
+
+**作者：** Ziyu Ma 等  
+**首次公开日期：** 2024-06-18（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、文档检索、迭代证据增补
+
+<p align="center"><a href="assets/architectures/74-paper.png"><img src="assets/architectures/74-paper.png" width="820" alt="DrVideo: 作者原图：DrVideo 的整体架构。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 视频—文档转换模块用描述模型生成带帧索引的简短文本；嵌入检索选出与问题相关的 Top-K 帧，再由 LLaVA-NeXT 补充详细描述或视觉问答结果。规划智能体判断档案证据是否充分，交互智能体选择遗漏的帧及所需信息类型，调用增补模块更新档案；最终回答模块依据更新后的文档生成答案。
+
+**时间建模：** 粗粒度档案保留帧索引和原始顺序，检索与补看均可回到对应视频位置。它通过分轮补充不同时间的证据处理长距离问题；时间信息主要存在于可更新的文本档案，而非新增时间注意力层。
+
+**训练／推理方式：** 无需额外训练；描述、嵌入检索、证据增补与智能体推理均复用预训练模型。规划与交互角色可由同一 LLM 使用不同提示词实现，实验比较 GPT-3.5、GPT-4 和 DeepSeek 等控制模型。
+
+**资料中提及的数据：** EgoSchema、MovieChat-1K、Video-MME（长视频）。
+
+**公开情况：** 已发现 Upper9527/DrVideo 项目，但尚未从论文或作者网页确认代码归属，暂未标记为官方实现。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2406.12846) · [来源 2](https://arxiv.org/html/2406.12846v2)。
+
+</details>
+
+---
+
+<a id="72-videoagent-fan"></a>
+
+### VideoAgent（Fan 等）
+
+另一项同名 VideoAgent 工作通过时间记忆与对象记忆统一存储长视频证据，使语言智能体能查询事件、定位片段并追踪跨时间出现的同一对象。
+
+[论文](https://arxiv.org/abs/2403.11481) · [官方项目](https://videoagent.github.io/) · [代码](https://github.com/YueFan1014/VideoAgent)
+
+**作者：** Yue Fan、Xiaojian Ma 等  
+**首次公开日期：** 2024-03-18（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、结构化记忆、对象重识别
+
+<p align="center"><a href="assets/architectures/72-paper.png"><img src="assets/architectures/72-paper.png" width="820" alt="VideoAgent（Fan 等）: 作者原图：VideoAgent（Fan 等） 的整体架构。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** 预处理将视频切成 2 秒片段：LaViLa 生成描述，ViCLIP 与文本嵌入模型提供检索特征，构成时间记忆。RT-DETR、ByteTrack 及结合 CLIP 与 DINOv2 的重识别流程构造对象特征表和 SQL 数据库。GPT-4 迭代调用描述检索、片段定位、视觉问答与对象记忆查询四类工具，将返回结果加入历史后生成答案。
+
+**时间建模：** 时间记忆保留片段顺序与边界；对象记忆以统一对象 ID 关联其出现区间，减少对象离开画面再出现时的重复计数。智能体可结合语义定位与 SQL 查询追踪长距离对象关系。
+
+**训练／推理方式：** 无需为该系统新增训练；调用既有描述、视觉编码、检测、跟踪和问答模型，以提示词驱动 GPT-4 的零样本工具使用。记忆构建和对象重识别发生在预处理阶段，不等同于端到端视频语言预训练。
+
+**资料中提及的数据：** EgoSchema、Ego4D NLQ、WorldQA、NExT-QA。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2403.11481) · [来源 2](https://arxiv.org/html/2403.11481v2)。
+
+</details>
+
+---
+
+<a id="71-videoagent-wang"></a>
+
+### VideoAgent（Wang 等）
+
+VideoAgent 将长视频问答组织为反复观察、判断与检索的智能体循环，依据当前缺失的信息主动选帧，而非一次性向语言模型输入全部视频。
+
+[论文](https://arxiv.org/abs/2403.10517) · [代码](https://github.com/wxh1996/VideoAgent)
+
+**作者：** Xiaohan Wang、Yuhui Zhang 等  
+**首次公开日期：** 2024-03-15（arXiv v1 提交日期（UTC））  
+**主要贡献：** 免训练系统、主动证据检索、自我反思
+
+<p align="center"><a href="assets/architectures/71-paper.png"><img src="assets/architectures/71-paper.png" width="820" alt="VideoAgent（Wang 等）: 作者原图：VideoAgent（Wang 等） 的整体架构。" /></a></p>
+
+<details>
+<summary>模型结构、时间建模与训练方式</summary>
+
+**模型结构：** GPT-4 担任控制智能体，先读取均匀采样帧经 VLM 生成的描述，再预测答案并自评证据是否充分。若仍需信息，智能体提出文本检索目标与时间区间，由 CLIP 返回该区间内最相关的帧。VLM 对新增帧生成描述，更新文本状态后开始下一轮；证据充分或达到轮数上限时作答。
+
+**时间建模：** 已观察帧的索引用于划分候选时间区间，新增描述按帧序并入状态。这样可在指定事件之前或之后寻找证据，并让每轮采样针对已有上下文中的信息缺口。
+
+**训练／推理方式：** 智能体控制流程无需训练新参数；描述、检索与推理复用既有 VLM、CLIP 和 GPT-4。EgoSchema 实验使用按 LLoVi 协议过滤重叠视频后重训的 LaViLa 描述模型，以避免评测泄漏；这一组件准备不同于训练新的视频语言骨干。
+
+**资料中提及的数据：** EgoSchema、NExT-QA。
+
+**公开情况：** 论文原项目网页在本次核验时返回 404；入口使用可访问的作者代码仓库。
+
+**一手资料：** [来源 1](https://arxiv.org/abs/2403.10517) · [来源 2](https://arxiv.org/html/2403.10517v1)。
+
+</details>
+
+---
+
 <a id="methods-and-systems"></a>
 
 ## 方法与系统
@@ -2352,7 +2840,7 @@ SlowFast-LLaVA 无需微调即可将图像训练的 LLaVA-NeXT 扩展到视频�
 
 ## 调研来源
 
-初始调研检查了 15 个 awesome 仓库，并从 5 个核心清单中提取 153 个名称级候选。当前 70 个图文条目经过筛选，并以原论文、作者代码及官方模型卡核验技术内容；awesome 清单用于发现候选，具体架构和视频支持情况以一手资料为准。
+初始调研检查了 15 个 awesome 仓库，并从 5 个核心清单中提取 153 个名称级候选。当前 85 个图文条目经过筛选，并以原论文、作者代码及官方模型卡核验技术内容；awesome 清单用于发现候选，具体架构和视频支持情况以一手资料为准。视频智能体分支的补充依据与选取理由见[扩充记录](docs/agentic-expansion.md)。
 
 - [Awesome 仓库审计与候选提取](docs/source-audit.md)
 - [参考仓库的结构与 README 分析](docs/reference-repository-analysis.md)

@@ -6,12 +6,13 @@ repository-code: "https://github.com/lyc61c/awesome-video-mllm-architectures"
 authors:
   - name: "Awesome Video MLLM Architectures contributors"
 type: dataset
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-10-08
 license: CC0-1.0
-abstract: "用模型图与中文介绍整理视频多模态大语言模型、时间建模机制及推理系统，附一手资料、代码与图源署名。"
+abstract: "用模型图与中文介绍整理视频多模态大语言模型、时间建模机制及视频智能体的检索、记忆和工具调用系统，附一手资料、代码与图源署名。"
 keywords:
   - video understanding
   - multimodal large language models
   - architectures
   - streaming video
+  - video agents

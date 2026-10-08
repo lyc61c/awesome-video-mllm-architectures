@@ -24,6 +24,8 @@
 
 额外效率来源：[momentslab/awesome-efficient-videollm](https://github.com/momentslab/awesome-efficient-videollm)。适合继续扩展 encoder、LLM token pruning、KV cache 三个压缩位置；本轮 153 条候选统计采用下列五个核心 README，不计此来源。
 
+后续从 S13 补充 15 个视频智能体图文条目，选取范围与机制比较见[视频智能体扩充记录](agentic-expansion.md)。本文件中的 153 条候选与五源分组保留初始调研统计。
+
 ## 从五个核心 README 提取的候选池
 
 按首次贡献来源分组，共 **153 条跨来源去重候选名称**。这是发现池，包含模型版本、方法和系统；不等于 153 种独立架构。下面记录名称与提取位置，已入选条目的完整论文题名和一手链接见根目录筛选清单。当前主清单并未逐项收录全部候选。

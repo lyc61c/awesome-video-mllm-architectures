@@ -78,3 +78,18 @@
 | 68 | [StreamMeCo](68-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2604.09000v1/Figure3.png) | 图 3／第 4 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
 | 69 | [FlashVID](69-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2602.08024v1/method.png) | 图 4／第 5 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
 | 70 | [SlowFast-LLaVA](70-paper.png) | 论文原图裁切 | [一手来源](https://arxiv.org/abs/2407.15841) | 图 2／第 4 页 | [原图提取出处](https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/slowfast-llava-2024-arch.png) |
+| 71 | [VideoAgent（Wang 等）](71-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2403.10517v1#S1.F1) | 图 1 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 72 | [VideoAgent（Fan 等）](72-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2403.11481v2#S2.F2) | 图 2 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 73 | [OmAgent](73-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2406.16620v3#S3.F1) | 图 1 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 74 | [DrVideo](74-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2406.12846v2#S1.F1) | 图 1 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 75 | [GraphVideoAgent](75-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2501.15953v1#S1.F2) | 图 2 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 76 | [M3-Agent](76-paper.png) | 论文原图裁切 | [一手来源](https://arxiv.org/abs/2508.09736v4) | 图 1／第 2 页 | [原图提取出处](https://arxiv.org/pdf/2508.09736v4) |
+| 77 | [AdaVideoRAG](77-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2506.13589v3/figs/model.png) | 图 2／第 5 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 78 | [VideoLucy](78-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2510.12422v1/Figure1.png) | 图 1／第 2 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 79 | [VideoARM](79-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2512.12360v2/fig2.png) | 图 2／第 3 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 80 | [WorldMM](80-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2512.02425v2/fig_method.png) | 图 2／第 3 页 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 81 | [DVD（Deep Video Discovery）](81-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2505.18079v4#S2.F2) | 图 2 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 82 | [LongVT](82-paper.png) | 论文原图裁切 | [一手来源](https://arxiv.org/pdf/2511.20785v3) | 图 补充材料图 3／第 15 页 | [原图提取出处](https://arxiv.org/pdf/2511.20785v3) |
+| 83 | [FrameThinker](83-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2509.24304v2#S3.F2) | 图 2 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 84 | [LVAgent](84-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2503.10200v5#S1.F4) | 图 4 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |
+| 85 | [VideoMind（Chain-of-LoRA）](85-paper.png) | 论文原图 | [一手来源](https://arxiv.org/html/2503.13444v3#S3.F2) | 图 2 | 从作者提供的 HTML 下载，或从原论文 PDF 裁切。 |

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "figure_policy": "Original figures remain under their original rights; editorial schematics are explicitly identified.",
-  "count": 70,
+  "count": 85,
   "figures": [
     {
       "id": 1,
@@ -855,6 +855,213 @@
       "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/slowfast-llava-2024-arch.png",
       "verification": "visually_reviewed",
       "display_caption": "SlowFast-LLaVA：将稀疏但空间细节丰富的 token，与密集且强池化的 token 输入既有图像训练模型。"
+    },
+    {
+      "id": 71,
+      "kind": "paper_figure",
+      "file": "assets/architectures/71-paper.png",
+      "source_url": "https://arxiv.org/html/2403.10517v1#S1.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "作者原图：VideoAgent（Wang 等） 的整体架构。",
+      "image_source_url": "https://arxiv.org/html/2403.10517v1/videoagent_intro_2.png",
+      "verification": "visually_reviewed",
+      "source_version": "arXiv:2403.10517v1",
+      "pixels": [
+        1175,
+        516
+      ]
+    },
+    {
+      "id": 72,
+      "kind": "paper_figure",
+      "file": "assets/architectures/72-paper.png",
+      "source_url": "https://arxiv.org/html/2403.11481v2#S2.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "作者原图：VideoAgent（Fan 等） 的整体架构。",
+      "image_source_url": "https://arxiv.org/html/2403.11481v2/new_teaser_2.png",
+      "verification": "visually_reviewed",
+      "source_version": "arXiv:2403.11481v2",
+      "pixels": [
+        1566,
+        1019
+      ]
+    },
+    {
+      "id": 73,
+      "kind": "paper_figure",
+      "file": "assets/architectures/73-paper.png",
+      "source_url": "https://arxiv.org/html/2406.16620v3#S3.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "作者原图：OmAgent 的整体架构。",
+      "image_source_url": "https://arxiv.org/html/2406.16620v3/OmAgent.png",
+      "verification": "visually_reviewed",
+      "source_version": "arXiv:2406.16620v3",
+      "pixels": [
+        1974,
+        1442
+      ]
+    },
+    {
+      "id": 74,
+      "kind": "paper_figure",
+      "file": "assets/architectures/74-paper.png",
+      "source_url": "https://arxiv.org/html/2406.12846v2#S1.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "作者原图：DrVideo 的整体架构。",
+      "image_source_url": "https://arxiv.org/html/2406.12846v2/drvideo_2.png",
+      "verification": "visually_reviewed",
+      "source_version": "arXiv:2406.12846v2",
+      "pixels": [
+        1222,
+        432
+      ]
+    },
+    {
+      "id": 75,
+      "kind": "paper_figure",
+      "file": "assets/architectures/75-paper.png",
+      "source_url": "https://arxiv.org/html/2501.15953v1#S1.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "作者原图：GraphVideoAgent 的整体架构。",
+      "image_source_url": "https://arxiv.org/html/2501.15953v1/overview.png",
+      "verification": "visually_reviewed",
+      "source_version": "arXiv:2501.15953v1",
+      "pixels": [
+        734,
+        280
+      ]
+    },
+    {
+      "id": 76,
+      "kind": "paper_crop",
+      "file": "assets/architectures/76-paper.png",
+      "source_url": "https://arxiv.org/abs/2508.09736v4",
+      "figure_number": "1",
+      "pdf_page": 2,
+      "display_caption": "M3-Agent：并行的视听记忆构建与控制推理，共享实体中心的多模态长期记忆图。",
+      "extraction_source": "https://arxiv.org/pdf/2508.09736v4",
+      "paper_version_url": "https://arxiv.org/abs/2508.09736v4",
+      "crop_points": [
+        69,
+        437,
+        542,
+        637
+      ],
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 77,
+      "kind": "paper_figure",
+      "file": "assets/architectures/77-paper.png",
+      "source_url": "https://arxiv.org/html/2506.13589v3/figs/model.png",
+      "figure_number": "2",
+      "pdf_page": 5,
+      "display_caption": "AdaVideoRAG：问题意图路由连接文本、视觉和知识图索引，以分级检索支持视频问答。",
+      "image_source_url": "https://arxiv.org/html/2506.13589v3/figs/model.png",
+      "paper_version_url": "https://arxiv.org/abs/2506.13589v3",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 78,
+      "kind": "paper_figure",
+      "file": "assets/architectures/78-paper.png",
+      "source_url": "https://arxiv.org/html/2510.12422v1/Figure1.png",
+      "figure_number": "1",
+      "pdf_page": 2,
+      "display_caption": "VideoLucy 系统总览与既有方案对比：层级采样、多层片段描述、协作智能体与记忆回溯。",
+      "image_source_url": "https://arxiv.org/html/2510.12422v1/Figure1.png",
+      "paper_version_url": "https://arxiv.org/abs/2510.12422v1",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 79,
+      "kind": "paper_figure",
+      "file": "assets/architectures/79-paper.png",
+      "source_url": "https://arxiv.org/html/2512.12360v2/fig2.png",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "display_caption": "VideoARM：感知、结果与工作记忆分层保存证据，控制器在观察、思考、行动与记忆更新之间闭环。",
+      "image_source_url": "https://arxiv.org/html/2512.12360v2/fig2.png",
+      "paper_version_url": "https://arxiv.org/abs/2512.12360v2",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 80,
+      "kind": "paper_figure",
+      "file": "assets/architectures/80-paper.png",
+      "source_url": "https://arxiv.org/html/2512.02425v2/fig_method.png",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "display_caption": "WorldMM：构建情节、语义与视觉记忆，由检索智能体跨记忆与时间尺度收集证据并支持回答。",
+      "image_source_url": "https://arxiv.org/html/2512.02425v2/fig_method.png",
+      "paper_version_url": "https://arxiv.org/abs/2512.02425v2",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 81,
+      "kind": "paper_figure",
+      "file": "assets/architectures/81-paper.png",
+      "source_url": "https://arxiv.org/html/2505.18079v4#S2.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "image_source_url": "https://arxiv.org/html/2505.18079v4/pipeline2.png",
+      "verification": "visually_reviewed",
+      "display_caption": "作者原图：DVD 的多粒度数据库构建与智能体搜索框架。"
+    },
+    {
+      "id": 82,
+      "kind": "paper_crop",
+      "file": "assets/architectures/82-paper.png",
+      "source_url": "https://arxiv.org/pdf/2511.20785v3",
+      "figure_number": "补充材料图 3",
+      "pdf_page": 15,
+      "extraction_source": "https://arxiv.org/pdf/2511.20785v3",
+      "crop_rect": [
+        81,
+        240,
+        534,
+        474
+      ],
+      "verification": "visually_reviewed",
+      "display_caption": "作者原图：LongVT 的全局预览、局部裁剪与联合奖励框架。"
+    },
+    {
+      "id": 83,
+      "kind": "paper_figure",
+      "file": "assets/architectures/83-paper.png",
+      "source_url": "https://arxiv.org/html/2509.24304v2#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "image_source_url": "https://arxiv.org/html/2509.24304v2/Flow_Chart.png",
+      "verification": "visually_reviewed",
+      "display_caption": "作者原图：FrameThinker 的主动选帧、CCV 检查与 SFT／RL 训练流程。"
+    },
+    {
+      "id": 84,
+      "kind": "paper_figure",
+      "file": "assets/architectures/84-paper.png",
+      "source_url": "https://arxiv.org/html/2503.10200v5#S1.F4",
+      "figure_number": "4",
+      "pdf_page": null,
+      "image_source_url": "https://arxiv.org/html/2503.10200v5/method.png",
+      "verification": "visually_reviewed",
+      "display_caption": "作者原图：LVAgent 的选择、感知、行动与反思四步协作框架。"
+    },
+    {
+      "id": 85,
+      "kind": "paper_figure",
+      "file": "assets/architectures/85-paper.png",
+      "source_url": "https://arxiv.org/html/2503.13444v3#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "image_source_url": "https://arxiv.org/html/2503.13444v3/method.png",
+      "verification": "visually_reviewed",
+      "display_caption": "作者原图：VideoMind 在共享骨干上切换角色 LoRA 的整体工作流。"
     }
   ]
 }
