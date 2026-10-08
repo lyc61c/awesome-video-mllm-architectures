@@ -242,8 +242,6 @@ VideoChat3 将图像 Transformer 的注意力扩展为局部 3D 视频注意力�
 
 <p align="center"><a href="assets/architectures/21-paper.png"><img src="assets/architectures/21-paper.png" width="820" alt="VideoChat3: 作者原图：VideoChat3 的整体架构。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2607.14935v2#S2.F2)。作者原图：VideoChat3 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -275,8 +273,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 <p align="center"><a href="assets/architectures/16-paper.png"><img src="assets/architectures/16-paper.png" width="820" alt="InternVideo3: 作者原图：InternVideo3 的整体架构。" /></a></p>
 
-*原文图 2，PDF 第 7 页，来源：[原始资料](https://arxiv.org/abs/2606.12195)。作者原图：InternVideo3 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -306,8 +302,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 <p align="center"><a href="assets/architectures/25-paper.png"><img src="assets/architectures/25-paper.png" width="820" alt="LLaVA-OneVision-2: LLaVA-OneVision-2 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2605.25979#S2.F2)。LLaVA-OneVision-2 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -336,8 +330,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 **主要贡献：** 模型发布、视觉编码、token 压缩
 
 <p align="center"><a href="assets/architectures/34-schematic.svg"><img src="assets/architectures/34-schematic.svg" width="820" alt="MiniCPM-V 4.6: 在视觉编码器内部提前压缩 token，并用混合压缩率控制输入预算。" /></a></p>
-
-*本仓库依据[一手资料](https://huggingface.co/openbmb/MiniCPM-V-4.6)绘制的示意图。依据官方模型卡绘制。连接桥是功能性标记，不表示新增命名连接器；相关 LLaVA-UHD v4 论文图未被用作本模型的完整架构图。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -370,8 +362,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 <p align="center"><a href="assets/architectures/62-paper.png"><img src="assets/architectures/62-paper.png" width="820" alt="Qwen3.5-Omni: Qwen3.5-Omni 技术报告中的 Thinker-Talker 架构，其公开发布形式为托管服务。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2604.15804#S2.F2)。Qwen3.5-Omni 技术报告中的 Thinker-Talker 架构，其公开发布形式为托管服务。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -403,8 +393,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 <p align="center"><a href="assets/architectures/32-schematic.svg"><img src="assets/architectures/32-schematic.svg" width="820" alt="Qwen3.5 → Qwen3.8-27B: 解码器结合 Gated DeltaNet 与注意力机制；本条目仅介绍支持视频的检查点。" /></a></p>
 
-*本仓库依据[一手资料](https://huggingface.co/Qwen/Qwen3.8-27B)绘制的示意图。依据官方资料概括该家族的早期融合与混合解码器。并非所有 Qwen3.8 检查点都接收视频；编码器细节以及稠密／MoE 配置取决于具体检查点。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -433,8 +421,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 **主要贡献：** 全模态架构、全双工交互、训练方案
 
 <p align="center"><a href="assets/architectures/59-paper.png"><img src="assets/architectures/59-paper.png" width="820" alt="MiniCPM-o 4.5: MiniCPM-o 4.5 的端到端架构与共享时间轴上的 Omni-Flow 处理流程。" /></a></p>
-
-*原文图 4，PDF 第 4 页，来源：[原始资料](https://arxiv.org/pdf/2604.27393#page=4)。MiniCPM-o 4.5 的端到端架构与共享时间轴上的 Omni-Flow 处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -465,8 +451,6 @@ InternVideo3 在保留输入 token 的同时压缩多模态注意力状态，将
 
 <p align="center"><a href="assets/architectures/31-paper.png"><img src="assets/architectures/31-paper.png" width="820" alt="Qwen3-VL: Qwen3-VL 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 1，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2511.21631)。Qwen3-VL 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -495,8 +479,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 **主要贡献：** 流式模型、KV 缓存策略、训练方案、评测基准
 
 <p align="center"><a href="assets/architectures/51-paper.png"><img src="assets/architectures/51-paper.png" width="820" alt="StreamingVLM: StreamingVLM 推理：保留注意力汇聚 token、近期视觉与更长的文本历史，并维护有界连续的 RoPE 索引。" /></a></p>
-
-*原文图 3，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2510.09608v1/inference.png)。StreamingVLM 推理：保留注意力汇聚 token、近期视觉与更长的文本历史，并维护有界连续的 RoPE 索引。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -529,8 +511,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 
 <p align="center"><a href="assets/architectures/61-paper.png"><img src="assets/architectures/61-paper.png" width="820" alt="Qwen3-Omni: Qwen3-Omni 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2509.17765#S2.F2)。Qwen3-Omni 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -559,8 +539,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 **主要贡献：** 模型架构、token 压缩、训练方案
 
 <p align="center"><a href="assets/architectures/33-paper.png"><img src="assets/architectures/33-paper.png" width="820" alt="MiniCPM-V 4.5: MiniCPM-V 4.5 的模型架构与视频处理流程。" /></a></p>
-
-*原文图 1，来源：[原始资料](https://arxiv.org/html/2509.18154#S1.F1)。MiniCPM-V 4.5 的模型架构与视频处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -591,8 +569,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 
 <p align="center"><a href="assets/architectures/28-paper.png"><img src="assets/architectures/28-paper.png" width="820" alt="InternVL3.5: InternVL3.5 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2508.18265#S2.F2)。InternVL3.5 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -621,8 +597,6 @@ StreamingVLM 将短片段训练与连续推理对齐，复用大小有界的视�
 **主要贡献：** 流式模型、记忆架构、异步推理
 
 <p align="center"><a href="assets/architectures/48-paper.png"><img src="assets/architectures/48-paper.png" width="820" alt="Flash-VStream（Flash Memory）: 2025 年 Flash-VStream：双进程流式框架中的上下文概括记忆（CSM）与细节增强记忆（DAM）。" /></a></p>
-
-*原文图 3，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2506.23825v1/method_new5.png)。2025 年 Flash-VStream：双进程流式框架中的上下文概括记忆（CSM）与细节增强记忆（DAM）。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -655,8 +629,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 <p align="center"><a href="assets/architectures/50-paper.png"><img src="assets/architectures/50-paper.png" width="820" alt="TimeChat-Online: 差分 token 丢弃（DTD）：编码帧、比较相邻帧的 patch token、去除冗余并保留原始位置。" /></a></p>
 
-*原文图 2，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2504.17343v1/model.png)。差分 token 丢弃（DTD）：编码帧、比较相邻帧的 patch token、去除冗余并保留原始位置。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -688,8 +660,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 <p align="center"><a href="assets/architectures/36-paper.png"><img src="assets/architectures/36-paper.png" width="820" alt="Eagle 2.5: Eagle 2.5 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2504.15271#S3.F2)。Eagle 2.5 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -718,8 +688,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **主要贡献：** 训练方案、位置编码、上下文扩展
 
 <p align="center"><a href="assets/architectures/27-schematic.svg"><img src="assets/architectures/27-schematic.svg" width="820" alt="InternVL3: V2PE 调整视觉 token 的位置；原生预训练联合使用多模态数据与纯文本数据。" /></a></p>
-
-*本仓库依据[一手资料](https://arxiv.org/abs/2504.10479)绘制的示意图。展示共享的视觉语言路径。V2PE 与联合预训练是说明性注释，不表示新增网络模块；不同检查点的骨干规模有所区别。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -750,8 +718,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 <p align="center"><a href="assets/architectures/64-paper.png"><img src="assets/architectures/64-paper.png" width="820" alt="Slow-Fast Video MLLM: Slow-Fast Video MLLM 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2504.01328#S1.F2)。Slow-Fast Video MLLM 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -780,8 +746,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **主要贡献：** 模型架构、帧选择、高效投影层
 
 <p align="center"><a href="assets/architectures/63-paper.png"><img src="assets/architectures/63-paper.png" width="820" alt="Mobile-VideoGPT: Mobile-VideoGPT 的模型架构与视频处理流程。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2503.21782#S3.F2)。Mobile-VideoGPT 的模型架构与视频处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -812,8 +776,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 
 <p align="center"><a href="assets/architectures/60-paper.png"><img src="assets/architectures/60-paper.png" width="820" alt="Qwen2.5-Omni: Qwen2.5-Omni 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2503.20215)。Qwen2.5-Omni 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -842,8 +804,6 @@ TimeChat-Online 在语言解码之前去除静态内容的时间冗余，保留 
 **主要贡献：** 模型架构、位置编码、训练方案
 
 <p align="center"><a href="assets/architectures/30-paper.png"><img src="assets/architectures/30-paper.png" width="820" alt="Qwen2.5-VL: Qwen2.5-VL 的模型架构与视频处理流程。" /></a></p>
-
-*原文图 1，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2502.13923)。Qwen2.5-VL 的模型架构与视频处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -874,8 +834,6 @@ VideoLLaMA 3 结合任意分辨率视觉 token 化与差分帧剪枝，通过分
 
 <p align="center"><a href="assets/architectures/13-paper.png"><img src="assets/architectures/13-paper.png" width="820" alt="VideoLLaMA 3: 作者原图：VideoLLaMA 3 的整体架构。" /></a></p>
 
-*原文图 3，PDF 第 4 页，来源：[原始资料](https://arxiv.org/abs/2501.13106)。作者原图：VideoLLaMA 3 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -904,8 +862,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 **主要贡献：** 模型架构、token 压缩、偏好优化
 
 <p align="center"><a href="assets/architectures/15-paper.png"><img src="assets/architectures/15-paper.png" width="820" alt="InternVideo2.5: 作者原图：InternVideo2.5 的整体架构。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2501.12386v3#S2.F2)。作者原图：InternVideo2.5 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -937,8 +893,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 **主要贡献：** 训练方案、时间监督、偏好优化
 
 <p align="center"><a href="assets/architectures/20-schematic.svg"><img src="assets/architectures/20-schematic.svg" width="820" alt="Tarsier2: 保留 Qwen2-VL 的基础接口，主要改进预训练、帧与事件监督、监督微调（SFT）及 DPO。" /></a></p>
-
-*本仓库依据[一手资料](https://arxiv.org/abs/2501.07888)绘制的示意图。展示沿用的 Qwen2-VL 视频处理路径，并标注训练改进；较早的同名项目检查点可能采用不同配置。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -975,8 +929,6 @@ InternVideo2.5 在 InternVL2.5 基础上增加分层视觉压缩和任务偏好�
 
 <p align="center"><a href="assets/architectures/44-paper.png"><img src="assets/architectures/44-paper.png" width="820" alt="VideoChat-Flash: VideoChat-Flash 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 3，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2501.00574)。VideoChat-Flash 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1007,8 +959,6 @@ Apollo 将图像、视频编码器与 Perceiver token 重采样结合，通过�
 **主要贡献：** 模型架构、架构设计研究、训练方案、评测基准
 
 <p align="center"><a href="assets/architectures/17-paper.png"><img src="assets/architectures/17-paper.png" width="820" alt="Apollo: 作者原图：Apollo 的整体架构。" /></a></p>
-
-*原文图 8，PDF 第 21 页，来源：[原始资料](https://arxiv.org/abs/2412.10360)。作者原图：Apollo 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1041,8 +991,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 
 <p align="center"><a href="assets/architectures/49-paper.png"><img src="assets/architectures/49-paper.png" width="820" alt="StreamChat（Liu 等）: Liu 等的 StreamChat：在 LLM 中加入交叉注意力、视觉前馈专家及线性门控。" /></a></p>
 
-*原文图 3，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2412.08646v1/arch.svg)。Liu 等的 StreamChat：在 LLM 中加入交叉注意力、视觉前馈专家及线性门控。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1074,8 +1022,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 
 <p align="center"><a href="assets/architectures/26-paper.png"><img src="assets/architectures/26-paper.png" width="820" alt="InternVL2.5: InternVL2.5 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2412.05271)。InternVL2.5 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1104,8 +1050,6 @@ Liu 等人的 StreamChat 在每一步文本解码时更新视觉上下文，使�
 **主要贡献：** 模型架构、token 压缩、问题条件化
 
 <p align="center"><a href="assets/architectures/42-paper.png"><img src="assets/architectures/42-paper.png" width="820" alt="LongVU: LongVU 的模型架构与视频处理流程。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2410.17434#S3.F2)。LongVU 的模型架构与视频处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1136,8 +1080,6 @@ TRACE 将带时间定位的输出视为因果事件序列，显式结合时间�
 
 <p align="center"><a href="assets/architectures/57-paper.png"><img src="assets/architectures/57-paper.png" width="820" alt="TRACE: TRACE 训练流程：视觉与时间输入，以及按因果顺序生成的时间、分数和文本事件序列。" /></a></p>
 
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2410.05643v1/nero-overview.png)。TRACE 训练流程：视觉与时间输入，以及按因果顺序生成的时间、分数和文本事件序列。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1166,8 +1108,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 **主要贡献：** 指令数据、数据合成、视频表示
 
 <p align="center"><a href="assets/architectures/24-paper.png"><img src="assets/architectures/24-paper.png" width="820" alt="LLaVA-Video: 作者原图：LLaVA-Video 的视频表示方式。" /></a></p>
-
-*原文图 8，来源：[原始资料](https://arxiv.org/html/2410.02713v3#A1.F8)。作者原图：LLaVA-Video 的视频表示方式。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1202,8 +1142,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 
 <p align="center"><a href="assets/architectures/35-paper.png"><img src="assets/architectures/35-paper.png" width="820" alt="Oryx / 1.5: Oryx / 1.5 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2409.12961#S3.F2)。Oryx / 1.5 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1234,8 +1172,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 **主要贡献：** 模型架构、位置编码、动态分辨率
 
 <p align="center"><a href="assets/architectures/29-schematic.svg"><img src="assets/architectures/29-schematic.svg" width="820" alt="Qwen2-VL: 以相邻两帧构建时间 patch 并输入 ViT；M-RoPE 分别编码时间、高度和宽度。" /></a></p>
-
-*本仓库依据[一手资料](https://arxiv.org/abs/2409.12191)绘制的示意图。展示原文第 2 节的视频编码器、合并器与解码器路径。M-RoPE 属于位置机制，图中省略了各注意力块与训练阶段。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1268,8 +1204,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 
 <p align="center"><a href="assets/architectures/43-paper.png"><img src="assets/architectures/43-paper.png" width="820" alt="LongVILA: LongVILA 的五阶段训练流程，通过上下文扩展与长视频微调扩展 VILA 模型。" /></a></p>
 
-*原文图 1，来源：[原始资料](https://arxiv.org/html/2408.10188#S1.F1)。LongVILA 的五阶段训练流程，通过上下文扩展与长视频微调扩展 VILA 模型。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1298,8 +1232,6 @@ LLaVA-Video 利用合成的详细描述与问答数据微调具备图像能力�
 **主要贡献：** 全模态架构、交互系统、训练方案
 
 <p align="center"><a href="assets/architectures/58-paper.png"><img src="assets/architectures/58-paper.png" width="820" alt="VITA / VITA-1.5: 原版 VITA 架构；VITA-1.5 增加端到端语音输出。" /></a></p>
-
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2408.05211)。原版 VITA 架构；VITA-1.5 增加端到端语音输出。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1332,8 +1264,6 @@ LLaVA-OneVision 通过 SigLIP、轻量投影层与 Qwen2 统一单图、多图�
 
 <p align="center"><a href="assets/architectures/23-paper.png"><img src="assets/architectures/23-paper.png" width="820" alt="LLaVA-OneVision: 作者原图：LLaVA-OneVision 的整体架构。" /></a></p>
 
-*原文图 1，PDF 第 3 页，来源：[原始资料](https://arxiv.org/abs/2408.03326)。作者原图：LLaVA-OneVision 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1364,8 +1294,6 @@ Tarsier 采用简单的逐帧 CLIP 到 LLM 架构，主要贡献在于大规模�
 **主要贡献：** 训练方案、指令数据、评测
 
 <p align="center"><a href="assets/architectures/19-paper.png"><img src="assets/architectures/19-paper.png" width="820" alt="Tarsier: 作者原图：Tarsier 的整体架构。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2407.00634v2#S3.F2)。作者原图：Tarsier 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1398,8 +1326,6 @@ Tarsier 采用简单的逐帧 CLIP 到 LLM 架构，主要贡献在于大规模�
 
 <p align="center"><a href="assets/architectures/41-paper.png"><img src="assets/architectures/41-paper.png" width="820" alt="LongVA: LongVA 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2406.16852v2/image/uniresv2.png)。LongVA 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1428,8 +1354,6 @@ VideoLLM-online 通过流式对话目标、带时间戳的监督和连续缓存�
 **主要贡献：** 流式模型、训练目标、数据格式、推理流程
 
 <p align="center"><a href="assets/architectures/45-paper.png"><img src="assets/architectures/45-paper.png" width="820" alt="VideoLLM-online: LIVE 模型与训练：交错组织视频帧、语言 token 及流式 EOS 监督。" /></a></p>
-
-*原文图 4，PDF 第 6 页，来源：[原始资料](https://arxiv.org/html/2406.11816v1/figure3.png)。LIVE 模型与训练：交错组织视频帧、语言 token 及流式 EOS 监督。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1462,8 +1386,6 @@ VideoGPT+ 结合互补的图像和视频编码器、分段采样及自适应 tok
 
 <p align="center"><a href="assets/architectures/18-paper.png"><img src="assets/architectures/18-paper.png" width="820" alt="VideoGPT+: 作者原图：VideoGPT+ 的整体架构。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2406.09418v1#S3.F2)。作者原图：VideoGPT+ 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1495,8 +1417,6 @@ VideoGPT+ 结合互补的图像和视频编码器、分段采样及自适应 tok
 
 <p align="center"><a href="assets/architectures/47-paper.png"><img src="assets/architectures/47-paper.png" width="820" alt="Flash-VStream（STAR Memory）: 2024 年 Flash-VStream：独立的帧处理与问题处理模块通过 STAR Memory 连接。" /></a></p>
 
-*原文图 3，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2406.08085v1/overall_framework.png)。2024 年 Flash-VStream：独立的帧处理与问题处理模块通过 STAR Memory 连接。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1525,8 +1445,6 @@ VideoLLaMA 2 使用时空卷积连接器替代仅基于查询的视频压缩，�
 **主要贡献：** 模型架构、音视频理解
 
 <p align="center"><a href="assets/architectures/12-paper.png"><img src="assets/architectures/12-paper.png" width="820" alt="VideoLLaMA 2 / 2.1: 作者原图：VideoLLaMA 2 的音视频架构。" /></a></p>
-
-*原文图 1，来源：[原始资料](https://arxiv.org/html/2406.07476v3#S1.F1)。作者原图：VideoLLaMA 2 的音视频架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1559,8 +1477,6 @@ VideoStreaming 将可复用的流式视频编码与问答分离，结合跨片�
 
 <p align="center"><a href="assets/architectures/46-paper.png"><img src="assets/architectures/46-paper.png" width="820" alt="VideoStreaming: VideoStreaming 框架：通过记忆传播编码视频片段，再自适应选择记忆供下游 LLM 使用。" /></a></p>
 
-*原文图 1(a)，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2405.16009v1/overview.png)。VideoStreaming 框架：通过记忆传播编码视频片段，再自适应选择记忆供下游 LLM 使用。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1591,8 +1507,6 @@ VTG-LLM 将时间戳知识注入视觉输入和文本输出，结合显式时间
 **主要贡献：** 时间建模、时间嵌入、token 压缩、指令数据
 
 <p align="center"><a href="assets/architectures/56-paper.png"><img src="assets/architectures/56-paper.png" width="820" alt="VTG-LLM: VTG-LLM：视觉／Q-Former 编码、序列时间嵌入、槽位压缩及绝对时间输出 token。" /></a></p>
-
-*原文图 1，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2405.13382v1/vtg-lm-overview.png)。VTG-LLM：视觉／Q-Former 编码、序列时间嵌入、槽位压缩及绝对时间输出 token。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1625,8 +1539,6 @@ LLaVA-NeXT-Video 将经过图像训练的视觉—语言架构迁移到多帧输
 
 <p align="center"><a href="assets/architectures/22-project.png"><img src="assets/architectures/22-project.png" width="820" alt="LLaVA-NeXT-Video: 官方博客中的 LLaVA-NeXT 多帧表示示意图。" /></a></p>
 
-*官方项目图，来源：[原始资料](https://llava-vl.github.io/blog/2024-04-30-llava-next-video/)。官方博客中的 LLaVA-NeXT 多帧表示示意图。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1658,8 +1570,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 
 <p align="center"><a href="assets/architectures/10-paper.png"><img src="assets/architectures/10-paper.png" width="820" alt="PLLaVA: 作者原图：PLLaVA 的整体架构。" /></a></p>
 
-*原文图 6，来源：[原始资料](https://arxiv.org/html/2404.16994v2#S3.F6)。作者原图：PLLaVA 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1688,8 +1598,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 **主要贡献：** 记忆架构、顺序处理
 
 <p align="center"><a href="assets/architectures/39-paper.png"><img src="assets/architectures/39-paper.png" width="820" alt="MA-LMM: MA-LMM 的模型架构与视频处理流程。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2404.05726#S2.F2)。MA-LMM 的模型架构与视频处理流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1720,8 +1628,6 @@ PLLaVA 通过无参数的自适应池化将图像训练的 LLaVA 扩展到视频
 
 <p align="center"><a href="assets/architectures/40-paper.png"><img src="assets/architectures/40-paper.png" width="820" alt="LongVLM: LongVLM 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2404.03384v3/architecture_v2.png)。LongVLM 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1750,8 +1656,6 @@ MiniGPT4-Video 在 MiniGPT-v2 基础上按时间顺序交错输入帧与字幕 t
 **主要贡献：** 模型架构、字幕集成
 
 <p align="center"><a href="assets/architectures/08-paper.png"><img src="assets/architectures/08-paper.png" width="820" alt="MiniGPT4-Video: 作者原图：MiniGPT4-Video 的整体架构。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2404.03413v1#S3.F2)。作者原图：MiniGPT4-Video 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1784,8 +1688,6 @@ ST-LLM 将时空视觉 token 直接输入语言模型，利用动态掩码与全
 
 <p align="center"><a href="assets/architectures/09-paper.png"><img src="assets/architectures/09-paper.png" width="820" alt="ST-LLM: 作者原图：ST-LLM 的整体架构。" /></a></p>
 
-*原文图 3，来源：[原始资料](https://arxiv.org/html/2404.00308v1#S3.F3)。作者原图：ST-LLM 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1816,8 +1718,6 @@ InternVideo2 的对话分支将渐进预训练的视频基础编码器接入 LLM
 **主要贡献：** 视频编码器、MLLM 集成、多模态预训练
 
 <p align="center"><a href="assets/architectures/14-paper.png"><img src="assets/architectures/14-paper.png" width="820" alt="InternVideo2（MLLM 分支）: 作者原图：InternVideo2 的对话分支与三阶段训练流程。" /></a></p>
-
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2403.15377v4#S2.F2)。作者原图：InternVideo2 的对话分支与三阶段训练流程。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1850,8 +1750,6 @@ HawkEye 通过面向时间定位的指令和递归裁剪扩展 VideoChat2，将�
 
 <p align="center"><a href="assets/architectures/55-paper.png"><img src="assets/architectures/55-paper.png" width="820" alt="HawkEye: HawkEye 继承的 VideoChat2 架构、可训练组件及时间定位指令数据。" /></a></p>
 
-*原文图 2，PDF 第 8 页，来源：[原始资料](https://arxiv.org/html/2403.10228v1/training.png)。HawkEye 继承的 VideoChat2 架构、可训练组件及时间定位指令数据。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1882,8 +1780,6 @@ Momentor 引入连续的时间 token 空间和带定位信息的事件序列训�
 **主要贡献：** 时间建模、时间 token、训练目标、指令数据
 
 <p align="center"><a href="assets/architectures/54-paper.png"><img src="assets/architectures/54-paper.png" width="820" alt="Momentor: Momentor 的架构与训练，包括时间感知模块（TPM）及带时间定位的事件序列建模。" /></a></p>
-
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2402.11435v1/Momentor_3.3.png)。Momentor 的架构与训练，包括时间感知模块（TPM）及带时间定位的事件序列建模。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -1916,8 +1812,6 @@ TimeChat 将帧内容与显式时间戳关联，并产生可变长度的视频 t
 
 <p align="center"><a href="assets/architectures/52-paper.png"><img src="assets/architectures/52-paper.png" width="820" alt="TimeChat: TimeChat：时间戳感知帧编码、滑动视频 Q-Former 与语言解码器。" /></a></p>
 
-*原文图 2，PDF 第 3 页，来源：[原始资料](https://arxiv.org/html/2312.02051v1/arch.png)。TimeChat：时间戳感知帧编码、滑动视频 Q-Former 与语言解码器。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1949,8 +1843,6 @@ VTimeLLM 主要通过分阶段监督建立时间边界感知能力，将简单�
 
 <p align="center"><a href="assets/architectures/53-paper.png"><img src="assets/architectures/53-paper.png" width="820" alt="VTimeLLM: VTimeLLM 的三阶段训练：特征对齐、时间边界感知与指令微调。" /></a></p>
 
-*原文图 2，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2311.18445v1/framework.png)。VTimeLLM 的三阶段训练：特征对齐、时间边界感知与指令微调。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -1980,8 +1872,6 @@ VTimeLLM 主要通过分阶段监督建立时间边界感知能力，将简单�
 
 <p align="center"><a href="assets/architectures/38-paper.png"><img src="assets/architectures/38-paper.png" width="820" alt="LLaMA-VID: LLaMA-VID 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2311.17043#S2.F2)。LLaMA-VID 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2010,8 +1900,6 @@ VideoChat2 将经过时间信息预训练的 UMT 视觉编码器、指令感知�
 **主要贡献：** 模型架构、训练方案、评测基准
 
 <p align="center"><a href="assets/architectures/11-paper.png"><img src="assets/architectures/11-paper.png" width="820" alt="VideoChat2: 作者原图：VideoChat2 的整体架构。" /></a></p>
-
-*原文图 4，来源：[原始资料](https://arxiv.org/html/2311.17005v4#S4.F4)。作者原图：VideoChat2 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2044,8 +1932,6 @@ Video-LLaVA 使用 LanguageBind 在共享投影层之前对齐图像和视频表
 
 <p align="center"><a href="assets/architectures/06-paper.png"><img src="assets/architectures/06-paper.png" width="820" alt="Video-LLaVA: 作者原图：Video-LLaVA 的整体架构。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2311.10122v3#S3.F2)。作者原图：Video-LLaVA 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2076,8 +1962,6 @@ Chat-UniVi 利用动态 token 聚类和多尺度聚合，将图像与视频压�
 **主要贡献：** 模型架构、token 压缩
 
 <p align="center"><a href="assets/architectures/07-paper.png"><img src="assets/architectures/07-paper.png" width="820" alt="Chat-UniVi: 作者原图：Chat-UniVi 的整体架构。" /></a></p>
-
-*原文图 3，来源：[原始资料](https://arxiv.org/html/2311.08046v3#S1.F3)。作者原图：Chat-UniVi 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2110,8 +1994,6 @@ Chat-UniVi 利用动态 token 聚类和多尺度聚合，将图像与视频压�
 
 <p align="center"><a href="assets/architectures/37-paper.png"><img src="assets/architectures/37-paper.png" width="820" alt="MovieChat: MovieChat 的模型架构与视频处理流程。" /></a></p>
 
-*原文图 2，来源：[原始资料](https://arxiv.org/html/2307.16449#S2.F2)。MovieChat 的模型架构与视频处理流程。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2140,8 +2022,6 @@ Valley 在 CLIP 帧编码后加入时间聚合和语言投影层，通过两阶�
 **主要贡献：** 模型架构、指令数据
 
 <p align="center"><a href="assets/architectures/05-paper.png"><img src="assets/architectures/05-paper.png" width="820" alt="Valley: 作者原图：Valley 的整体架构。" /></a></p>
-
-*原文图 1，PDF 第 2 页，来源：[原始资料](https://arxiv.org/pdf/2306.07207v3#page=2)。作者原图：Valley 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2174,8 +2054,6 @@ Video-ChatGPT 将 CLIP 帧特征转换为空间和时间 token，再学习一个
 
 <p align="center"><a href="assets/architectures/03-paper.png"><img src="assets/architectures/03-paper.png" width="820" alt="Video-ChatGPT: 作者原图：Video-ChatGPT 的整体架构。" /></a></p>
 
-*原文图 1，来源：[原始资料](https://arxiv.org/html/2306.05424v2#S2.F1)。作者原图：Video-ChatGPT 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2206,8 +2084,6 @@ Video-LLaMA 为冻结的语言模型加入独立的视觉和音频查询接口�
 **主要贡献：** 模型架构、音视频理解
 
 <p align="center"><a href="assets/architectures/04-paper.png"><img src="assets/architectures/04-paper.png" width="820" alt="Video-LLaMA: 作者原图：Video-LLaMA 的整体架构。" /></a></p>
-
-*原文图 1，来源：[原始资料](https://arxiv.org/html/2306.02858v4#S1.F1)。作者原图：Video-LLaMA 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2240,8 +2116,6 @@ VideoChat 同时提供端到端视频嵌入接口和基于文本的并行处理�
 
 <p align="center"><a href="assets/architectures/02-paper.png"><img src="assets/architectures/02-paper.png" width="820" alt="VideoChat: 作者原图：VideoChat 的整体架构。" /></a></p>
 
-*原文图 2(a)，来源：[原始资料](https://arxiv.org/html/2305.06355v2#S3.F2)。作者原图：VideoChat 的整体架构。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2272,8 +2146,6 @@ Flamingo 通过 Perceiver Resampler 和门控交叉注意力连接冻结的视�
 **主要贡献：** 模型架构、多模态预训练、少样本学习
 
 <p align="center"><a href="assets/architectures/01-paper.png"><img src="assets/architectures/01-paper.png" width="820" alt="Flamingo: 作者原图：Flamingo 的整体架构。" /></a></p>
-
-*原文图 3，PDF 第 4 页，来源：[原始资料](https://arxiv.org/pdf/2204.14198)。作者原图：Flamingo 的整体架构。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2314,8 +2186,6 @@ StreamMeCo 压缩智能体的长期记忆图，并优先选择近期相关证据
 
 <p align="center"><a href="assets/architectures/68-paper.png"><img src="assets/architectures/68-paper.png" width="820" alt="StreamMeCo: StreamMeCo：孤立节点采样、连通节点剪枝与考虑时间衰减的记忆检索。" /></a></p>
 
-*原文图 3，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2604.09000v1/Figure3.png)。StreamMeCo：孤立节点采样、连通节点剪枝与考虑时间衰减的记忆检索。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2344,8 +2214,6 @@ FlashVID 无需训练即可压缩视频 token，结合基于注意力与多样�
 **主要贡献：** 免训练方法、token 选择、时空合并
 
 <p align="center"><a href="assets/architectures/69-paper.png"><img src="assets/architectures/69-paper.png" width="820" alt="FlashVID: FlashVID：在语言模型前执行基于注意力与多样性的 token 选择，以及树状时空 token 合并。" /></a></p>
-
-*原文图 4，PDF 第 5 页，来源：[原始资料](https://arxiv.org/html/2602.08024v1/method.png)。FlashVID：在语言模型前执行基于注意力与多样性的 token 选择，以及树状时空 token 合并。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2376,8 +2244,6 @@ ReKV 是一种无需训练的推理方法，将流式视频的 KV 状态存储�
 
 <p align="center"><a href="assets/architectures/65-paper.png"><img src="assets/architectures/65-paper.png" width="820" alt="ReKV: ReKV：滑动窗口视频编码、卸载后的 KV 检索，以及利用缓存上下文生成回答。" /></a></p>
 
-*原文图 2，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2503.00540v1/framework.svg)。ReKV：滑动窗口视频编码、卸载后的 KV 检索，以及利用缓存上下文生成回答。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2406,8 +2272,6 @@ Xiong 等人的 StreamChat 是无需训练的记忆编排框架，结合分层�
 **主要贡献：** 免训练系统、层次化记忆、检索、评测基准
 
 <p align="center"><a href="assets/architectures/66-paper.png"><img src="assets/architectures/66-paper.png" width="820" alt="StreamChat（Xiong 等）: Xiong 等的 StreamChat：选择性帧堆叠、记忆构建与上下文摘要。" /></a></p>
-
-*原文图 4，PDF 第 5 页，来源：[原始资料](https://arxiv.org/html/2501.13468v1/Canvas_1.png)。Xiong 等的 StreamChat：选择性帧堆叠、记忆构建与上下文摘要。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
@@ -2440,8 +2304,6 @@ TimeRefine 通过先生成粗略边界、再迭代预测偏移量，改进已有
 
 <p align="center"><a href="assets/architectures/67-paper.png"><img src="assets/architectures/67-paper.png" width="820" alt="TimeRefine: TimeRefine：迭代预测时间边界及其偏移，并配合辅助 L1 回归头。" /></a></p>
 
-*原文图 2，PDF 第 4 页，来源：[原始资料](https://arxiv.org/html/2412.09601v1/method2.png)。TimeRefine：迭代预测时间边界及其偏移，并配合辅助 L1 回归头。*
-
 <details>
 <summary>模型结构、时间建模与训练方式</summary>
 
@@ -2470,8 +2332,6 @@ SlowFast-LLaVA 无需微调即可将图像训练的 LLaVA-NeXT 扩展到视频�
 **主要贡献：** 免训练方法、双速率输入、空间池化
 
 <p align="center"><a href="assets/architectures/70-paper.png"><img src="assets/architectures/70-paper.png" width="820" alt="SlowFast-LLaVA: SlowFast-LLaVA：将稀疏但空间细节丰富的 token，与密集且强池化的 token 输入既有图像训练模型。" /></a></p>
-
-*原文图 2，PDF 第 4 页，来源：[原始资料](https://arxiv.org/abs/2407.15841)。SlowFast-LLaVA：将稀疏但空间细节丰富的 token，与密集且强池化的 token 输入既有图像训练模型。*
 
 <details>
 <summary>模型结构、时间建模与训练方式</summary>

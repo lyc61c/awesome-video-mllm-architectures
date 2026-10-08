@@ -46,14 +46,6 @@ def badges(entry):
     return " · ".join(items)
 
 
-def figure_caption(figure):
-    if figure["kind"] == "editorial_schematic":
-        return f"本仓库依据{link('一手资料', figure['source_url'])}绘制的示意图。{figure['simplification']}"
-    label = "官方项目图" if figure["kind"] == "project_figure" else f"原文图 {figure['figure_number']}" if figure.get("figure_number") else "作者原图"
-    page = f"，PDF 第 {figure['pdf_page']} 页" if figure.get("pdf_page") else ""
-    return f"{label}{page}，来源：{link('原始资料', figure['source_url'])}。{figure['display_caption']}"
-
-
 def card(entry, figure):
     alt = html.escape(f"{entry['name']}: {figure['display_caption']}", quote=True)
     file = html.escape(figure["file"], quote=True)
@@ -62,7 +54,6 @@ def card(entry, figure):
              f"**首次公开日期：** {entry['first_public_date']}（{entry['date_basis']}）  ",
              f"**主要贡献：** {'、'.join(entry['contribution_type'])}", "",
              f'<p align="center"><a href="{file}"><img src="{file}" width="820" alt="{alt}" /></a></p>', "",
-             "*" + figure_caption(figure) + "*", "",
              "<details>", "<summary>模型结构、时间建模与训练方式</summary>", "",
              "**模型结构：** " + entry["architecture"], "",
              "**时间建模：** " + entry["temporal_modeling"], "",
