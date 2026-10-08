@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Video MLLM Architectures</title>
+  <desc id="desc">An illustrated map from video frames to visual tokens, temporal context and language.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0c263b"/><stop offset="1" stop-color="#164e60"/></linearGradient></defs>
+  <rect width="1200" height="300" rx="20" fill="url(#bg)"/>
+  <g fill="none" stroke="#58b5be" opacity=".32"><path d="M 700 0 L 1200 300 M 830 0 L 1200 220 M 980 0 L 1200 140"/><circle cx="1000" cy="135" r="104"/><circle cx="1000" cy="135" r="140"/></g>
+  <text x="52" y="82" fill="#8be1d7" font-family="Arial,sans-serif" font-size="18" letter-spacing="3">AN ILLUSTRATED ARCHITECTURE COLLECTION</text>
+  <text x="52" y="142" fill="#fff" font-family="Arial,sans-serif" font-size="43" font-weight="700">Awesome Video MLLM</text>
+  <text x="52" y="194" fill="#fff" font-family="Arial,sans-serif" font-size="43" font-weight="700">Architectures</text>
+  <text x="52" y="248" fill="#c8e7eb" font-family="Arial,sans-serif" font-size="21">Video encoding · Temporal modeling · Memory · Streaming · Omni</text>
+  <g transform="translate(858 75)"><rect width="225" height="142" rx="14" fill="#194354" stroke="#77c9cd" stroke-width="2"/><rect x="15" y="15" width="195" height="112" rx="8" fill="#0f2c40"/><path d="M 97 47 L 144 71 L 97 96 Z" fill="#8be1d7"/><rect x="-20" y="-14" width="49" height="32" rx="5" fill="#dceff1"/><rect x="194" y="123" width="49" height="32" rx="5" fill="#e9d9fa"/></g>
+</svg>

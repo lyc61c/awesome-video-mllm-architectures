@@ -1,0 +1,47 @@
+[
+  {
+    "id": 20,
+    "title": "Tarsier2 — 2025 report backbone",
+    "nodes": ["Video frames", "Qwen2-VL visual encoder", "Inherited visual merger", "Qwen2-VL-7B decoder", "Video description / QA"],
+    "side_input": {"label": "Text prompt", "target_index": 3},
+    "note": "The report changes pretraining, frame-event supervision, SFT and DPO; it retains the base interface.",
+    "source_url": "https://arxiv.org/abs/2501.07888",
+    "simplification": "Shows the inherited Qwen2-VL video path. Training innovations are annotated; this is not a claim of a new Tarsier2 connector. Earlier project checkpoints with the same name may differ."
+  },
+  {
+    "id": 27,
+    "title": "InternVL3 — video path",
+    "nodes": ["Video frames / tiles", "InternViT", "Pixel unshuffle + MLP", "Language decoder", "Text response"],
+    "side_input": {"label": "Text prompt", "target_index": 3},
+    "note": "V2PE adjusts visual-token positions; native pretraining mixes multimodal and text data.",
+    "source_url": "https://arxiv.org/abs/2504.10479",
+    "simplification": "Shows the shared visual-language path. V2PE and joint pretraining are annotations, not additional neural modules. Backbone sizes vary by checkpoint."
+  },
+  {
+    "id": 29,
+    "title": "Qwen2-VL — video path",
+    "nodes": ["Paired video frames", "Dynamic-resolution ViT", "2×2 spatial merger", "Qwen2 decoder", "Text response"],
+    "side_input": {"label": "Text prompt", "target_index": 3},
+    "note": "Two-frame temporal patches enter the ViT; M-RoPE encodes time, height and width.",
+    "source_url": "https://arxiv.org/abs/2409.12191",
+    "simplification": "Shows the video encoder/merger/decoder path described in section 2. M-RoPE is a positional mechanism; the drawing omits individual attention blocks and training stages."
+  },
+  {
+    "id": 32,
+    "title": "Qwen3.5 / Qwen3.8-27B — video path",
+    "nodes": ["Video frames", "Visual encoding", "Multimodal early fusion", "Hybrid language decoder", "Text / agent response"],
+    "side_input": {"label": "Text tokens", "target_index": 2},
+    "note": "The decoder combines Gated DeltaNet and attention. This card is scoped to video-capable checkpoints.",
+    "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+    "simplification": "Family-level view of the official early-fusion and hybrid-decoder description. It does not imply that every Qwen3.8 checkpoint accepts video; encoder details and dense/MoE configurations depend on the checkpoint."
+  },
+  {
+    "id": 34,
+    "title": "MiniCPM-V 4.6 — video path",
+    "nodes": ["Video frames / images", "SigLIP2 + early compression", "Vision-language bridge", "Qwen3.5-0.8B", "Text response"],
+    "side_input": {"label": "Text prompt", "target_index": 3},
+    "note": "Visual tokens are compressed inside the encoder; mixed compression ratios control the budget.",
+    "source_url": "https://huggingface.co/openbmb/MiniCPM-V-4.6",
+    "simplification": "Follows the official model card. The bridge is a functional label, not a claim of a new named connector. The related LLaVA-UHD v4 figure is not used as the model's complete architecture."
+  }
+]

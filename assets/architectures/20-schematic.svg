@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">Tarsier2 — 2025 report backbone</title>
+<desc id="desc">Editorial schematic. Shows the inherited Qwen2-VL video path. Training innovations are annotated; this is not a claim of a new Tarsier2 connector. Earlier project checkpoints with the same name may differ.</desc>
+<rect width="1200" height="360" rx="18" fill="#f8fafc"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52677d"/></marker></defs>
+<text x="36" y="55" fill="#142c42" font-family="Arial,sans-serif" font-size="32" font-weight="700">Tarsier2 — 2025 report backbone</text>
+<text x="36" y="85" fill="#52677d" font-family="Arial,sans-serif" font-size="17">EDITORIAL SCHEMATIC · based on the cited primary source</text>
+<rect x="36" y="136" width="210" height="108" rx="12" fill="#e7edf6" stroke="#bdcad8"/>
+<text x="141" y="191" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">Video frames</text>
+<path d="M 247 190 H 260" stroke="#52677d" stroke-width="2"/>
+<path d="M 256 186 L 263 190 L 256 194 Z" fill="#52677d"/>
+<rect x="265" y="136" width="210" height="108" rx="12" fill="#dceff1" stroke="#bdcad8"/>
+<text x="370" y="178" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">Qwen2-VL visual</text>
+<text x="370" y="204" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">encoder</text>
+<path d="M 476 190 H 489" stroke="#52677d" stroke-width="2"/>
+<path d="M 485 186 L 492 190 L 485 194 Z" fill="#52677d"/>
+<rect x="494" y="136" width="210" height="108" rx="12" fill="#ede6fb" stroke="#bdcad8"/>
+<text x="599" y="178" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">Inherited visual</text>
+<text x="599" y="204" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">merger</text>
+<path d="M 705 190 H 718" stroke="#52677d" stroke-width="2"/>
+<path d="M 714 186 L 721 190 L 714 194 Z" fill="#52677d"/>
+<rect x="723" y="136" width="210" height="108" rx="12" fill="#ffe8d4" stroke="#bdcad8"/>
+<text x="828" y="178" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">Qwen2-VL-7B</text>
+<text x="828" y="204" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">decoder</text>
+<path d="M 934 190 H 947" stroke="#52677d" stroke-width="2"/>
+<path d="M 943 186 L 950 190 L 943 194 Z" fill="#52677d"/>
+<rect x="952" y="136" width="210" height="108" rx="12" fill="#e6f1df" stroke="#bdcad8"/>
+<text x="1057" y="178" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">Video description</text>
+<text x="1057" y="204" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="20">/ QA</text>
+<rect x="748" y="94" width="160" height="28" rx="6" fill="#e7edf6" stroke="#bdcad8"/>
+<text x="828" y="114" text-anchor="middle" fill="#142c42" font-family="Arial,sans-serif" font-size="17">Text prompt</text>
+<path d="M 828 122 V 131" stroke="#52677d" stroke-width="2"/>
+<path d="M 824 128 L 828 134 L 832 128 Z" fill="#52677d"/>
+<text x="36" y="280" fill="#334b60" font-family="Arial,sans-serif" font-size="20">The report changes pretraining, frame-event supervision, SFT and DPO; it retains the base interface.</text>
+</svg>

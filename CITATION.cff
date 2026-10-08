@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Cite the original papers when discussing a model. Cite this collection when referring to its curation or editorial diagrams."
+title: "Awesome Video MLLM Architectures"
+url: "https://github.com/lyc61c/awesome-video-mllm-architectures"
+repository-code: "https://github.com/lyc61c/awesome-video-mllm-architectures"
+authors:
+  - name: "Awesome Video MLLM Architectures contributors"
+type: dataset
+version: 0.1.0
+date-released: 2026-10-08
+license: CC0-1.0
+abstract: "An illustrated, source-linked collection of video multimodal large language models, temporal mechanisms, and inference systems."
+keywords:
+  - video understanding
+  - multimodal large language models
+  - architectures
+  - streaming video

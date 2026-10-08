@@ -1,0 +1,860 @@
+{
+  "schema_version": 1,
+  "figure_policy": "Original figures remain under their original rights; editorial schematics are explicitly identified.",
+  "count": 70,
+  "figures": [
+    {
+      "id": 1,
+      "kind": "paper_crop",
+      "file": "assets/architectures/01-paper.png",
+      "source_url": "https://arxiv.org/pdf/2204.14198",
+      "figure_number": "3",
+      "pdf_page": 4,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/flamingo-2022-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Author figure: architecture overview of Flamingo."
+    },
+    {
+      "id": 2,
+      "kind": "paper_figure",
+      "file": "assets/architectures/02-paper.png",
+      "source_url": "https://arxiv.org/html/2305.06355v2#S3.F2",
+      "figure_number": "2(a)",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of VideoChat.",
+      "image_source_url": "https://arxiv.org/html/2305.06355v2/video_embed.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 3,
+      "kind": "paper_figure",
+      "file": "assets/architectures/03-paper.png",
+      "source_url": "https://arxiv.org/html/2306.05424v2#S2.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of Video-ChatGPT.",
+      "image_source_url": "https://arxiv.org/html/2306.05424v2/images/video-chatgpt.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 4,
+      "kind": "paper_figure",
+      "file": "assets/architectures/04-paper.png",
+      "source_url": "https://arxiv.org/html/2306.02858v4#S1.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of Video-LLaMA.",
+      "image_source_url": "https://arxiv.org/html/2306.02858v4/video_llama_architecture_v7.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 5,
+      "kind": "paper_crop",
+      "file": "assets/architectures/05-paper.png",
+      "source_url": "https://arxiv.org/pdf/2306.07207v3#page=2",
+      "figure_number": "1",
+      "pdf_page": 2,
+      "display_caption": "Author figure: architecture overview of Valley.",
+      "image_source_url": "https://arxiv.org/pdf/2306.07207v3",
+      "verification": "visually_reviewed",
+      "source_page_url": "https://arxiv.org/html/2306.07207v3#S1.F1",
+      "crop_pdf_points": [
+        116,
+        77,
+        500,
+        286
+      ],
+      "render_scale": 4,
+      "pixels": [
+        1536,
+        836
+      ]
+    },
+    {
+      "id": 6,
+      "kind": "paper_figure",
+      "file": "assets/architectures/06-paper.png",
+      "source_url": "https://arxiv.org/html/2311.10122v3#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of Video-LLaVA.",
+      "image_source_url": "https://arxiv.org/html/2311.10122v3/Video-LLaVA.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 7,
+      "kind": "paper_figure",
+      "file": "assets/architectures/07-paper.png",
+      "source_url": "https://arxiv.org/html/2311.08046v3#S1.F3",
+      "figure_number": "3",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of Chat-UniVi.",
+      "image_source_url": "https://arxiv.org/html/2311.08046v3/crop_fig2_11.12.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 8,
+      "kind": "paper_figure",
+      "file": "assets/architectures/08-paper.png",
+      "source_url": "https://arxiv.org/html/2404.03413v1#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of MiniGPT4-Video.",
+      "image_source_url": "https://arxiv.org/html/2404.03413v1/figures/MiniGPT4-video_fig.jpg",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 9,
+      "kind": "paper_figure",
+      "file": "assets/architectures/09-paper.png",
+      "source_url": "https://arxiv.org/html/2404.00308v1#S3.F3",
+      "figure_number": "3",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of ST-LLM.",
+      "image_source_url": "https://arxiv.org/html/2404.00308v1/chat_method.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 10,
+      "kind": "paper_figure",
+      "file": "assets/architectures/10-paper.png",
+      "source_url": "https://arxiv.org/html/2404.16994v2#S3.F6",
+      "figure_number": "6",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of PLLaVA.",
+      "image_source_url": "https://arxiv.org/html/2404.16994v2/framework.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 11,
+      "kind": "paper_figure",
+      "file": "assets/architectures/11-paper.png",
+      "source_url": "https://arxiv.org/html/2311.17005v4#S4.F4",
+      "figure_number": "4",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of VideoChat2.",
+      "image_source_url": "https://arxiv.org/html/2311.17005v4/model.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 12,
+      "kind": "paper_figure",
+      "file": "assets/architectures/12-paper.png",
+      "source_url": "https://arxiv.org/html/2406.07476v3#S1.F1",
+      "figure_number": "1",
+      "pdf_page": null,
+      "display_caption": "Author figure: VideoLLaMA 2 audiovisual architecture.",
+      "image_source_url": "https://arxiv.org/html/2406.07476v3/overall_pipeline_v3.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 13,
+      "kind": "paper_crop",
+      "file": "assets/architectures/13-paper.png",
+      "source_url": "https://arxiv.org/abs/2501.13106",
+      "figure_number": "3",
+      "pdf_page": 4,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/videollama-3-2025-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Author figure: architecture overview of VideoLLaMA 3."
+    },
+    {
+      "id": 14,
+      "kind": "paper_figure",
+      "file": "assets/architectures/14-paper.png",
+      "source_url": "https://arxiv.org/html/2403.15377v4#S2.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: InternVideo2 dialogue branch and three-stage training.",
+      "image_source_url": "https://arxiv.org/html/2403.15377v4/frame-v3.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 15,
+      "kind": "paper_figure",
+      "file": "assets/architectures/15-paper.png",
+      "source_url": "https://arxiv.org/html/2501.12386v3#S2.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of InternVideo2.5.",
+      "image_source_url": "https://arxiv.org/html/2501.12386v3/iv25-frame.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 16,
+      "kind": "paper_crop",
+      "file": "assets/architectures/16-paper.png",
+      "source_url": "https://arxiv.org/abs/2606.12195",
+      "figure_number": "2",
+      "pdf_page": 7,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/internvideo3-2026-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Author figure: architecture overview of InternVideo3."
+    },
+    {
+      "id": 17,
+      "kind": "paper_crop",
+      "file": "assets/architectures/17-paper.png",
+      "source_url": "https://arxiv.org/abs/2412.10360",
+      "figure_number": "8",
+      "pdf_page": 21,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/apollo-2024-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Author figure: architecture overview of Apollo."
+    },
+    {
+      "id": 18,
+      "kind": "paper_figure",
+      "file": "assets/architectures/18-paper.png",
+      "source_url": "https://arxiv.org/html/2406.09418v1#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of VideoGPT+.",
+      "image_source_url": "https://arxiv.org/html/2406.09418v1/Figures/vcg+_block_diagram_v6.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 19,
+      "kind": "paper_figure",
+      "file": "assets/architectures/19-paper.png",
+      "source_url": "https://arxiv.org/html/2407.00634v2#S3.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of Tarsier.",
+      "image_source_url": "https://arxiv.org/html/2407.00634v2/figs/model-arch.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 20,
+      "kind": "editorial_schematic",
+      "file": "assets/architectures/20-schematic.svg",
+      "source_url": "https://arxiv.org/abs/2501.07888",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "The report changes pretraining, frame-event supervision, SFT and DPO; it retains the base interface.",
+      "simplification": "Shows the inherited Qwen2-VL video path. Training innovations are annotated; this is not a claim of a new Tarsier2 connector. Earlier project checkpoints with the same name may differ.",
+      "verification": "visually_reviewed",
+      "supplementary": {
+        "id": 20,
+        "kind": "paper_figure",
+        "file": "assets/architectures/20-paper.png",
+        "source_url": "https://arxiv.org/html/2501.07888v3#S3.F5",
+        "figure_number": "5",
+        "pdf_page": null,
+        "display_caption": "Author figure: preference-training pipeline of Tarsier2.",
+        "image_source_url": "https://arxiv.org/html/2501.07888v3/dpo_data_pipeline.png",
+        "verification": "visually_reviewed",
+        "link_label": "Original preference-training pipeline figure"
+      }
+    },
+    {
+      "id": 21,
+      "kind": "paper_figure",
+      "file": "assets/architectures/21-paper.png",
+      "source_url": "https://arxiv.org/html/2607.14935v2#S2.F2",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "Author figure: architecture overview of VideoChat3.",
+      "image_source_url": "https://arxiv.org/html/2607.14935v2/Structure_I3D-ViT.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 22,
+      "kind": "project_figure",
+      "file": "assets/architectures/22-project.png",
+      "source_url": "https://llava-vl.github.io/blog/2024-04-30-llava-next-video/",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "Official blog illustration of the multi-frame representation used by LLaVA-NeXT.",
+      "image_source_url": "https://llava-vl.github.io/blog/assets/images/llava-next-video/multi_frame.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 23,
+      "kind": "paper_crop",
+      "file": "assets/architectures/23-paper.png",
+      "source_url": "https://arxiv.org/abs/2408.03326",
+      "figure_number": "1",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/llava-onevision-2024-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Author figure: architecture overview of LLaVA-OneVision."
+    },
+    {
+      "id": 24,
+      "kind": "paper_figure",
+      "file": "assets/architectures/24-paper.png",
+      "source_url": "https://arxiv.org/html/2410.02713v3#A1.F8",
+      "figure_number": "8",
+      "pdf_page": null,
+      "display_caption": "Author figure: video-representation diagram of LLaVA-Video.",
+      "image_source_url": "https://arxiv.org/html/2410.02713v3/llava_video_arch.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 25,
+      "kind": "paper_figure",
+      "file": "assets/architectures/25-paper.png",
+      "source_url": "https://arxiv.org/html/2605.25979#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2605.25979v1/arch.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: LLaVA-OneVision-2 architecture. The model unifies codec-stream videos, sampled-frame videos, and native-resolution images under a shared visual-token interface. Codec inputs are encoded as I/P",
+      "verification": "visually_reviewed",
+      "display_caption": "LLaVA-OneVision-2 architecture and video processing."
+    },
+    {
+      "id": 26,
+      "kind": "paper_crop",
+      "file": "assets/architectures/26-paper.png",
+      "source_url": "https://arxiv.org/abs/2412.05271",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/internvl-2-5-2024-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "InternVL2.5 architecture and video processing."
+    },
+    {
+      "id": 27,
+      "kind": "editorial_schematic",
+      "file": "assets/architectures/27-schematic.svg",
+      "source_url": "https://arxiv.org/abs/2504.10479",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "V2PE adjusts visual-token positions; native pretraining mixes multimodal and text data.",
+      "simplification": "Shows the shared visual-language path. V2PE and joint pretraining are annotations, not additional neural modules. Backbone sizes vary by checkpoint.",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 28,
+      "kind": "paper_figure",
+      "file": "assets/architectures/28-paper.png",
+      "source_url": "https://arxiv.org/html/2508.18265#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2508.18265v2/architecture.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2 : Overall architecture. InternVL3.5 adopts the “ViT–MLP–LLM” paradigm as in previous versions. Building upon InternVL3.5, we further introduce InternVL3.5-Flash, which is extended with",
+      "verification": "visually_reviewed",
+      "display_caption": "InternVL3.5 architecture and video processing."
+    },
+    {
+      "id": 29,
+      "kind": "editorial_schematic",
+      "file": "assets/architectures/29-schematic.svg",
+      "source_url": "https://arxiv.org/abs/2409.12191",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "Two-frame temporal patches enter the ViT; M-RoPE encodes time, height and width.",
+      "simplification": "Shows the video encoder/merger/decoder path described in section 2. M-RoPE is a positional mechanism; the drawing omits individual attention blocks and training stages.",
+      "verification": "visually_reviewed",
+      "supplementary": {
+        "id": 29,
+        "kind": "paper_crop",
+        "file": "assets/architectures/29-paper.png",
+        "source_url": "https://arxiv.org/abs/2409.12191",
+        "figure_number": "3",
+        "pdf_page": 5,
+        "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/qwen2-vl-2024-arch.png",
+        "verification": "visually_reviewed",
+        "display_caption": "M-RoPE temporal and spatial position mechanism; the paper does not show a full pipeline.",
+        "link_label": "Original M-RoPE temporal-mechanism figure"
+      }
+    },
+    {
+      "id": 30,
+      "kind": "paper_crop",
+      "file": "assets/architectures/30-paper.png",
+      "source_url": "https://arxiv.org/abs/2502.13923",
+      "figure_number": "1",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/qwen2-5-vl-2025-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Qwen2.5-VL architecture and video processing."
+    },
+    {
+      "id": 31,
+      "kind": "paper_crop",
+      "file": "assets/architectures/31-paper.png",
+      "source_url": "https://arxiv.org/abs/2511.21631",
+      "figure_number": "1",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/qwen3-vl-2025-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Qwen3-VL architecture and video processing."
+    },
+    {
+      "id": 32,
+      "kind": "editorial_schematic",
+      "file": "assets/architectures/32-schematic.svg",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "The decoder combines Gated DeltaNet and attention. This card is scoped to video-capable checkpoints.",
+      "simplification": "Family-level view of the official early-fusion and hybrid-decoder description. It does not imply that every Qwen3.8 checkpoint accepts video; encoder details and dense/MoE configurations depend on the checkpoint.",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 33,
+      "kind": "paper_figure",
+      "file": "assets/architectures/33-paper.png",
+      "source_url": "https://arxiv.org/html/2509.18154#S1.F1",
+      "image_source_urls": [
+        "https://arxiv.org/html/2509.18154v1/4dot5-model-v4.png"
+      ],
+      "figure_number": "1",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 1 : An overview of the MiniCPM-V 4.5 architecture. The model processes diverse visual inputs, such as high-resolution images and high frame rate videos.",
+      "verification": "visually_reviewed",
+      "display_caption": "MiniCPM-V 4.5 architecture and video processing."
+    },
+    {
+      "id": 34,
+      "kind": "editorial_schematic",
+      "file": "assets/architectures/34-schematic.svg",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-V-4.6",
+      "figure_number": null,
+      "pdf_page": null,
+      "display_caption": "Visual tokens are compressed inside the encoder; mixed compression ratios control the budget.",
+      "simplification": "Follows the official model card. The bridge is a functional label, not a claim of a new named connector. The related LLaVA-UHD v4 figure is not used as the model's complete architecture.",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 35,
+      "kind": "paper_figure",
+      "file": "assets/architectures/35-paper.png",
+      "source_url": "https://arxiv.org/html/2409.12961#S3.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2409.12961v4/fig1v5.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: Overview of Oryx architecture. Oryx offers two options to process visual inputs with arbitrary spatial sizes and temporal lengths in an on-demand manner.",
+      "verification": "visually_reviewed",
+      "display_caption": "Oryx / 1.5 architecture and video processing."
+    },
+    {
+      "id": 36,
+      "kind": "paper_figure",
+      "file": "assets/architectures/36-paper.png",
+      "source_url": "https://arxiv.org/html/2504.15271#S3.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2504.15271v1/model_arch.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2 : Tiling-based general multimodal system.",
+      "verification": "visually_reviewed",
+      "display_caption": "Eagle 2.5 architecture and video processing."
+    },
+    {
+      "id": 37,
+      "kind": "paper_figure",
+      "file": "assets/architectures/37-paper.png",
+      "source_url": "https://arxiv.org/html/2307.16449#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2307.16449v4/_overview.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2 : Illustration of MovieChat. MovieChat extracts video features with a sliding window and represents them in token form, which are then sequentially fed",
+      "verification": "visually_reviewed",
+      "display_caption": "MovieChat architecture and video processing."
+    },
+    {
+      "id": 38,
+      "kind": "paper_figure",
+      "file": "assets/architectures/38-paper.png",
+      "source_url": "https://arxiv.org/html/2311.17043#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2311.17043v1/main.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2 : The framework of LLaMA-VID. With user directive, LLaMA-VID operates by taking either a single image or video frames as input, and generates",
+      "verification": "visually_reviewed",
+      "display_caption": "LLaMA-VID architecture and video processing."
+    },
+    {
+      "id": 39,
+      "kind": "paper_figure",
+      "file": "assets/architectures/39-paper.png",
+      "source_url": "https://arxiv.org/html/2404.05726#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2404.05726v2/architecture.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2 : (a) Framework overview. MA-LMM auto-regressively processes video frames in an online manner. Two long-term memory banks are designed to store the raw",
+      "verification": "visually_reviewed",
+      "display_caption": "MA-LMM architecture and video processing."
+    },
+    {
+      "id": 40,
+      "kind": "paper_figure",
+      "file": "assets/architectures/40-paper.png",
+      "source_url": "https://arxiv.org/html/2404.03384v3/architecture_v2.png",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "LongVLM architecture and video processing.",
+      "image_source_url": "https://arxiv.org/html/2404.03384v3/architecture_v2.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 41,
+      "kind": "paper_figure",
+      "file": "assets/architectures/41-paper.png",
+      "source_url": "https://arxiv.org/html/2406.16852v2/image/uniresv2.png",
+      "figure_number": "2",
+      "pdf_page": null,
+      "display_caption": "LongVA architecture and video processing.",
+      "image_source_url": "https://arxiv.org/html/2406.16852v2/image/uniresv2.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 42,
+      "kind": "paper_figure",
+      "file": "assets/architectures/42-paper.png",
+      "source_url": "https://arxiv.org/html/2410.17434#S3.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2410.17434v1/main.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: Architecture of LongVU. Given a densely sampled video frames, we first utilize DINOv2 ( Oquab et al., 2023 ) prior to remove redundant",
+      "verification": "visually_reviewed",
+      "display_caption": "LongVU architecture and video processing."
+    },
+    {
+      "id": 43,
+      "kind": "paper_figure",
+      "file": "assets/architectures/43-paper.png",
+      "source_url": "https://arxiv.org/html/2408.10188#S1.F1",
+      "image_source_urls": [
+        "https://arxiv.org/html/2408.10188v6/figures/TrainingPipeline2.png"
+      ],
+      "figure_number": "1",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 1: The LongVILA training pipeline. In Stages 1 through 3, the process starts with alignment, pre-training, and supervised fine-tuning. In Stage 4, the model",
+      "verification": "visually_reviewed",
+      "display_caption": "LongVILA's five-stage training pipeline; context extension and long-video tuning scale the VILA stack."
+    },
+    {
+      "id": 44,
+      "kind": "paper_crop",
+      "file": "assets/architectures/44-paper.png",
+      "source_url": "https://arxiv.org/abs/2501.00574",
+      "figure_number": "3",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/videochat-flash-2025-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "VideoChat-Flash architecture and video processing."
+    },
+    {
+      "id": 45,
+      "kind": "paper_figure",
+      "file": "assets/architectures/45-paper.png",
+      "source_url": "https://arxiv.org/html/2406.11816v1/figure3.png",
+      "figure_number": "4",
+      "pdf_page": 6,
+      "display_caption": "LIVE model and training: interleaved video frames, language tokens, and streaming EOS supervision.",
+      "image_source_url": "https://arxiv.org/html/2406.11816v1/figure3.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 46,
+      "kind": "paper_figure",
+      "file": "assets/architectures/46-paper.png",
+      "source_url": "https://arxiv.org/html/2405.16009v1/overview.png",
+      "figure_number": "1(a)",
+      "pdf_page": 3,
+      "display_caption": "VideoStreaming framework: memory-propagated clip encoding and adaptive memory selection for a downstream LLM.",
+      "image_source_url": "https://arxiv.org/html/2405.16009v1/overview.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 47,
+      "kind": "paper_figure",
+      "file": "assets/architectures/47-paper.png",
+      "source_url": "https://arxiv.org/html/2406.08085v1/overall_framework.png",
+      "figure_number": "3",
+      "pdf_page": 4,
+      "display_caption": "2024 Flash-VStream: independent frame and question handlers connected through STAR Memory.",
+      "image_source_url": "https://arxiv.org/html/2406.08085v1/overall_framework.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 48,
+      "kind": "paper_figure",
+      "file": "assets/architectures/48-paper.png",
+      "source_url": "https://arxiv.org/html/2506.23825v1/method_new5.png",
+      "figure_number": "3",
+      "pdf_page": 3,
+      "display_caption": "2025 Flash-VStream: Context Synopsis Memory and Detail Augmentation Memory within a two-process streaming framework.",
+      "image_source_url": "https://arxiv.org/html/2506.23825v1/method_new5.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 49,
+      "kind": "paper_figure",
+      "file": "assets/architectures/49-paper.png",
+      "source_url": "https://arxiv.org/html/2412.08646v1/arch.svg",
+      "figure_number": "3",
+      "pdf_page": 3,
+      "display_caption": "Liu et al.'s StreamChat: cross-attention and visual feedforward experts with linear gates inside the LLM.",
+      "image_source_url": "https://arxiv.org/html/2412.08646v1/arch.svg",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 50,
+      "kind": "paper_figure",
+      "file": "assets/architectures/50-paper.png",
+      "source_url": "https://arxiv.org/html/2504.17343v1/model.png",
+      "figure_number": "2",
+      "pdf_page": 4,
+      "display_caption": "Differential Token Drop: encode frames, compare adjacent patch tokens, drop redundancy, and retain original positions.",
+      "image_source_url": "https://arxiv.org/html/2504.17343v1/model.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 51,
+      "kind": "paper_figure",
+      "file": "assets/architectures/51-paper.png",
+      "source_url": "https://arxiv.org/html/2510.09608v1/inference.png",
+      "figure_number": "3",
+      "pdf_page": 3,
+      "display_caption": "StreamingVLM inference: attention sinks, recent vision, longer text history, and bounded contiguous RoPE indices.",
+      "image_source_url": "https://arxiv.org/html/2510.09608v1/inference.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 52,
+      "kind": "paper_figure",
+      "file": "assets/architectures/52-paper.png",
+      "source_url": "https://arxiv.org/html/2312.02051v1/arch.png",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "display_caption": "TimeChat: timestamp-aware frame encoding, sliding video Q-Former, and a language decoder.",
+      "image_source_url": "https://arxiv.org/html/2312.02051v1/arch.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 53,
+      "kind": "paper_figure",
+      "file": "assets/architectures/53-paper.png",
+      "source_url": "https://arxiv.org/html/2311.18445v1/framework.png",
+      "figure_number": "2",
+      "pdf_page": 4,
+      "display_caption": "VTimeLLM's three stages: feature alignment, temporal boundary perception, and instruction tuning.",
+      "image_source_url": "https://arxiv.org/html/2311.18445v1/framework.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 54,
+      "kind": "paper_figure",
+      "file": "assets/architectures/54-paper.png",
+      "source_url": "https://arxiv.org/html/2402.11435v1/Momentor_3.3.png",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "display_caption": "Momentor architecture and training, including the Temporal Perception Module and grounded event-sequence modeling.",
+      "image_source_url": "https://arxiv.org/html/2402.11435v1/Momentor_3.3.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 55,
+      "kind": "paper_figure",
+      "file": "assets/architectures/55-paper.png",
+      "source_url": "https://arxiv.org/html/2403.10228v1/training.png",
+      "figure_number": "2",
+      "pdf_page": 8,
+      "display_caption": "HawkEye's inherited VideoChat2 architecture, trainable components, and grounding instruction data.",
+      "image_source_url": "https://arxiv.org/html/2403.10228v1/training.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 56,
+      "kind": "paper_figure",
+      "file": "assets/architectures/56-paper.png",
+      "source_url": "https://arxiv.org/html/2405.13382v1/vtg-lm-overview.png",
+      "figure_number": "1",
+      "pdf_page": 3,
+      "display_caption": "VTG-LLM: visual/Q-Former encoding, sequence-time embeddings, slot compression, and absolute-time output tokens.",
+      "image_source_url": "https://arxiv.org/html/2405.13382v1/vtg-lm-overview.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 57,
+      "kind": "paper_figure",
+      "file": "assets/architectures/57-paper.png",
+      "source_url": "https://arxiv.org/html/2410.05643v1/nero-overview.png",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "display_caption": "TRACE training pipeline with visual/time inputs and causal time-score-text event outputs.",
+      "image_source_url": "https://arxiv.org/html/2410.05643v1/nero-overview.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 58,
+      "kind": "paper_crop",
+      "file": "assets/architectures/58-paper.png",
+      "source_url": "https://arxiv.org/abs/2408.05211",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/vita-2024-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Architecture of original VITA; VITA-1.5 adds end-to-end speech output."
+    },
+    {
+      "id": 59,
+      "kind": "paper_crop",
+      "file": "assets/architectures/59-paper.png",
+      "source_url": "https://arxiv.org/pdf/2604.27393#page=4",
+      "figure_number": "4",
+      "pdf_page": 4,
+      "crop_pdf_points": [
+        105,
+        73,
+        504,
+        351
+      ],
+      "verification": "visually_reviewed",
+      "display_caption": "MiniCPM-o 4.5 end-to-end architecture and shared-time Omni-Flow processing."
+    },
+    {
+      "id": 60,
+      "kind": "paper_crop",
+      "file": "assets/architectures/60-paper.png",
+      "source_url": "https://arxiv.org/abs/2503.20215",
+      "figure_number": "2",
+      "pdf_page": 3,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/qwen2-5-omni-2025-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "Qwen2.5-Omni architecture and video processing."
+    },
+    {
+      "id": 61,
+      "kind": "paper_figure",
+      "file": "assets/architectures/61-paper.png",
+      "source_url": "https://arxiv.org/html/2509.17765#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2509.17765v1/figures/overview.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: The overview of Qwen3-Omni. Qwen3-Omni adopts the Thinker-Talker architecture. Thinker is tasked with text generation while Talker focuses on generating streaming speech tokens",
+      "verification": "visually_reviewed",
+      "display_caption": "Qwen3-Omni architecture and video processing."
+    },
+    {
+      "id": 62,
+      "kind": "paper_figure",
+      "file": "assets/architectures/62-paper.png",
+      "source_url": "https://arxiv.org/html/2604.15804#S2.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2604.15804v2/figures/model.jpg"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: The overview of Qwen3.5-Omni. Qwen3.5-Omni adopts the Thinker-Talker architecture. Thinker is tasked with text generation while Talker focuses on generating streaming speech tokens",
+      "verification": "visually_reviewed",
+      "display_caption": "Qwen3.5-Omni Thinker-Talker architecture from the technical report; hosted release."
+    },
+    {
+      "id": 63,
+      "kind": "paper_figure",
+      "file": "assets/architectures/63-paper.png",
+      "source_url": "https://arxiv.org/html/2503.21782#S3.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2503.21782v2/method_figure_a.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: Overview of the proposed Mobile-VideoGPT . The pipeline begins by extracting spatial features from all video frames with an efficient image encoder. These",
+      "verification": "visually_reviewed",
+      "display_caption": "Mobile-VideoGPT architecture and video processing."
+    },
+    {
+      "id": 64,
+      "kind": "paper_figure",
+      "file": "assets/architectures/64-paper.png",
+      "source_url": "https://arxiv.org/html/2504.01328#S1.F2",
+      "image_source_urls": [
+        "https://arxiv.org/html/2504.01328v1/fig-pipeline-illustration.png"
+      ],
+      "figure_number": "2",
+      "pdf_page": null,
+      "caption_excerpt": "Figure 2: Illustration of the Slow-Fast Architecture and Hybrid Decoder. The video input is first processed into slow visual tokens through a vision encoder and",
+      "verification": "visually_reviewed",
+      "display_caption": "Slow-Fast Video MLLM architecture and video processing."
+    },
+    {
+      "id": 65,
+      "kind": "paper_figure",
+      "file": "assets/architectures/65-paper.png",
+      "source_url": "https://arxiv.org/html/2503.00540v1/framework.svg",
+      "figure_number": "2",
+      "pdf_page": 4,
+      "display_caption": "ReKV: sliding-window video encoding, offloaded KV retrieval, and cached-context answer generation.",
+      "image_source_url": "https://arxiv.org/html/2503.00540v1/framework.svg",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 66,
+      "kind": "paper_figure",
+      "file": "assets/architectures/66-paper.png",
+      "source_url": "https://arxiv.org/html/2501.13468v1/Canvas_1.png",
+      "figure_number": "4",
+      "pdf_page": 5,
+      "display_caption": "Xiong et al.'s StreamChat: selective frame stacking, memory formation, and contextual summarization.",
+      "image_source_url": "https://arxiv.org/html/2501.13468v1/Canvas_1.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 67,
+      "kind": "paper_figure",
+      "file": "assets/architectures/67-paper.png",
+      "source_url": "https://arxiv.org/html/2412.09601v1/method2.png",
+      "figure_number": "2",
+      "pdf_page": 4,
+      "display_caption": "TimeRefine: iterative temporal predictions and offsets, with an auxiliary L1 regression head.",
+      "image_source_url": "https://arxiv.org/html/2412.09601v1/method2.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 68,
+      "kind": "paper_figure",
+      "file": "assets/architectures/68-paper.png",
+      "source_url": "https://arxiv.org/html/2604.09000v1/Figure3.png",
+      "figure_number": "3",
+      "pdf_page": 4,
+      "display_caption": "StreamMeCo: isolated-node sampling, connected-node pruning, and time-aware memory retrieval.",
+      "image_source_url": "https://arxiv.org/html/2604.09000v1/Figure3.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 69,
+      "kind": "paper_figure",
+      "file": "assets/architectures/69-paper.png",
+      "source_url": "https://arxiv.org/html/2602.08024v1/method.png",
+      "figure_number": "4",
+      "pdf_page": 5,
+      "display_caption": "FlashVID: attention/diversity token selection and tree-based spatiotemporal token merging before the language model.",
+      "image_source_url": "https://arxiv.org/html/2602.08024v1/method.png",
+      "verification": "visually_reviewed"
+    },
+    {
+      "id": 70,
+      "kind": "paper_crop",
+      "file": "assets/architectures/70-paper.png",
+      "source_url": "https://arxiv.org/abs/2407.15841",
+      "figure_number": "2",
+      "pdf_page": 4,
+      "extraction_source": "https://github.com/gokayfem/awesome-vlm-architectures/blob/main/assets/architectures/slowfast-llava-2024-arch.png",
+      "verification": "visually_reviewed",
+      "display_caption": "SlowFast-LLaVA: sparse spatially detailed tokens and dense strongly pooled tokens feeding an unchanged image-trained model."
+    }
+  ]
+}
